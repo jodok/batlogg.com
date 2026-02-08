@@ -5,18 +5,21 @@ pubDate: 'Mar 17 2022'
 tags: ['entrepreneurship', 'technology', 'vc', 'advising', 'edtech', 'funding', 'startup']
 heroImage: 'Screenshot-2022-03-16-at-10.27.31.png'
 ---
-_TLDR;:_ I’m member of the board of directors of [Alphacruncher](https://alphacruncher.com), the EdTech startup building [nuvolos.cloud](https://nuvolos.cloud). We’ve [just raised CHF 1.5M](https://nuvolos.prowly.com/181398-alphacruncher-a-swiss-edtech-start-up-wins-15-million-in-seed-funding-to-roll-out-its-product-globally) to rock the EdTech space.
+
+*TLDR;:* I’m member of the board of directors of [Alphacruncher](https://alphacruncher.com), the EdTech startup building [nuvolos.cloud](https://nuvolos.cloud). We’ve [just raised CHF 1.5M](https://nuvolos.prowly.com/181398-alphacruncher-a-swiss-edtech-start-up-wins-15-million-in-seed-funding-to-roll-out-its-product-globally) to rock the EdTech space.
 
 I’m a natural scientist by education. I do my best to operate on objective reasoning, rely on data, trust the interpretation of experts. A lot of that thinking goes back to my time at University/studying (NTB Buchs in Switzerland, University of Karlruhe in Germany, but also studies abroad, e.g. Harvard Business School).
 
-When founding [Tree.ly](https://tree.ly), it was clear to us that datascience is going to  play an important role. We started with some local [Jupyter Notebooks](https://jupyter.org) in Visual Studio Code (works actually pretty well), but quickly realized we need something where we can collaborate within the team and with others.
+When founding [Tree.ly](https://tree.ly), it was clear to us that datascience is going to play an important role. We started with some local [Jupyter Notebooks](https://jupyter.org) in Visual Studio Code (works actually pretty well), but quickly realized we need something where we can collaborate within the team and with others.
 
-![Screenshot 2022 03 16 at 10.27.31](Screenshot-2022-03-16-at-10.27.31.png)
+![Analyzing Forests Image Credits: Tree.ly, Ocell.io, illwerkevkw, TU Vienna](Screenshot-2022-03-16-at-10.27.31.png)
 
+Analyzing Forests  
+Image Credits: Tree.ly, Ocell.io, illwerkevkw, TU Vienna
 
 We continued with tools like [Amazon SageMaker](https://aws.amazon.com/sagemaker/), [Microsoft Notebooks](https://notebooks.azure.com), but also [Google Colaboratory](https://colab.research.google.com). Not to forget to run [JupyterHub](https://jupyterhub.readthedocs.io/) within our Kubernetes infrastructure. It’s amazing to see how easy everybody can do Data Science nowadays! I strongly encourage to check out these tools.
 
-* * *
+---
 
 Only until my friend [Oliver from Zeughaus](https://www.zeughaus.com/team/oliver-ruhm/) connected me with Alexandru Popescu from [Alphacruncher](https://alphacruncher.com) and I learnt about [Nuvolos Cloud](https://nuvolos.cloud).
 
@@ -48,4 +51,4 @@ We spoke mainly about Jupyter Notebooks, but the Nuvolos environment also provid
 
 During due diligence I took a look at the tech stack and got personally known to some of the core team members. They are not only using state-of-the-art technology and methodology, but also managed to attract top talent to build and operate the product.
 
-_I couldn’t be more excited to play a small road on Alexandru’s and his team journey. Thanks for letting me ride with you._
+*I couldn’t be more excited to play a small road on Alexandru’s and his team journey. Thanks for letting me ride with you.*

@@ -5,11 +5,17 @@ pubDate: 'Apr 29 2021'
 tags: ['coding', 'powerpoint', 'visual basic']
 heroImage: 'image.png'
 ---
+
 Something totally different, but hopefully this will save another Entrepreneur using some PowerPoint Templates (I’m using the [Voodoo Presentation from TemplateZuu](https://creativemarket.com/TemplateZuu/2690981-SALE-20-Voodoo-Presentation-3.7) right now) some precious hours.
 
-![image](image.png)
+![Good old Visual Basic](image.png)
 
-While it’s handy to have a lot of templates done, I found the animations pretty annoying. But as lazy I am I didn’t want to click all 100+ Master Slides to get the animations removed. So I just added this VBA Code (Visual Basic for Applications) to one PPT and opened all other presentations – and executed the removeAnimationsFromOpenPresentations macro.Sub removeAnimationsFromOpenPresentations()
+Good old Visual Basic
+
+While it’s handy to have a lot of templates done, I found the animations pretty annoying. But as lazy I am I didn’t want to click all 100+ Master Slides to get the animations removed. So I just added this VBA Code (Visual Basic for Applications) to one PPT and opened all other presentations – and executed the `removeAnimationsFromOpenPresentations` macro.
+
+```
+Sub removeAnimationsFromOpenPresentations()
     Dim myPpt As Presentation
     Debug.Print "Open ppt's : "; Application.Presentations.Count & vbCrLf
     For Each myPpt In Application.Presentations
@@ -40,3 +46,4 @@ Private Sub removeAnimations(ppt As Presentation)
     ' Turn on animations again
     ppt.SlideShowSettings.ShowWithAnimation = msoTrue
 End Sub
+```

@@ -5,9 +5,12 @@ pubDate: 'Jan 16 2020'
 tags: ['entrepreneurship', 'motivation', 'leadership', 'love']
 heroImage: 'IMG_0770.jpeg'
 ---
+
 (especially after being a long time outside in the cold)
 
-![IMG 0770](IMG_0770.jpeg)
+![Liebe ist, January 16th 2010, Berlin](IMG_0770.jpeg)
+
+Liebe ist, January 16th 2010, Berlin
 
 ## What is love?
 
@@ -30,8 +33,8 @@ I’m not sure what category to use when I talk about what I love in business li
 
 I’ve got it! The happenings, situations, feelings in business live I really, really love are connected to my definition of entrepreneurship:
 
+> Entrepreneurship is the pursuit of opportunity without regard to resources currently controlled
 >
-
-Entrepreneurship is the pursuit of opportunity without regard to resources currently controlledProf. Howard Stevenson, Harvard Business School
+> Prof. Howard Stevenson, Harvard Business School
 
 I love all the moments of it: **Seeing an opportunity, pursuing it and seeing it working out** – that’s where my inner Jodok is tipping his toes into the foambath after a long walk in the cold.

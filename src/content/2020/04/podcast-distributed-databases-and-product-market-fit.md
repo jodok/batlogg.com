@@ -5,17 +5,22 @@ pubDate: 'Apr 29 2020'
 tags: ['crate', 'entrepreneurship', 'crate.io', 'podcast', 'product', 'startup']
 heroImage: 'skate.png'
 ---
+
 I had the opportunity to record an episode of the “[Digitale Leute Podcast](https://www.digitale-leute.de/interview/finding-product-market-fit/)” with my friend Oliver Thielmann from Giant Swarm and would like to reshare it here as well:
 
-![skate](skate.png)
+![featuring electric skateboards and bitcoins](skate.png)
+
+featuring electric skateboards and bitcoins
 
 ## Why industrial IoT startup Crate.io can easily do distributed databases but still had trouble finding product-market fit
 
 Being at number one at Hacker News or winning the TechCrunch Disrupt Startup Battle might help create a hype around your startup. But it doesn’t help finding the product-market fit. Jodok Batlogg, CTO at industrial IoT startup Crate.io explains in this episode why they needed six years to finally hit product-market fit.
 
-_Digitale Leute Insights is the podcast for passionate product people. We interview product developers from around the world and take a closer look at their tools and tactics._
+*Digitale Leute Insights is the podcast for passionate product people. We interview product developers from around the world and take a closer look at their tools and tactics.*
 
-_Subscribe via: [Soundcloud](https://soundcloud.com/digitaleleute), [Spotify](https://open.spotify.com/show/1eYyQ6eNqcjHIYzJIriOab), [Deezer](https://www.deezer.com/de/show/575782), [Google Podcasts](https://podcasts.google.com/?feed=aHR0cDovL2ZlZWRzLnNvdW5kY2xvdWQuY29tL3VzZXJzL3NvdW5kY2xvdWQ6dXNlcnM6NDIxMTgzNjE2L3NvdW5kcy5yc3M&ved=0CAAQ4aUDahcKEwjwg9Cz_rfnAhUAAAAAHQAAAAAQAQ&hl=de) or [Apple Podcasts](https://podcasts.apple.com/de/podcast/digitale-leute-insights-podcast-episode-01-tim-herbig/id1406821682?i=1000415144619&mt=2)._
+*Subscribe via: [Soundcloud](https://soundcloud.com/digitaleleute), [Spotify](https://open.spotify.com/show/1eYyQ6eNqcjHIYzJIriOab), [Deezer](https://www.deezer.com/de/show/575782), [Google Podcasts](https://podcasts.google.com/?feed=aHR0cDovL2ZlZWRzLnNvdW5kY2xvdWQuY29tL3VzZXJzL3NvdW5kY2xvdWQ6dXNlcnM6NDIxMTgzNjE2L3NvdW5kcy5yc3M&ved=0CAAQ4aUDahcKEwjwg9Cz_rfnAhUAAAAAHQAAAAAQAQ&hl=de) or [Apple Podcasts](https://podcasts.apple.com/de/podcast/digitale-leute-insights-podcast-episode-01-tim-herbig/id1406821682?i=1000415144619&mt=2).*
+
+<https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/798320749%3Fsecret_token%3Ds-Xyyal6HBnEC&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true>
 
 When Jodok Batlogg was the [CTO](https://www.digitale-leute.de/thema/cto/) at StudiVZ, the largest social network in Germany before Facebook got traction in Europe, the biggest problem they had was data storage. The data of 60 million users were running on about a thousand servers and Docker had not been invented yet. It was clear to Jodok that the amount of data would be growing and the problems with it.
 
@@ -25,9 +30,8 @@ His startup enjoyed two hypes early. The first one was a [Hacker News](https://c
 
 ### How to gain product-market fit
 
-The turnaround came as late as five years after the foundation when the company did a customer survey. The result was a transformation to a more enterprise-focused company concentrating on industrial IoT. They switched the open-source model, which allowed the customers to perceive Crate.io as a product worth buying. It also helped the sales department actually to sell the product.  Before that, even hiring extra sales employees had resulted in zero sales.
+The turnaround came as late as five years after the foundation when the company did a customer survey. The result was a transformation to a more enterprise-focused company concentrating on industrial IoT. They switched the open-source model, which allowed the customers to perceive Crate.io as a product worth buying. It also helped the sales department actually to sell the product.  Before that, even hiring extra sales employees had resulted in zero sales.
 
 Today Crate.io is a remote-first company, led by Jodok Batlogg as CTO from Dornbirn, a small town in Vorarlberg, Austria. The mountainous country and Jodoks attempt to not use his Audi anymore leads him to try out all the new electric boards, bikes, and gadgets on the market. He shares this passion with our host Oliver Thylmann. This is why they close this episode by discussing electromobility and paying it with bitcoin.
 
-**About the Host
-**[Oliver Thylmann](https://www.linkedin.com/in/thylmann/) is a serial entrepreneur based in Cologne, Germany. He is the co-founder of [Giant Swarm](https://giantswarm.io/), a 35-person SaaS company providing managed microservice infrastructure to big enterprises.
+**About the Host**[Oliver Thylmann](https://www.linkedin.com/in/thylmann/) is a serial entrepreneur based in Cologne, Germany. He is the co-founder of [Giant Swarm](https://giantswarm.io/), a 35-person SaaS company providing managed microservice infrastructure to big enterprises.

@@ -5,25 +5,24 @@ pubDate: 'Apr 26 2021'
 tags: ['books', 'culture', 'principles', 'basecamp', 'decisions', 'stoic']
 heroImage: 'wheel-of-life.jpg'
 ---
+
 Over the past 6 months I’ve been in the luxury position to take time to further center myself and better live my equilibrium.
 
 Among other things I’ve continued to dive into stoicism (a journey that will never end). Meanwhile the [Daily Stoic](https://dailystoic.com/daily-stoic-book/) iBooks meditation is the first and last thing I read in bed every night and morning.
 
 Over the last few days I’ve been thinking a log about this meditation:
 
+> These are the characteristics of the rational soul: self-awareness, self-examination, and self-determination. It reaps its own harvest. … It succeeds in its own purpose …
 >
-
-These are the characteristics of the rational soul: self-awareness, self-examination, and self-determination. It reaps its own harvest. … It succeeds in its own purpose …Marcus Aurelius, Meditations, 11.1-2
+> Marcus Aurelius, Meditations, 11.1-2
 
 As Ryan Singer in the book mentioned above put’s it:
 
+> “First, we must look inward.
 >
-
-“First, we must look inward.
-
-Next we must examine ourselves critically.
-
-Finally we must make our own**decisions**– uninhibited or by bias”
+> Next we must examine ourselves critically.
+>
+> Finally we must make our own **decisions** – uninhibited or by bias”
 
 I had the opportunity to spend a lot of quality time with trusted people and collect precious feedback. That resulted in positive affirmation for some things I had a gut feeling about.
 
@@ -45,7 +44,7 @@ However, in my personal feedback talks with employees I often referred to the �
 
 ![wheel of life](wheel-of-life.jpg)
 
-_(found via google image search and copied from [The Start of Happiness](https://www.startofhappiness.com/wheel-of-life-a-self-assessment-tool/))_
+*(found via google image search and copied from [The Start of Happiness](https://www.startofhappiness.com/wheel-of-life-a-self-assessment-tool/))*
 
 **3. No more committees.**
 

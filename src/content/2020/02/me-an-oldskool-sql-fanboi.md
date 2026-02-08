@@ -5,9 +5,12 @@ pubDate: 'Feb 04 2020'
 tags: ['crate', 'technology', 'crate.io', 'nosql', 'sql']
 heroImage: '../01/EOgzWXpXkAUM7fH.png'
 ---
-Recently I came across this tweet of Steve O’Grady _(he helped to found Redmonk, a research firm I really value highly)_.
+
+Recently I came across this tweet of Steve O’Grady *(he helped to found Redmonk, a research firm I really value highly)*.
+
 https://twitter.com/sogrady/status/1218280163089289216
 
+Tweet by Steve O’Grady
 
 Especially this Graph stroke me. This is what I predicted 6 years ago. NoSQL isn’t the solution. And one of the main reasons we’ve built [CrateDB](https://crate.io/).
 
@@ -17,28 +20,28 @@ Providing a **SQL interface to a NoSQL architecture** was and is one of the key 
 
 The first wave – and the reason SQL was invented – were relational databases. The start was SEQUEL, invented around 1977 by IBM for System R. SQL1 became an ANSI standard in 1986, in the 2003 Version Window functions were added and SQL:2016 got JSON support.
 
-Glad to see that SQL is back still strong. There are many reasons why it is great and we fully rely on it. But the main point to talk about:
+Glad to see that SQL ~~is back~~ still strong. There are many reasons why it is great and we fully rely on it. But the main point to talk about:
 
 ## It’s standardized.
 
+> “The good thing about standards is that there are so many to choose from.”
 >
-
-“The good thing about standards is that there are so many to choose from.”Andrew S. Tanenbaum
+> Andrew S. Tanenbaum
 
 Over the past 20+ years some of the brightes computer scientists thought about how to best work with data. SQL has 4 language subcategories:
 
-**Querying Data (DQL)**
-_(CrateDB’s [querying](https://crate.io/docs/crate/reference/en/latest/general/dql/index.html) commands)_
+**Querying Data (DQL)**  
+*(CrateDB’s [querying](https://crate.io/docs/crate/reference/en/latest/general/dql/index.html) commands)*
 
-That’s what you do most of the time. CrateDB excels when it comes to **querying** data. Nowadays real-time analytics usecases of require aggregations (SELECT SUM(revenue)) out of a table (FROM my_table) that is potentially large (billions of rows) at are limited to a subset of these rows by a filter clause (WHERE ts>myts AND id=myid). Benchmarks show that we consistenly outperform other query engines for these types of queries. Add JOINs to the mix and the complexity explodes – read about the complexity involved to make that [really fast](https://crate.io/a/lab-notes-how-we-made-joins-23-thousand-times-faster-part-one/). Not only on standard data types, but also on modern things like geospatial data.
+That’s what you do most of the time. CrateDB excels when it comes to **querying** data. Nowadays real-time analytics usecases of require aggregations (`SELECT SUM(revenue)`) out of a table (`FROM my_table`) that is potentially large (billions of rows) at are limited to a subset of these rows by a filter clause (`WHERE ts>myts AND id=myid`). Benchmarks show that we consistenly outperform other query engines for these types of queries. Add JOINs to the mix and the complexity explodes – read about the complexity involved to make that [really fast](https://crate.io/a/lab-notes-how-we-made-joins-23-thousand-times-faster-part-one/). Not only on standard data types, but also on modern things like geospatial data.
 
-**Manipulating Data (DML)**
-_(CrateDB’s [manipulating](https://crate.io/docs/crate/reference/en/latest/general/dml.html) commands)_
+**Manipulating Data (DML)**  
+*(CrateDB’s [manipulating](https://crate.io/docs/crate/reference/en/latest/general/dml.html) commands)*
 
-Correct, to be able to query data, you need to start with **writing**  data to the database, in single rows, in batches, via bulk load, updates  or from other queries). CrateDB is fully standard compliant, the only  slight difference is based on the [eventual consistent](https://en.wikipedia.org/wiki/Eventual_consistency) model (also read about [optimistic concurrency control](https://crate.io/docs/crate/reference/en/latest/general/occ.html)) that CrateDB uses: it might take up to the [REFRESH_INTERVAL](https://crate.io/docs/crate/reference/en/latest/general/dql/refresh.html) until records are fully considered in results (selecting by primary key is always consistent).
+Correct, to be able to query data, you need to start with **writing** data to the database, in single rows, in batches, via bulk load, updates or from other queries). CrateDB is fully standard compliant, the only slight difference is based on the [eventual consistent](https://en.wikipedia.org/wiki/Eventual_consistency) model (also read about [optimistic concurrency control](https://crate.io/docs/crate/reference/en/latest/general/occ.html)) that CrateDB uses: it might take up to the `REFRESH_INTERVAL` until records are fully considered in results (selecting by primary key is always consistent).
 
-**Defining Schemas (DDL)**
-_(CrateDB’s [definition](https://crate.io/docs/crate/reference/en/latest/general/ddl/index.html) commands)_
+**Defining Schemas (DDL)**  
+*(CrateDB’s [definition](https://crate.io/docs/crate/reference/en/latest/general/ddl/index.html) commands)*
 
 Here’s where on needs a bit more that the original SQL standard had in. We’re storing JSON data and need the possibility to define object columns (that can have a strict schema, a dynamic schema or a simply not indexed). Btw. schemas are a great idea – storing data without a schema is just postponing problems.
 
@@ -50,7 +53,10 @@ Now we’re talking about differences. Traditional OLTP databases and their work
 
 ## SQL-99 Complete, Really
 
-In case you want to learn more about SQL or look up some reference documentation – at Crate.io we’ve acquired the rights to republish the fantastic [SQL-99 Complete, Really](https://crate.io/docs/sql-99/en/latest/index.html) book. So for all oldskool SQL fanbois – here’s a teaser – World’s Longest SQL Poem (for obvious reasons) All the snake-oil peddlers say, there's a fast and easy way,
+In case you want to learn more about SQL or look up some reference documentation – at Crate.io we’ve acquired the rights to republish the fantastic [SQL-99 Complete, Really](https://crate.io/docs/sql-99/en/latest/index.html) book. So for all oldskool SQL fanbois – here’s a teaser – World’s Longest SQL Poem (for obvious reasons)
+
+```
+All the snake-oil peddlers say, there's a fast and easy way,
 To get your SQL program up and running,
 But they're silent re the traps, that cause subtly buggy apps,
 For to catch the unaware a chasm's yawning!
@@ -71,5 +77,6 @@ Yeah the true and standard facts, you'll avoid those later hacks
 That make Structured Query Language such a bore,
 You'll find tips and charts aplenty, in this one-thousand-and-twenty
 Four page volume (with an index), and yet more!
+```
 
 Author anon (also for obvious reasons)

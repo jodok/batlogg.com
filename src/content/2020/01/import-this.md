@@ -5,14 +5,17 @@ pubDate: 'Jan 18 2020'
 tags: ['coding', 'principles', 'python', 'zen']
 heroImage: 'image-2.png'
 ---
+
 I like a lot of the principles that are built into the programming language Python. Some of the principles are also applicable to “real” life.
 
-They’re a bit hidden and most people don’t know them and have never seen them. They’re easy to get as they’re built into every python interpreter.
-Simply start python and enter import this:
+They’re a bit hidden and most people don’t know them and have never seen them. They’re easy to get as they’re built into every python interpreter.  
+Simply start python and enter `import this`:
 
-![image 2](image-2.png)
+![The Zen of Python, by Tim Peters](image-2.png)
 
-_For better readability I’ve formatted (and numbered) them here_
+The Zen of Python, by Tim Peters
+
+*For better readability I’ve formatted (and numbered) them here*
 
 ## The Zen of Python, by Tim Peters
 
@@ -46,7 +49,7 @@ _For better readability I’ve formatted (and numbered) them here_
 
 15. Now is better than never.
 
-16. Although never is often better than _right_ now.
+16. Although never is often better than *right* now.
 
 17. If the implementation is hard to explain, it’s a bad idea.
 

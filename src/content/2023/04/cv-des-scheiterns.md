@@ -5,6 +5,7 @@ pubDate: 'Apr 30 2023'
 tags: ['culture', 'food for thought', 'principles']
 heroImage: 'IMG_6626.jpeg'
 ---
+
 Die [“Scheitern” Ausgabe des Neue Narrative Magazin](https://www.neuenarrative.de/ausgabe-17-fehler-und-scheitern/) startet mit den “CVs des Scheiterns” der Autor:innen. Dabei berichten [Sebastian Klein](https://www.linkedin.com/in/sebxklein/), [Laura Erler](https://www.linkedin.com/in/laura-erler-5a2b50b3/), [Paul Fenski](https://www.linkedin.com/in/paul-fenski-520877158/), [Emma Marx](https://www.linkedin.com/in/emma-marx-583743148/), [Taraneh Taheri](https://www.linkedin.com/in/taraneh-taheri-408a481b3/) und [Dominik Wagner](https://www.linkedin.com/in/dominik-wagner-84305395/) steckbriefartig über “Erfolglose Bewerbungen”, “Abbrüche & Kündigungen”, “Lücken”, “Fähigkeiten, die ich nicht habe” sowie “Sonstige Niederlagen”.
 
 ![IMG 6626](IMG_6626.jpeg)
@@ -16,6 +17,10 @@ Als Unternehmer führe ich seit vielen Jahren (immer schon?) selbstorganisierten
 Beim Lesen dieser Scheitern-CVs wird das Bild der Menschen kompletter und die Trust vs. Performance Betrachtung wird kompletter. Was hat das mit Trust vs. Performance auf sich?
 
 Simon Sinek hat da meine Philosophie auf den Punkt gebracht:
+
+<https://www.youtube.com/embed/kJdXjtSnZTI?feature=oembed>
+
+Simon Sinek über “Vertrauen” im Gegensatz zu “Fachlichem Können”
 
 Ich fühle mich durch die Offenheit der CVs of Failure total in diesem Ansatz bestätigt. Und Failure – und Erfolg – das ist für viele nicht vereinbar bzw. ein Widerspruch. Aber darüber zu sprechen und das passieren zu lassen – Das ist für mich ein wesentlicher Anteil für das System “New Work”. Und es braucht noch viel mehr Unternehmer:innen die dafür einstehen und das auch offen sagen.
 
@@ -31,9 +36,9 @@ Ist das mein Failure? Einen Elefanten geholt zu haben, diesen durch “meinen”
 
 NEIN. Es ist lediglich eine Niederlage.
 
-* * *
+---
 
-Mein CV of failures
+# Mein CV of failures
 
 ## Erfolglose Bewerbungen
 
@@ -67,6 +72,6 @@ Auch im Jahr nach meinem Crate-Ausstieg hab ich Zeit zur Verarbeitung gebraucht,
 
 Eine erwähnenswerte sonstige Niederlage ist vor ca. 15 Jahren passiert. Ich habe – u.A. durch nicht-funktionaler Verhaltensweise, Ego, Sturheit meinerseits – große Zukunftspotentiale meiner damaligen Firma nicht genutzt, bzw. diese weggeschmissen. Da muss ich immer wieder aufpassen, dass ich nicht “aus Prinzip” handle und die richtige Balance zwischen “Business machen” und “Recht haben” wähle.
 
-* * *
+---
 
 Was meint ihr dazu? Ich freue mich über eine Diskussion auf [dem Linkedin-Post](https://www.linkedin.com/pulse/cv-failures-jodok-batlogg)!
