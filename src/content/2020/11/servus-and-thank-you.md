@@ -1,0 +1,42 @@
+---
+title: 'Servus and Thank You!'
+description: 'This has originally been posted on the Crate.io blog end of September 2020. Today I’m announcing my departure from Crate.io, the company I cofounded 7+ years ago and have been building together with a great team. I’ve...'
+pubDate: 'Nov 26 2020'
+tags: ['entrepreneurship']
+heroImage: 'crate-simple-horizontal-scaling.png'
+---
+_This has originally been posted on the [Crate.io blog](https://crate.io/a/servus-and-thank-you/) end of September 2020._
+
+>
+
+Today I’m announcing my departure from Crate.io, the company I cofounded 7+ years ago and have been building together with a great team.
+
+I’ve had many roles at Crate.io over the years, and today I have a new, final one – a still convinced user and ambassador of CrateDB. But I will no longer be part of day-to-day operations. Instead, after obsessing for so many years over distributed databases and building a strong engineering culture built on trust, it’s time to move on and focus on solving other problems on this planet. Going forward I’ll use my experience and endurance to tackle them in any way I can.
+
+Seven years ago, Bernd Dorn, Manfred Schwendinger and me built the first version of CrateDB and then we configured our startup: Manfred had to take care of our pre-existing business, I took the CEO role, Bernd, the best coder and architect was the natural choice as CTO and Christian Lutz, with his experience and success in funding, building and selling tech companies initially as our COO. Our goal was to make scaling super simple. CrateDB and “Big Data SQL in Real-Time” did a picture-perfect launch: HackerNews, trending Github repository, TechCrunch, Gigaom, TheNextWeb, Pioneers,…
+
+It was crystal clear that building an open source database is a long-term, difficult undertaking requiring lots of VC funding, which would allow us to build together a successful business and raise capital in multiple rounds.
+
+![crate simple horizontal scaling](crate-simple-horizontal-scaling.png)
+
+Machine generated data – including Time Series Data – is the fastest growing database segment and the fully distributed SQL query engine of CrateDB is the perfect foundation for the enterprise IOT market.
+
+End of 2015 it was again a natural move that I took the CTO seat and Christian took over the CEO seat to build out with the team the commercial part of the company and execute professional VC fundraises in UK and Silicon Valley.
+
+End of 2016 we [tipped the cow](https://crate.io/celebrate-1/), released CrateDB 1.0 and also started monetizing our product. This led to a global, strong growth of users and we transitioned from an engineering-only r&d company to a financially successful B2B enterprise business and also raise our Series A.
+
+Today, 7 years and 360 CrateDB releases later, Crate.io is grown-up and is a revenue driven enterprise business with large customers and partners, and even more ambitious growth targets than ever. That’s why the board of directors brought in Eva Schönleitner as CEO, Christian got appointed as President to the board and I am happy to see Bernd coming back and taking again the engineering lead as CTO. To be able to pursue that huge opportunity that lies ahead of Crate the leadership team needs to evolve and guide the company to further growth. As a leaving executive I couldn’t be happier to see that the company is set up for success and find a new role.
+
+As a founder, of course, I have mixed emotions. When you create a company, your job is to make sure it can one day succeed without you. Then eventually that one day comes and the celebration can be bittersweet.
+
+It’s never easy for a founder to part ways with their work. I know that most ideas never materialize. Most software goes unused. Most businesses fail in their first years but we didn’t and here we are. Now, with Petabytes of data being processed by CrateDB, some of the largest and most successful businesses using CrateDB in their core processes, being recognized by Forbes Magazine and named a Cool Vendor by Gartner you know that your work was meaningful, and that a vibrant group of customers and partner will continue building upon it…. can any founder ask for anything more?
+
+![Jodok Batlogg by Ian Ehm friednship.is ](Jodok-Batlogg-by-Ian-Ehm-friednship.is_.jpg)
+
+I want to thank from the bottom of my heart every Cratie – our team members, past and present, for making Crate.io what it is today. Thanks to you, this founder’s bittersweet moment is mostly sweet. I look forward to seeing where you will take it next.
+
+Thank you
+
+Jodok
+
+What started with an Cathode powered screencast ends with the same:

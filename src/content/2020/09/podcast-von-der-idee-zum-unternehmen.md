@@ -1,0 +1,20 @@
+---
+title: 'Podcast: Von der Idee zum Unternehmen'
+description: 'Mein Freund Boris Gloger ist ein besonderer Mensch. Mich verbinden viele Sachen mit ihm. Wir wollten und wollen immer noch mehr gemeinsam unternehmen. Ein erster kleiner Schritt ist, dass wir es endlich geschafft...'
+pubDate: 'Sep 04 2020'
+tags: ['culture', 'entrepreneurship', 'motivation', 'podcast', 'video']
+heroImage: 'Boris_Slider2.jpg'
+---
+Mein Freund Boris Gloger ist ein besonderer Mensch. Mich verbinden viele Sachen mit ihm. Wir wollten und wollen immer noch mehr gemeinsam unternehmen. Ein erster kleiner Schritt ist, dass wir es endlich geschafft haben, einen ersten Podcast aufzunehmen.
+
+![Boris Slider2](Boris_Slider2.jpg)
+
+Hört euch an, was wir zum Thema “unternehmen” plaudern:
+
+>
+
+“Die Ideen gehen mir nicht aus”, Jodok Batlogg ist Gründer und Geschäftsführer von[Crate.io](http://Crate.io)in Dornbirn. Außerdem ist er Informatiker und mehrfacher Entrepreneur, der bereits sieben Unternehmen aufgebaut hat und nun das achte Jahr im aktuellen Unternehmen Crate.io angeht. Ausgehend von einer – für ihn – glasklaren Idee einer hochskalierbaren Datenbank für maschinengenerierte Daten (z.B. Sensordaten, Daten in der industriellen Produktion) gründete er das Start-up Crate.io und fing dafür wieder einmal bei Null an.
+
+Ich unterhalte mich mit Jodok darüber, wieso er es nicht lassen kann, was ihn antreibt und welche Hürden er überwinden musste. Er erzählt uns ein wenig über seine Produktidee, was seinen Lebensstil als Unternehmer ausmacht und wie er das gesamte Unternehmen denkt. Silicon Valley spielt natürlich auch ein Rolle.
+
+Ich wünsche euch viel Spaß beim Zuhören!Boris Gloger
