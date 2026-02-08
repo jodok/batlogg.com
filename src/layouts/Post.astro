@@ -8,7 +8,7 @@ import Header from '../components/Header.astro';
 
 type Props = CollectionEntry<'posts'>['data'];
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, tags, pubDate, updatedDate, heroImage } = Astro.props;
 ---
 
 <html lang="en">
@@ -64,6 +64,12 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 				</div>
 				<div class="prose">
 					<div class="title">
+						<div class="tags">
+							{tags && tags.map((tag) => (
+								<span>{tag}</span>
+							))}
+						</div>
+						<h1>{title}</h1>
 						<div class="date">
 							<FormattedDate date={pubDate} />
 							{
@@ -74,7 +80,6 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 								)
 							}
 						</div>
-						<h1>{title}</h1>
 						<hr />
 					</div>
 					<slot />

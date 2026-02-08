@@ -1,0 +1,49 @@
+---
+import { getCollection } from 'astro:content';
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import Posts from '../../components/Posts.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
+
+const posts = (await getCollection('posts')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+
+export async function getStaticPaths() {
+  const allPosts = Object.values(import.meta.glob('../posts/*.md', { eager: true }));
+
+  return [
+    { params: { tag: "entrepreneurship" }, props: {posts: allPosts} },
+    { params: { tag: "successes" }, props: {posts: allPosts} },
+    { params: { tag: "community" }, props: {posts: allPosts} },
+    { params: { tag: "blogging" }, props: {posts: allPosts} },
+    { params: { tag: "setbacks" }, props: {posts: allPosts} },
+    { params: { tag: "learning in public" }, props: {posts: allPosts} },
+  ];
+}
+
+const { tag } = Astro.params;
+//const filteredPosts = posts.filter((post: any) => post.frontmatter.tags?.includes(tag));
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<style>
+			main {
+				width: 960px;
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<section>
+				<Posts posts={posts} />
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
