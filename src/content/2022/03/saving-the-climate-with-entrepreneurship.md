@@ -10,7 +10,7 @@ I had the opportunity to speak at [TEDxDornbirn](https://tedxdornbirn.com) about
 
 I’m also giving more intimate insights why I’m doing what I’m doing and how I put my values into action. I would love your feedback via Twitter, LinkedIn or E-Mail!
 
-[TEDx talk auf YouTube ansehen](https://www.youtube.com/watch?v=c8M4tDyo3eg)
+https://www.youtube.com/watch?v=c8M4tDyo3eg
 
 TEDx talk “Saving the Climate with Entrepreneurship”
 

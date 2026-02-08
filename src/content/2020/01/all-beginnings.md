@@ -37,6 +37,8 @@ I’ll keep using Twitter (even use it more) and also keep somewhat trust that A
 
 Let’s see how it goes with comments – Right now I’m using Nick Grossmans [Discuss on Twitter](https://www.nickgrossman.is/2020/the-discuss-on-twitter-wordpress-plugin/) plugin. You can also subscribe via E-Mail on the [About](https://batlogg.com/about/) page.
 
+* * *
+
 **Updates:**
 
 _February, 8th 2026:_ <strikethrough>Twitter</strikethrough> X is being owned by Elon Musk since a while and I left the platform and required them to delete my data on November, 18th 2024.

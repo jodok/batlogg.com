@@ -16,7 +16,7 @@ Dabei durfte ich Statements zu #selbstorganisation #leadership #comfortzone #sta
 
 Ach ja, ein Spoiler auf [ein neues Unternehmen](https://tree.ly) ist auch dabei. Dazu in einem der nächsten Posts mehr.
 
-[Video auf YouTube ansehen](https://www.youtube.com/watch?v=P9DAcEpjHzU)
+https://www.youtube.com/watch?v=P9DAcEpjHzU
 
 Youtube Video: Selbstorganisierte Systeme sind resilienter.
 

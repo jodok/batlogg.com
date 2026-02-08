@@ -14,7 +14,7 @@ Im Frühling hat mich Boris “auf dem Fahrrad” besucht – und wir habeen bes
 
 Hört euch an, was wir zum Thema “unternehmen” plaudern:
 
-[Podcast auf YouTube ansehen](https://www.youtube.com/watch?v=ld_nBrVq_mk)
+https://www.youtube.com/watch?v=ld_nBrVq_mk
 
 > “Die Ideen gehen mir nicht aus”, Jodok Batlogg ist Gründer und Geschäftsführer von [Crate.io](http://Crate.io) in Dornbirn. Außerdem ist er Informatiker und mehrfacher Entrepreneur, der bereits sieben Unternehmen aufgebaut hat und nun das achte Jahr im aktuellen Unternehmen Crate.io angeht. Ausgehend von einer – für ihn – glasklaren Idee einer hochskalierbaren Datenbank für maschinengenerierte Daten (z.B. Sensordaten, Daten in der industriellen Produktion) gründete er das Start-up Crate.io und fing dafür wieder einmal bei Null an.
 >

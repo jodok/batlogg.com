@@ -69,6 +69,8 @@ Instagram is next.
 
 *I encourage you to do the same. It feels great and will feel great in future.*
 
+* * *
+
 **Updates:**
 
 _February, 8th 2026:_ As you might have noticed, I returned to Whatsapp a while ago. It was simply unavoidable. Still, I'm using Signal wherever possible and reduce Whatsapp usage to a minimum. I haven't returned to Facebook or <strikethrough>Twitter</strikethrough> X and I will never return.
