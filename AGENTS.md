@@ -6,7 +6,7 @@
 - Language: TypeScript-enabled Astro project
 - Source roots:
   - Pages: `src/pages`
-  - Blog posts: `src/content/posts`
+  - Posts: `src/content`
   - Layouts: `src/layouts`
   - Components: `src/components`
   - Static assets: `public`
