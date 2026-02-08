@@ -36,7 +36,17 @@ const { title, description, tags, pubDate, updatedDate, heroImage } = Astro.prop
 				padding: 1em;
 				color: rgb(var(--gray-dark));
 			}
-			.title {
+			.tags {
+				display: flex;
+				gap: 0.5em;
+				justify-content: center;
+				margin-bottom: 0.5em;
+			}
+			.tags a {
+				text-transform: uppercase;
+				white-space: nowrap;
+			}
+  			.title {
 				margin-bottom: 1em;
 				padding: 1em 0;
 				text-align: center;
@@ -46,7 +56,6 @@ const { title, description, tags, pubDate, updatedDate, heroImage } = Astro.prop
 				margin: 0 0 0.5em 0;
 			}
 			.date {
-				margin-bottom: 0.5em;
 				color: rgb(var(--gray));
 			}
 			.last-updated-on {
@@ -64,11 +73,15 @@ const { title, description, tags, pubDate, updatedDate, heroImage } = Astro.prop
 				</div>
 				<div class="prose">
 					<div class="title">
-						<div class="tags">
-							{tags && tags.map((tag) => (
-								<span>{tag}</span>
-							))}
-						</div>
+						{
+							tags && (
+								<div class="tags">
+									{tags.map((tag) => (
+										<a href={`/tags/${tag}`}>#{tag}</a>
+									))}
+								</div>
+							)
+						}
 						<h1>{title}</h1>
 						<div class="date">
 							<FormattedDate date={pubDate} />

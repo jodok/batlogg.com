@@ -3,14 +3,14 @@ title: 'Why people quit'
 description: 'I received some feedback and questions about my post on leadership decisions at a workplace, and why I believe that many societal and political topics don’t belong to my workplace. (A clarifying side note: I wasn’t...'
 pubDate: 'May 04 2021'
 tags: ['culture', 'entrepreneurship', 'principles', 'basecamp', 'quit']
-heroImage: 'B06D8D16-508A-4E5C-B7EF-1CA760A1B0A2.jpg'
+heroImage: 'B06D8D16-508A-4E5C-B7EF-1CA760A1B0A2-cut.jpg'
 ---
 
-I received some feedback and questions about [my post](https://batlogg.com/2021/04/the-marks-of-a-rational-person/) on leadership decisions at a workplace, and why I believe that many societal and political topics don’t belong to my workplace. *(A clarifying side note: I wasn’t saying Basecamp is right or wrong. And banning and forbidding speech is a bad idea in general)*.
+I received some feedback and questions about [my post](/2021/04/the-marks-of-a-rational-person/) on leadership decisions at a workplace, and why I believe that many societal and political topics don’t belong to my workplace. *(A clarifying side note: I wasn’t saying Basecamp is right or wrong. And banning and forbidding speech is a bad idea in general)*.
 
 I’ve been chewing parts of this post for a while. But as [about one third](https://twitter.com/_breeeeen_/status/1388198260603506693) of the Basecamp workforce left after their leaders Jason/David announced some [cultural changes](https://world.hey.com/jason/changes-at-basecamp-7f32afc5) and today Melinda and Bill Gates announced their separation, it was time to push it out.
 
-![B06D8D16 508A 4E5C B7EF 1CA760A1B0A2](B06D8D16-508A-4E5C-B7EF-1CA760A1B0A2.jpg)
+![I packed my stuff, and like others, cried.](cut-2.png)
 
 All of these separations really moved me and over the weekend I spent several hours in reading and researching. It **moved me** because I can personally relate to that very well. In November I left my previous company (~60 employees like Basecamp) and over the last few month ~25 people – of which most of them I hired personally – left the company too.
 
@@ -25,16 +25,16 @@ At the point a decision is taken (“Culture Changes”/”Quitting the Job”) 
 Software engineers in the tech space are well paid (in Basecamp’s case [~220k/year](https://www.glassdoor.com/Salary/BaseCamp-Salaries-E3138625.htm), paying at the [top 10%](https://m.signalvnoise.com/minimum-pay-at-basecamp-is-now-70000/) of San Francisco market rate and will receive up to 6 month of salary if they decide to leave). So they can also decide freely if they want to stay and adopt to the new situation/culture or if they want to move on. It’s also very unlikely they have to pee in bottles while driving delivery trucks or being in physical danger. So it’s pretty safe to assume:
 
 > People don’t quit a job, they quit a boss.
->
-> It’s a common saying, but i don’t fully agree.
+
+*It’s a common saying, but i don’t fully agree.*
 
 *(Among the many articles I read, [this HBR article](https://hbr.org/2018/01/why-people-really-quit-their-jobs) reflected my view best, I’m partially paraphrasing it. Also “[What you do is who you are](https://a16z.com/book/whatyoudo/) ([Summary](https://waiyancan.com/what-you-do-is-who-you-are-summary/))” by Ben Horowitz inspired me a lot).*
 
 Strong companies are built around strong cultures. And they will be highly individual, but they will share a couple of patterns. Often they are built around the leaders that craft them. I bet you’ve seen this comic:
 
-![This comic has been floating around the internet for a couple of years](4e0b340dcadcbbdd35120000.png)
+![Hierarchies in different companies](4e0b340dcadcbbdd35120000.png)
 
-This comic has been floating around the internet for a couple of years
+*This comic has been floating around the internet for a couple of years*
 
 Organisations need structure and leadership. This is a good thing and isn’t contradictory to self-organisation, empowerment of the individuals,… Modern leadership styles/principles fully embrace that. I’m stressing that because I strongly believe that so much of a happy/fulfilled workplace is dependent on that connection.
 
@@ -64,7 +64,7 @@ A healthy company has a good, diverse mix of individuals. The doers, introverts,
 
 ![The animals in the forest (from MyToys Puzzle )](10992069-01.jpg)
 
-The animals in the forest (from [MyToys Puzzle](https://www.mytoys.de/larsen-rahmen-puzzle-45-teile-36x28-cm-tiere-im-wald-10992069.html))
+*The animals in the forest (from [MyToys Puzzle](https://www.mytoys.de/larsen-rahmen-puzzle-45-teile-36x28-cm-tiere-im-wald-10992069.html))*
 
 Assume everybody is doing her/his best. All the time. Therefore everybody deserves their share of appreciation and attention. A “small beaver” can be equally important to a “big roaring tiger” but will leave if he’s not seen and appreciated. No matter how long an employee is with the company, or how important their role is.
 
@@ -80,8 +80,8 @@ As Leader, don’t delegate diversity and inclusion. It’s your job. As soon yo
 There are assholes out there. They might be inside your company. Manage them well. Recognise that you won’t be able to change them. Make sure they do as little damage as possible. As long you have the power. Don’t look away, act.
 
 > People don’t leave companies, they leave people.
->
-> Paraphrased from Ben Horowitz’ Book
+
+*Paraphrased from Ben Horowitz’ Book*
 
 Oh, btw. I’m about to put together a new team as we speak.
 

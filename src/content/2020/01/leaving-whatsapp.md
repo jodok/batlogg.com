@@ -2,6 +2,7 @@
 title: 'Leaving Whatsapp'
 description: 'TL;DR: I’m deleting my Whatsapp account. You can still reach me viaSignal(iOS,Android), phone, SMS/iMessage,E Mailor onTwitter.Bye, bye. Undoubtfully – it’s a very handy tool. More than 1.5 billion people use it. Free...'
 pubDate: 'Jan 25 2020'
+updatedDate: 'Feb 08 2026'
 tags: ['privacy', 'facebook', 'signal', 'whatsapp']
 heroImage: 'image-6.png'
 ---
@@ -11,15 +12,13 @@ heroImage: 'image-6.png'
 >
 > Bye, bye.
 
-![Deleting my WhatsApp account](image-6.png)
-
 WHAAT?
 
 Undoubtfully – it’s a very handy tool. More than 1.5 billion people use it. Free cross-platform messaging, free group chat, free calls, free video calls. This was (and is) game-changing. Revolutionary 10 years ago!
 
 ![I bought WhatsApp for €0.79 in 2010](whatsapp-itunes-invoice.png)
 
-I bought WhatsApp for €0.79 in 2010
+*I bought WhatsApp for €0.79 in 2010*
 
 Extremely impressive backend technology, written in Erlang. In 2015 WhatsApp had only 50 engineers handling 900M users. That was roughly one year after Facebook acquired WhatsApp for $19BN. I honestly admired the team as I know what it means to build a messaging service for millions of users.
 
@@ -29,20 +28,20 @@ WhatsApp is Facebooks second biggest property. Facebook is making money with the
 
 ![Graph from recode](WhatsApp-Facebook-users.png)
 
-Graph from [recode](https://www.vox.com/2018/2/1/16959804/whatsapp-facebook-biggest-messenger-instagram-users)
+*Graph from [recode](https://www.vox.com/2018/2/1/16959804/whatsapp-facebook-biggest-messenger-instagram-users)*
 
 The price is too high. Your messages, your messaging metadata, your friends, your connections,…  
 Guess why the WhatsApp Founder Brian Acton left Facebook 2018 – 4 years after the acquisition and left $850M on the table?
 
 > “I sold my users’ privacy… I live with that every day”
->
-> [CNBC Interview](https://www.cnbc.com/2018/09/26/whatsapp-co-founder-explains-why-he-left-facebook.html) with Brian Acton
+
+*[CNBC Interview](https://www.cnbc.com/2018/09/26/whatsapp-co-founder-explains-why-he-left-facebook.html) with Brian Acton*
 
 ## The tipping point
 
 > The encrypted message from the number used by Mohammed bin Salman *(Saudi crown prince)* is believed to have included a malicious file that infiltrated the phone of the world’s richest man, according to the results of a digital forensic analysis.
->
-> The Guardian (January 2020): [Jeff Bezos phone got hacked via WhatsApp](https://www.theguardian.com/technology/2020/jan/21/amazon-boss-jeff-bezoss-phone-hacked-by-saudi-crown-prince).
+
+*The Guardian (January 2020): [Jeff Bezos phone got hacked via WhatsApp](https://www.theguardian.com/technology/2020/jan/21/amazon-boss-jeff-bezoss-phone-hacked-by-saudi-crown-prince).*
 
 Jeff Bezos got a video message. That video message infiltrated the phone, and the hackers could get access to all content on this phone.
 
@@ -59,7 +58,7 @@ But wait – you’ve also voluntarly granted these permissions to WhatsApp. Are
 
 ## Becoming Facebook free
 
-This is the logical next step on my journey to become Facebook (the company) free. [After deleting my Facebook account](https://batlogg.com/2020/01/facebook-the-end/) I’m now deleting my Whatsapp account. I’ve requested my data, it’s ready today.
+This is the logical next step on my journey to become Facebook (the company) free. [After deleting my Facebook account](facebook-the-end) I’m now deleting my Whatsapp account. I’ve requested my data, it’s ready today.
 
 ![You can request your data under Settings -> Account -> Request Account Info](image-7.png)
 

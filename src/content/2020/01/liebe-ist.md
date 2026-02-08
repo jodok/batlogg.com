@@ -6,12 +6,6 @@ tags: ['entrepreneurship', 'motivation', 'leadership', 'love']
 heroImage: 'IMG_0770.jpeg'
 ---
 
-(especially after being a long time outside in the cold)
-
-![Liebe ist, January 16th 2010, Berlin](IMG_0770.jpeg)
-
-Liebe ist, January 16th 2010, Berlin
-
 ## What is love?
 
 It’s easy to say: I love my wife, I love my job, I love Pizza or I love this music. How valid are the ancient, greek definitions family love (storge), platonic/friends love (philía), self love (philautia), romantic love (éros), guest love (xenia) and divine love (agápe) nowadays?
@@ -34,7 +28,7 @@ I’m not sure what category to use when I talk about what I love in business li
 I’ve got it! The happenings, situations, feelings in business live I really, really love are connected to my definition of entrepreneurship:
 
 > Entrepreneurship is the pursuit of opportunity without regard to resources currently controlled
->
-> Prof. Howard Stevenson, Harvard Business School
+
+Prof. Howard Stevenson, Harvard Business School
 
 I love all the moments of it: **Seeing an opportunity, pursuing it and seeing it working out** – that’s where my inner Jodok is tipping his toes into the foambath after a long walk in the cold.

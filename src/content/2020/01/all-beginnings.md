@@ -18,10 +18,6 @@ This is also an important step on my move to more privacy, less tracking and tow
 Exactly 10 years ago I was living in Berlin and working as CTO of VZ Netzwerke. We were running Europe’s most trafficked websites – the Social Networks StudiVZ, MeinVZ and SchülerVZ with 16M active users.   
 At this time Facebook started to grow really fast and overtake VZnet which had no chance to compete. Facebook had way more engineering resources, but a main reason for growing faster their disrespect of german/european privacy laws.
 
-![Privatsphäre visual notes, by Anna Lena Schiller, February 2010](IMG_0802.jpeg)
-
-Privatsphäre visual notes, by Anna Lena Schiller, February 2010
-
 We did our best to be fully compliant with the privacy laws and spent a lot to educate society about it. It did not help. **People didn’t seem to care** about it. Not at all.
 
 10 years later we’re at a point where I can feel a change in trend. More and more people are aware that the (mainly) US tech giants like Google and Facebook are building millions and millions of user profiles and abuse them.  
@@ -35,10 +31,14 @@ Here’s a selection of what I’ve done so far:
 
 I’ll keep using Twitter (even use it more) and also keep somewhat trust that Apple will keep the personal data I store with them safe and private.
 
-Let’s see how it goes with comments – Right now I’m using Nick Grossmans [Discuss on Twitter](https://www.nickgrossman.is/2020/the-discuss-on-twitter-wordpress-plugin/) plugin. You can also subscribe via E-Mail on the [About](https://batlogg.com/about/) page.
+Let’s see how it goes with comments – Right now I’m using Nick Grossmans [Discuss on Twitter](https://www.nickgrossman.is/2020/the-discuss-on-twitter-wordpress-plugin/) plugin. 
 
 * * *
 
 **Updates:**
 
 _February, 8th 2026:_ <strikethrough>Twitter</strikethrough> X is being owned by Elon Musk since a while and I left the platform and required them to delete my data on November, 18th 2024.
+
+* * *
+
+*Image Source: Privatsphäre visual notes, by Anna Lena Schiller, February 2010*

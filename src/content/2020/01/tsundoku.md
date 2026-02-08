@@ -12,10 +12,6 @@ Japanese seems to be very powerful when it comes to describe things and situatio
 
 Long story short, I wanted to shares the books I‘m reading and even more plan to read. Then I remembered that there‘s a beautiful japanese word to describe books you‘ve bought, but not yet read:
 
-![Source: Open Culture](tsundoku.jpg)
-
-Source: [Open Culture](http://www.openculture.com/2014/07/tsundoku-should-enter-the-english-language.html)
-
 Books… written, condensed knowledge. We don’t read enough. We need to read more. Most of situations in life already happened once. And intelligent people focussed on describing these problems and solutions.
 
 I plan to maintain the list and grow it – and as we move on also add more details/my review to the books.
@@ -76,4 +72,6 @@ My current Tsundoku – next to my bed.
 
 ---
 
-Please let me know if you suggest a book by tweeting a reply!
+Please let me know which books you suggest!
+
+*Image Source: [Open Culture](http://www.openculture.com/2014/07/tsundoku-should-enter-the-english-language.html)*

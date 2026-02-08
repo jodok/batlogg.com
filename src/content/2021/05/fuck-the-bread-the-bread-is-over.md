@@ -6,10 +6,6 @@ tags: ['culture', 'learning', 'motivation', 'principles', 'conventions', 'fairyt
 heroImage: 'hansel_und_gretel.jpg'
 ---
 
-![HÄNSEL AND GRETEL, BY ALEXANDER ZICK](hansel_und_gretel.jpg)
-
-HÄNSEL AND GRETEL, BY ALEXANDER ZICK
-
 Please take a couple of minutes and read the fabulous essay Sabrina Orah Mark wrote in her [Happily Column](https://www.theparisreview.org/blog/2020/05/07/fuck-the-bread-the-bread-is-over/). Her Blog focuses on fairy tales and motherhood. Within the many things that resonate in her post, one thing struck me most:
 
 It’s about learning. Why are fairytales so important for learning, and why you need to curse “fuck the bread” sooner or later!
@@ -40,8 +36,8 @@ Ok, we’re done with learning! You’ve learnt a technique. Many people stop he
 > detach, digress
 
 > In fairy tales, form is your function and function is your form. If you don’t spin the straw into gold or inherit the kingdom or devour all the oxen or find the flour or get the professorship, you drop out of the fairy tale, and fall over its edge into an endless, blank forest where there is no other function for you, no alternative career.
->
-> from [Sabrina Orah Mark’s Blog post](https://www.theparisreview.org/blog/author/somark/)
+
+*from [Sabrina Orah Mark’s Blog post](https://www.theparisreview.org/blog/author/somark/)*
 
 No worries. There is more! Sometimes it’s necessary to yell “**Fuck the Bread**“. And break with the habits. Maybe Hänsel and Gretel walked the forest 100 times. And at some point they dare to take a different path, and guess what – it’s safe as well and more beautiful, and even faster! In this stage, curiosity, or the limitations of the given technique (think of cooking) cause you to experiment. Break with the norms. You’re collecting techniques. It’s the learning stage.
 
@@ -50,8 +46,8 @@ Back to cooking: After dozens of marble cakes *(ask my mom!)* I gradually left c
 Throughout this stage you gradually separate from the strict form of the shoe “Shu”. Make sure you work on your habits, because:
 
 > In the first 30 years, you make your habits. For the last 30 years of your live, the habits make you.
->
-> Steve Jobs
+
+*Steve Jobs*
 
 > *ri* (離)
 >
@@ -76,7 +72,7 @@ Kokoro is used in the writings of the 17th century samurai master Miyamoto Musa
 
 ![Alistair Cockburn “ Heart of Agile “](image.png)
 
-Alistair Cockburn “[Heart of Agile](https://alistair.cockburn.us/wp-content/uploads/2018/02/The-Heart-of-Agile-Technical-Report.pdf)“
+*Alistair Cockburn “[Heart of Agile](https://alistair.cockburn.us/wp-content/uploads/2018/02/The-Heart-of-Agile-Technical-Report.pdf)“*
 
 By teaching others you [improve your mastery](https://www.forbes.com/sites/amyanderson/2016/01/06/the-fastest-way-to-achieve-success-is-to-first-help-others-succeed/). Kokoro represents the teaching stage of the advanced practitioner. It is characterized by the advice **“Just master the basics.”**
 
@@ -85,9 +81,14 @@ By teaching others you [improve your mastery](https://www.forbes.com/sites/amyan
 - Following the essential rules of Scrum
 
 > “You know what, Mama?” he says. “You’d make a really good teacher.” “Thank you,” I say. And then I show him how to draw a *bet*.
->
-> Closing words of Sabrina Orah Mark in her [column](https://www.theparisreview.org/blog/2020/05/07/fuck-the-bread-the-bread-is-over/)
+
+*Closing words of Sabrina Orah Mark in her [column](https://www.theparisreview.org/blog/2020/05/07/fuck-the-bread-the-bread-is-over/)*
 
 ---
 
 *Right now my learning journey is getting better in coaching, active listening, … and I’m glad to learn the basics from masters like [Matthias Ehrhardt](https://designingtalent.us) or [Dieter Rösner](https://www.dieter-roesner.com).*
+
+
+* * *
+
+*Image Source: Hänsel and Gretel, by Alexander Zick*

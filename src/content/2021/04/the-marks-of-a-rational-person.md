@@ -3,7 +3,7 @@ title: 'The marks of a rational person'
 description: 'Over the past 6 months I’ve been in the luxury position to take time to further center myself and better live my equilibrium. Among other things I’ve continued to dive into stoicism (a journey that will never end)....'
 pubDate: 'Apr 26 2021'
 tags: ['books', 'culture', 'principles', 'basecamp', 'decisions', 'stoic']
-heroImage: 'wheel-of-life.jpg'
+heroImage: 'wheel-of-life-cut.jpg'
 ---
 
 Over the past 6 months I’ve been in the luxury position to take time to further center myself and better live my equilibrium.
@@ -13,8 +13,8 @@ Among other things I’ve continued to dive into stoicism (a journey that will n
 Over the last few days I’ve been thinking a log about this meditation:
 
 > These are the characteristics of the rational soul: self-awareness, self-examination, and self-determination. It reaps its own harvest. … It succeeds in its own purpose …
->
-> Marcus Aurelius, Meditations, 11.1-2
+
+*Marcus Aurelius, Meditations, 11.1-2*
 
 As Ryan Singer in the book mentioned above put’s it:
 
