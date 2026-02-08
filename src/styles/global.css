@@ -89,6 +89,8 @@ table {
 img {
 	max-width: 100%;
 	height: auto;
+}
+.prose img {
 	border-radius: 8px;
 }
 code {
