@@ -7,6 +7,6 @@ import embeds from 'astro-embed/integration';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://batlogg.com',
+	site: 'https://jodok.github.io',
 	integrations: [embeds(), mdx(), sitemap()],
 });
