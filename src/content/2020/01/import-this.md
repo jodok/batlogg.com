@@ -2,7 +2,7 @@
 title: '>>> import this'
 description: 'I like a lot of the principles that are built into the programming language Python. Some of the principles are also applicable to “real” life. They’re a bit hidden and most people don’t know them and have never seen...'
 pubDate: 'Jan 18 2020'
-tags: ['coding', 'principles', 'python', 'zen']
+categories: ['coding', 'principles', 'python', 'zen']
 heroImage: 'zen_python_e7f61a4ab9.jpg'
 ---
 

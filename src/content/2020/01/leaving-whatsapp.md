@@ -3,7 +3,7 @@ title: 'Leaving Whatsapp'
 description: 'TL;DR: I’m deleting my Whatsapp account. You can still reach me viaSignal(iOS,Android), phone, SMS/iMessage,E Mailor onTwitter.Bye, bye. Undoubtfully – it’s a very handy tool. More than 1.5 billion people use it. Free...'
 pubDate: 'Jan 25 2020'
 updatedDate: 'Feb 08 2026'
-tags: ['privacy', 'facebook', 'signal', 'whatsapp']
+categories: ['privacy', 'facebook', 'signal', 'whatsapp']
 heroImage: 'image-6.png'
 ---
 

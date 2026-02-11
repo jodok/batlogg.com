@@ -2,7 +2,7 @@
 title: 'Shot on an iPhone 11 Pro'
 description: 'The iPhone 11 Pro camera is just amazing. I’m no longer on Instagram, account dormant for 2 month (soon to be deleted). Therefor I wanted to share a few shots. I’m impressed when I see how much the quality of the...'
 pubDate: 'Feb 23 2020'
-tags: ['photography', 'dark', 'iphone', 'night', 'photo', 'ski', 'winter']
+categories: ['photography', 'dark', 'iphone', 'night', 'photo', 'ski', 'winter']
 heroImage: 'IMG_2262.jpeg'
 ---
 

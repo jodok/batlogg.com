@@ -2,7 +2,7 @@
 title: '#recalibrate - a new work schedule'
 description: 'How I’m trying to recalibrate myself and my work schedule to focus more on important, longer-term items and less on urgent day-to-day stuff.'
 pubDate: 'Jul 08 2022'
-tags: ['entrepreneurship', 'principles', 'tree.ly']
+categories: ['entrepreneurship', 'principles', 'tree.ly']
 heroImage: 'schedule.png'
 ---
 

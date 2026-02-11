@@ -8,7 +8,7 @@ import Header from '../components/Header.astro';
 
 type Props = CollectionEntry<'posts'>['data'];
 
-const { title, description, tags, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, categories, pubDate, updatedDate, heroImage } = Astro.props;
 ---
 
 <html lang="en">
@@ -36,13 +36,13 @@ const { title, description, tags, pubDate, updatedDate, heroImage } = Astro.prop
 				padding: 1em;
 				color: rgb(var(--gray-dark));
 			}
-			.tags {
+			.categories {
 				display: flex;
 				gap: 0.5em;
 				justify-content: center;
 				margin-bottom: 0.5em;
 			}
-			.tags a {
+			.categories a {
 				text-transform: uppercase;
 				white-space: nowrap;
 			}
@@ -74,10 +74,10 @@ const { title, description, tags, pubDate, updatedDate, heroImage } = Astro.prop
 				<div class="prose">
 					<div class="title">
 						{
-							tags && (
-								<div class="tags">
-									{tags.map((tag) => (
-										<a href={`/tags/${tag}`}>#{tag}</a>
+							categories && (
+								<div class="categories">
+									{categories.map((category) => (
+										<a href={`/category/${category}`}>#{category}</a>
 									))}
 								</div>
 							)

@@ -2,7 +2,7 @@
 title: '積ん読 – Tsundoku'
 description: 'Each language has some special words that can’t be translated to other languages. I think this expresses a lot the culture of these countries and people. Japanese seems to be very powerful when it comes to describe...'
 pubDate: 'Jan 15 2020'
-tags: ['books', 'japanese', 'reading', 'words']
+categories: ['books', 'japanese', 'reading', 'words']
 heroImage: 'tsundoku.jpg'
 ---
 

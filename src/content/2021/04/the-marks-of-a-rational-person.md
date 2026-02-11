@@ -2,7 +2,7 @@
 title: 'The marks of a rational person'
 description: 'Over the past 6 months I’ve been in the luxury position to take time to further center myself and better live my equilibrium. Among other things I’ve continued to dive into stoicism (a journey that will never end)....'
 pubDate: 'Apr 26 2021'
-tags: ['books', 'culture', 'principles', 'basecamp', 'decisions', 'stoic']
+categories: ['books', 'culture', 'principles', 'basecamp', 'decisions', 'stoic']
 heroImage: 'wheel-of-life-cut.jpg'
 ---
 

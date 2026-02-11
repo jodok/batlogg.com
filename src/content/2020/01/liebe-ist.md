@@ -2,7 +2,7 @@
 title: 'Liebe ist'
 description: '(especially after being a long time outside in the cold) What is love? It’s easy to say: I love my wife, I love my job, I love Pizza or I love this music. How valid are the ancient, greek definitions family love...'
 pubDate: 'Jan 16 2020'
-tags: ['entrepreneurship', 'motivation', 'leadership', 'love']
+categories: ['entrepreneurship', 'motivation', 'leadership', 'love']
 heroImage: 'IMG_0770.jpeg'
 ---
 

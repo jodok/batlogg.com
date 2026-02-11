@@ -2,7 +2,7 @@
 title: 'All Beginnings'
 description: '…are hard. But if you don’t begin, you’ll never end up somewhere. This the first post on my shiny new blog. huzzah! I’ll write down what moves me, what I’m thinking about, what I want to share, what I want to remember...'
 pubDate: 'Jan 13 2020'
-tags: ['privacy', 'weblog', 'apple', 'duckduckgo', 'facebook', 'firefox', 'first', 'google', 'studivz', 'twitter']
+categories: ['privacy', 'weblog', 'apple', 'duckduckgo', 'facebook', 'firefox', 'first', 'google', 'studivz', 'twitter']
 heroImage: 'IMG_0802.jpeg'
 ---
 

@@ -2,7 +2,7 @@
 title: 'Fuck the Bread. The bread is over.'
 description: 'Please take a couple of minutes and read the fabulous essay Sabrina Orah Mark wrote in her Happily Column. Her Blog focuses on fairy tales and motherhood. Within the many things that resonate in her post, one thing...'
 pubDate: 'May 13 2021'
-tags: ['culture', 'learning', 'motivation', 'principles', 'conventions', 'fairytale']
+categories: ['culture', 'learning', 'motivation', 'principles', 'conventions', 'fairytale']
 heroImage: 'hansel_und_gretel.jpg'
 ---
 

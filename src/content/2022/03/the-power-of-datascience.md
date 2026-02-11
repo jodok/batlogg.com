@@ -2,7 +2,7 @@
 title: 'The power of datascience'
 description: 'TLDR;: I’m member of the board of directors of Alphacruncher, the EdTech startup building nuvolos.cloud. We’ve just raised CHF 1.5M to rock the EdTech space. I’m a natural scientist by education. I do my best to...'
 pubDate: 'Mar 17 2022'
-tags: ['entrepreneurship', 'technology', 'vc', 'advising', 'edtech', 'funding', 'startup']
+categories: ['entrepreneurship', 'technology', 'vc', 'advising', 'edtech', 'funding', 'startup']
 heroImage: 'Screenshot-2022-03-16-at-10.27.31.png'
 ---
 

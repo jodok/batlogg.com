@@ -2,7 +2,7 @@
 title: 'Why people quit'
 description: 'I received some feedback and questions about my post on leadership decisions at a workplace, and why I believe that many societal and political topics don’t belong to my workplace. (A clarifying side note: I wasn’t...'
 pubDate: 'May 04 2021'
-tags: ['culture', 'entrepreneurship', 'principles', 'basecamp', 'quit']
+categories: ['culture', 'entrepreneurship', 'principles', 'basecamp', 'quit']
 heroImage: 'B06D8D16-508A-4E5C-B7EF-1CA760A1B0A2-cut.jpg'
 ---
 

@@ -2,7 +2,7 @@
 title: 'Removing Animations in PowerPoint'
 description: 'Something totally different, but hopefully this will save another Entrepreneur using some PowerPoint Templates (I’m using the Voodoo Presentation from TemplateZuu right now) some precious hours. While it’s handy to...'
 pubDate: 'Apr 29 2021'
-tags: ['coding', 'powerpoint', 'visual basic']
+categories: ['coding', 'powerpoint', 'visual basic']
 heroImage: 'image.png'
 ---
 
