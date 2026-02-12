@@ -3,63 +3,65 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HeroShapes from '../components/HeroShapes.astro';
 import PostCard from '../components/PostCard.astro';
-import SocialLinks from '../components/SocialLinks.astro';
 
 const posts = (await getCollection('posts')).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
-const featuredPosts = posts.slice(0, 3);
+const featuredPosts = posts.slice(0, 2);
+const recentPosts = posts.slice(2, 10);
 ---
 
 <BaseLayout>
   <!-- Hero Shapes -->
   <HeroShapes />
 
-  <!-- Intro -->
+  <!-- Short Intro -->
   <section class="max-w-[750px] mx-auto px-6 pt-16 pb-12">
-    <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-6">Building technology<br />that matters.</h1>
+    <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-6">Jodok Batlogg</h1>
     <p class="text-lg text-gray-600 leading-relaxed max-w-xl">
-      I'm Jodok Batlogg -- CEO, serial entrepreneur, and software engineer by heart. I build companies and products at the intersection of technology and impact.
+      CEO, serial entrepreneur, and software engineer by heart. Building companies and products at the intersection of technology and impact.
     </p>
   </section>
 
-  <!-- Current Role -->
+  <!-- Featured Posts (2, with images) -->
   <section class="max-w-[750px] mx-auto px-6 pb-16">
-    <div class="border-t border-gray-100 pt-10">
-      <p class="text-xs font-medium text-gray-400 uppercase tracking-widest mb-4">Currently</p>
-      <div class="flex items-start gap-4">
-        <div class="w-10 h-10 rounded-lg bg-[#4E9A7A] flex items-center justify-center text-white font-bold text-sm flex-shrink-0 mt-0.5">PE</div>
-        <div>
-          <h2 class="text-xl font-semibold mb-1">Co-Founder & CEO at Pina Earth</h2>
-          <p class="text-gray-600 leading-relaxed">Leading a climate-tech company that makes high-quality carbon removal accessible and transparent. We're building the infrastructure for nature-based carbon credits that actually work.</p>
+    <div class="grid md:grid-cols-2 gap-6">
+      {featuredPosts.map((post) => (
+        <PostCard
+          url={`/${post.id}/`}
+          title={post.data.title}
+          description={post.data.description}
+          pubDate={post.data.pubDate}
+          categories={post.data.categories}
+          heroImage={post.data.heroImage}
+          featured={true}
+        />
+      ))}
+    </div>
+  </section>
+
+  <!-- Recent Posts (next 8) -->
+  {recentPosts.length > 0 && (
+    <section class="max-w-[750px] mx-auto px-6 pb-16">
+      <div class="border-t border-gray-100 pt-10">
+        <div class="space-y-2">
+          {recentPosts.map((post) => (
+            <PostCard
+              url={`/${post.id}/`}
+              title={post.data.title}
+              pubDate={post.data.pubDate}
+              categories={post.data.categories}
+            />
+          ))}
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  )}
 
-  <!-- Featured Writing -->
-  <section class="max-w-[750px] mx-auto px-6 pb-16">
-    <div class="border-t border-gray-100 pt-10">
-      <p class="text-xs font-medium text-gray-400 uppercase tracking-widest mb-8">Featured Writing</p>
-      <div class="space-y-6">
-        {featuredPosts.map((post) => (
-          <PostCard
-            url={`/${post.id}/`}
-            title={post.data.title}
-            description={post.data.description}
-            pubDate={post.data.pubDate}
-            categories={post.data.categories}
-          />
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- Social -->
-  <section class="max-w-[750px] mx-auto px-6 pb-20">
-    <div class="border-t border-gray-100 pt-10">
-      <p class="text-xs font-medium text-gray-400 uppercase tracking-widest mb-6">Connect</p>
-      <SocialLinks />
-    </div>
+  <!-- All Posts Link -->
+  <section class="max-w-[750px] mx-auto px-6 pb-20 text-center">
+    <a href="/posts" class="inline-flex items-center gap-2 text-sm font-medium text-gray-900 border border-gray-200 rounded-full px-6 py-3 hover:border-gray-400 transition">
+      All posts &rarr;
+    </a>
   </section>
 </BaseLayout>

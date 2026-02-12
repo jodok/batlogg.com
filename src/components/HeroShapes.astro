@@ -1,7 +1,32 @@
-<div class="hero-shapes">
-  <div class="shape shape-1"></div>
-  <div class="shape shape-2"></div>
-  <div class="shape shape-3"></div>
-  <div class="shape shape-4"></div>
-  <div class="shape shape-5"></div>
+---
+---
+
+<div class="hero-shapes" aria-hidden="true">
+  <div class="shape-violet"></div>
+  <div class="shape-coral"></div>
+  <div class="shape-mustard"></div>
 </div>
+
+<style>
+  .hero-shapes {
+    display: grid;
+    grid-template-columns: 2.3fr 2.1fr 0.9fr;
+    height: 170px;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .shape-violet {
+    background: #8e5fa4;
+    border-bottom-left-radius: 9rem;
+  }
+
+  .shape-coral {
+    background: #cb7859;
+    border-top-left-radius: 11rem;
+  }
+
+  .shape-mustard {
+    background: #d5b03f;
+  }
+</style>

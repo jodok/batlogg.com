@@ -5,22 +5,14 @@ import BaseHead from '../components/BaseHead.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
-import Categories from '../components/Categories.astro';
+import { getCategoryColor } from '../utils/categoryColor';
 
 type Props = CollectionEntry<'posts'>['data'];
 
 const { title, description, categories, pubDate, updatedDate, heroImage } = Astro.props;
 
-const categoryColors: Record<string, string> = {
-  leadership: '#4E9A7A',
-  engineering: '#587AE1',
-  climate: '#E2BD38',
-  personal: '#A964C9',
-  entrepreneurship: '#E06E4C',
-};
-
 const category = categories?.[0] || '';
-const color = categoryColors[category.toLowerCase()] || '#4E9A7A';
+const color = getCategoryColor(category);
 ---
 
 <html lang="en">
@@ -37,12 +29,15 @@ const color = categoryColors[category.toLowerCase()] || '#4E9A7A';
       )}
 
       <article class="max-w-[680px] mx-auto px-6 pt-6 pb-20">
-        <div class="flex items-center gap-3 mb-4">
-          {category && (
-            <span class="text-xs font-medium px-2.5 py-0.5 rounded-full" style={`color: ${color}; background: ${color}1a;`}>
-              {category}
-            </span>
-          )}
+        <div class="flex items-center gap-3 mb-4 flex-wrap">
+          {categories?.map((cat: string) => {
+            const catColor = getCategoryColor(cat);
+            return (
+              <a href={`/category/${encodeURIComponent(cat)}`} class="tag" style={`color: ${catColor}; background: ${catColor}1a;`}>
+                {cat}
+              </a>
+            );
+          })}
           <span class="text-xs text-gray-400">
             <FormattedDate date={pubDate} />
           </span>
@@ -74,3 +69,18 @@ const color = categoryColors[category.toLowerCase()] || '#4E9A7A';
     <Footer />
   </body>
 </html>
+
+<style>
+  .tag {
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 0.125rem 0.625rem;
+    border-radius: 9999px;
+    text-decoration: none;
+    transition: opacity 0.15s;
+  }
+
+  .tag:hover {
+    opacity: 0.8;
+  }
+</style>

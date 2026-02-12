@@ -44,3 +44,34 @@ const isWriting = pathname.startsWith('/posts') || pathname.startsWith('/20');
     document.documentElement.classList.add('dark');
   }
 </script>
+
+<style>
+  .nav-link {
+    position: relative;
+  }
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1.5px;
+    background: #1A1A1A;
+    transition: width 0.2s ease;
+  }
+  .nav-link:hover::after {
+    width: 100%;
+  }
+  .mobile-menu { display: none; }
+  .mobile-menu.active { display: block; }
+  .hamburger span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: #1A1A1A;
+    margin: 4px 0;
+    transition: 0.2s;
+  }
+  :global(.dark) .nav-link::after { background: #e8e8e8; }
+  :global(.dark) .hamburger span { background: #e8e8e8; }
+</style>

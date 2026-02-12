@@ -22,3 +22,32 @@ const { entries } = Astro.props;
     </div>
   ))}
 </div>
+
+<style>
+  .timeline-item {
+    position: relative;
+    padding-left: 2rem;
+    padding-bottom: 2rem;
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #7CC745;
+  }
+  .timeline-item::after {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 1.25rem;
+    width: 2px;
+    height: calc(100% - 1rem);
+    background: #E8E8E8;
+  }
+  .timeline-item:last-child::after { display: none; }
+  :global(.dark) .timeline-item::after { background: #333; }
+</style>
