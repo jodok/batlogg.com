@@ -2,136 +2,75 @@
 import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
+import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
-import Header from '../components/Header.astro';
 import Categories from '../components/Categories.astro';
 
 type Props = CollectionEntry<'posts'>['data'];
 
 const { title, description, categories, pubDate, updatedDate, heroImage } = Astro.props;
+
+const categoryColors: Record<string, string> = {
+  leadership: '#4E9A7A',
+  engineering: '#587AE1',
+  climate: '#E2BD38',
+  personal: '#A964C9',
+  entrepreneurship: '#E06E4C',
+};
+
+const category = categories?.[0] || '';
+const color = categoryColors[category.toLowerCase()] || '#4E9A7A';
 ---
 
 <html lang="en">
-	<head>
-		<BaseHead title={title} description={description} />
-		<style>
-			main {
-				width: min(100%, 1000px);
-				max-width: calc(100% - 2rem);
-				margin: 0 auto;
-				padding: 0 0 2.5rem;
-			}
-			.hero-image {
-				width: 100vw;
-				margin-left: calc(50% - 50vw);
-				background: #e8e5df;
-				overflow: hidden;
-			}
-			.hero-image img {
-				display: block;
-				width: 100%;
-				height: min(38vw, 370px);
-				object-fit: cover;
-			}
-			.prose {
-				width: 100%;
-				max-width: 700px;
-				margin: 0 auto;
-				padding: 2.3rem 0 0;
-				color: rgb(var(--gray-dark));
-				font-size: 1.08rem;
-				line-height: 1.45;
-			}
-  			.title {
-				margin-bottom: 1.8rem;
-				padding: 0;
-				text-align: left;
-				line-height: 1.08;
-			}
-			.title h1 {
-				margin: 0.35rem 0 0;
-				font-size: clamp(2rem, 4.8vw, 3.05rem);
-				letter-spacing: -0.03em;
-				font-weight: 500;
-			}
-			.subtitle {
-				margin: 0.35rem 0 0;
-				font-size: clamp(1.25rem, 3.2vw, 2rem);
-				line-height: 1.08;
-				color: #9a9ca2;
-				letter-spacing: -0.02em;
-			}
-			.date {
-				font-size: 0.95rem;
-				color: #737884;
-			}
-			.last-updated-on {
-				margin-top: 0.15rem;
-				font-size: 0.88rem;
-				color: #8e939d;
-			}
-			.prose :global(p) {
-				margin: 0 0 1.25rem;
-			}
-			.prose :global(p:first-of-type) {
-				font-size: 1.18rem;
-				line-height: 1.35;
-			}
-			.prose :global(h2),
-			.prose :global(h3),
-			.prose :global(h4) {
-				margin-top: 2rem;
-				letter-spacing: -0.02em;
-			}
-			.title hr {
-				margin: 1.45rem 0 0;
-				border: none;
-				border-top: 1px solid #d9dde4;
-			}
-			@media (max-width: 760px) {
-				main {
-					max-width: calc(100% - 1.35rem);
-				}
-				.hero-image img {
-					height: 12.5rem;
-				}
-				.prose {
-					padding-top: 1.45rem;
-					font-size: 1.02rem;
-				}
-			}
-		</style>
-	</head>
+  <head>
+    <BaseHead title={title} description={description} image={heroImage} />
+  </head>
+  <body class="bg-white text-gray-900">
+    <Nav />
+    <main class="pt-[50px]">
+      {heroImage && (
+        <div class="w-full h-[360px] md:h-[480px] overflow-hidden bg-gray-100">
+          <Image width={1400} height={600} src={heroImage} alt="" class="w-full h-full object-cover" />
+        </div>
+      )}
 
-	<body>
-		<Header />
-		<main>
-			<article>
-				<div class="hero-image">
-					{heroImage && <Image width={1020} height={510} src={heroImage} alt="" />}
-				</div>
-				<div class="prose">
-					<div class="title">
-						<Categories categories={categories} />
-						<div class="date">
-							<FormattedDate date={pubDate} />
-						</div>
-						<h1>{title}</h1>
-						<p class="subtitle">{description}</p>
-						{
-							updatedDate && (
-								<div class="last-updated-on">
-									Last updated on <FormattedDate date={updatedDate} />
-								</div>
-							)
-						}
-						<hr />
-					</div>
-					<slot />
-				</div>
-			</article>
-		</main>
-		<Footer />
-	</body>
+      <article class="max-w-[680px] mx-auto px-6 pt-6 pb-20">
+        <div class="flex items-center gap-3 mb-4">
+          {category && (
+            <span class="text-xs font-medium px-2.5 py-0.5 rounded-full" style={`color: ${color}; background: ${color}1a;`}>
+              {category}
+            </span>
+          )}
+          <span class="text-xs text-gray-400">
+            <FormattedDate date={pubDate} />
+          </span>
+        </div>
+
+        <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-6">{title}</h1>
+        {description && <p class="text-lg text-gray-500 leading-relaxed mb-10">{description}</p>}
+
+        {updatedDate && (
+          <p class="text-xs text-gray-400 mb-6">
+            Last updated on <FormattedDate date={updatedDate} />
+          </p>
+        )}
+
+        <div class="post-content">
+          <slot />
+        </div>
+
+        <!-- Author -->
+        <div class="border-t border-gray-100 mt-12 pt-8 flex items-center gap-4">
+          <div class="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center text-gray-400 text-sm font-medium">JB</div>
+          <div>
+            <p class="font-semibold text-sm">Jodok Batlogg</p>
+            <p class="text-gray-400 text-xs">CEO & Co-Founder at Pina Earth</p>
+          </div>
+        </div>
+      </article>
+    </main>
+    <Footer />
+  </body>
 </html>

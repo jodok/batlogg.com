@@ -1,0 +1,39 @@
+---
+import FormattedDate from './FormattedDate.astro';
+
+interface Props {
+  url: string;
+  title: string;
+  description?: string;
+  pubDate: Date;
+  categories?: string[];
+}
+
+const { url, title, description, pubDate, categories } = Astro.props;
+
+const categoryColors: Record<string, string> = {
+  leadership: '#4E9A7A',
+  engineering: '#587AE1',
+  climate: '#E2BD38',
+  personal: '#A964C9',
+  entrepreneurship: '#E06E4C',
+};
+
+const category = categories?.[0] || '';
+const color = categoryColors[category.toLowerCase()] || '#4E9A7A';
+---
+
+<a href={url} class="block card-hover p-5 -mx-5 rounded-xl">
+  <div class="flex items-center gap-3 mb-2">
+    {category && (
+      <span class="text-xs font-medium px-2.5 py-0.5 rounded-full" style={`color: ${color}; background: ${color}1a;`}>
+        {category}
+      </span>
+    )}
+    <span class="text-xs text-gray-400">
+      <FormattedDate date={pubDate} />
+    </span>
+  </div>
+  <h3 class="text-lg font-semibold mb-1">{title}</h3>
+  {description && <p class="text-gray-500 text-sm leading-relaxed">{description}</p>}
+</a>
