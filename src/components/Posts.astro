@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import FormattedDate from '../components/FormattedDate.astro';
+import Categories from './Categories.astro';
 
 const { posts } = Astro.props;
 ---
@@ -15,6 +16,7 @@ const { posts } = Astro.props;
                 <p class="date">
                     <FormattedDate date={post.data.pubDate} />
                 </p>
+                <Categories categories={post.data.categories} />
             </a>
         </li>
     ))}
@@ -52,6 +54,16 @@ const { posts } = Astro.props;
     }
     ul li a {
         display: block;
+    }
+    .categories {
+        display: flex;
+        gap: 0.5em;
+        justify-content: center;
+        margin-bottom: 0.5em;
+    }
+    .categories span {
+        text-transform: uppercase;
+        white-space: nowrap;
     }
     .title {
         margin: 0;
