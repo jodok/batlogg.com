@@ -1,100 +1,66 @@
 @import "tailwindcss";
 
-/* ---- Base ---- */
-html { scroll-behavior: smooth; }
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
 
-body {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+  body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-h1, h2, h3 { letter-spacing: -0.025em; }
-
-/* ---- Post content typography (used by MDX slot content) ---- */
-.post-content h2 {
-  font-size: 1.75rem;
-  font-weight: 700;
-  margin-top: 2.5rem;
-  margin-bottom: 1rem;
-  color: #1A1A1A;
-}
-.post-content h3 {
-  font-size: 1.35rem;
-  font-weight: 600;
-  margin-top: 2rem;
-  margin-bottom: 0.75rem;
-  color: #1A1A1A;
-}
-.post-content p {
-  margin-bottom: 1.25rem;
-  line-height: 1.7;
-  color: #333;
-}
-.post-content blockquote {
-  border-left: 3px solid #7CC745;
-  padding: 0.75rem 1.25rem;
-  margin: 1.5rem 0;
-  background: #f9faf5;
-  color: #444;
-  font-style: italic;
-}
-.post-content pre {
-  background: #1A1A1A;
-  color: #e8e8e8;
-  padding: 1.25rem;
-  border-radius: 8px;
-  overflow-x: auto;
-  font-size: 0.875rem;
-  line-height: 1.6;
-  margin: 1.5rem 0;
-}
-.post-content code {
-  font-family: 'SF Mono', 'Fira Code', monospace;
-}
-.post-content p code {
-  background: #f3f4f6;
-  padding: 0.15rem 0.4rem;
-  border-radius: 4px;
-  font-size: 0.9em;
-  color: #4E9A7A;
-}
-.post-content ul, .post-content ol {
-  margin: 1rem 0 1.25rem 1.5rem;
-  line-height: 1.7;
-  color: #333;
-}
-.post-content li { margin-bottom: 0.35rem; }
-.post-content a {
-  color: #4E9A7A;
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-.post-content a:hover { color: #3d7a61; }
-.post-content img {
-  border-radius: 8px;
-  max-width: 100%;
-  height: auto;
+  h1,
+  h2,
+  h3 {
+    @apply tracking-tight;
+  }
 }
 
-/* ---- Shared utilities ---- */
-.card-hover {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-.card-hover:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-}
+@layer components {
+  .post-content h2 {
+    @apply mt-10 mb-4 text-3xl font-bold text-gray-900;
+  }
 
-/* ---- Dark mode ---- */
-.dark body,
-.dark .bg-white { background: #111 !important; color: #e8e8e8; }
-.dark .bg-white\/95 { background: rgba(17,17,17,0.95) !important; }
-.dark .text-gray-900 { color: #e8e8e8 !important; }
-.dark .text-gray-600, .dark .text-gray-500 { color: #999 !important; }
-.dark .text-gray-400 { color: #777 !important; }
-.dark .border-gray-100, .dark .border-gray-200 { border-color: #2a2a2a !important; }
-.dark .post-content h2, .dark .post-content h3 { color: #e8e8e8; }
-.dark .post-content p, .dark .post-content li { color: #bbb; }
-.dark .post-content blockquote { background: #1a1a1a; color: #bbb; }
-.dark .card-hover:hover { box-shadow: 0 8px 24px rgba(255,255,255,0.05); }
+  .post-content h3 {
+    @apply mt-8 mb-3 text-2xl font-semibold text-gray-900;
+  }
+
+  .post-content p {
+    @apply mb-5 leading-7 text-gray-700;
+  }
+
+  .post-content blockquote {
+    @apply my-6 border-l-[3px] border-l-[#7CC745] bg-lime-50 px-5 py-3 italic text-gray-700;
+  }
+
+  .post-content pre {
+    @apply my-6 overflow-x-auto rounded-lg bg-gray-900 p-5 text-sm leading-6 text-gray-100;
+  }
+
+  .post-content code {
+    font-family: "SF Mono", "Fira Code", monospace;
+  }
+
+  .post-content p code {
+    @apply rounded bg-gray-100 px-1.5 py-0.5 text-[0.9em] text-emerald-700;
+  }
+
+  .post-content ul,
+  .post-content ol {
+    @apply my-4 ml-6 text-gray-700;
+  }
+
+  .post-content li {
+    @apply mb-1.5 leading-7;
+  }
+
+  .post-content a {
+    @apply text-emerald-700 underline underline-offset-2 hover:text-emerald-800;
+  }
+
+  .post-content img {
+    @apply h-auto max-w-full rounded-lg;
+  }
+}
