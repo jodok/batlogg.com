@@ -14,8 +14,8 @@ const isWriting = pathname.startsWith('/posts') || pathname.startsWith('/20');
     </a>
     <div class="hidden md:flex items-center gap-8 text-sm">
       <a href="/" class:list={["nav-link", isHome ? "text-gray-900" : "text-gray-600 hover:text-gray-900"]}>Home</a>
-      <a href="/about" class:list={["nav-link", isAbout ? "text-gray-900" : "text-gray-600 hover:text-gray-900"]}>About</a>
       <a href="/posts" class:list={["nav-link", isWriting ? "text-gray-900" : "text-gray-600 hover:text-gray-900"]}>Writing</a>
+      <a href="/about" class:list={["nav-link", isAbout ? "text-gray-900" : "text-gray-600 hover:text-gray-900"]}>About</a>
     </div>
     <button class="md:hidden hamburger" id="hamburger-btn" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -23,8 +23,8 @@ const isWriting = pathname.startsWith('/posts') || pathname.startsWith('/20');
   </div>
   <div id="mobile-menu" class="mobile-menu md:hidden bg-white border-t border-gray-100 px-6 py-4">
     <a href="/" class="block py-2 text-sm text-gray-900">Home</a>
-    <a href="/about" class="block py-2 text-sm text-gray-600">About</a>
     <a href="/posts" class="block py-2 text-sm text-gray-600">Writing</a>
+    <a href="/about" class="block py-2 text-sm text-gray-600">About</a>
   </div>
 </nav>
 
