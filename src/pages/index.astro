@@ -1,235 +1,69 @@
 ---
-import { Image } from 'astro:assets';
-import FormattedDate from '../components/FormattedDate.astro';
-import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroShapes from '../components/HeroShapes.astro';
+import PostCard from '../components/PostCard.astro';
 
 const posts = (await getCollection('posts')).sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
+const featuredPosts = posts.slice(0, 2);
+const recentPosts = posts.slice(2, 10);
 ---
 
 <BaseLayout>
-	<section class="hero-strip" aria-hidden="true">
-		<div class="shape shape-violet"></div>
-		<div class="shape shape-coral"></div>
-		<div class="shape shape-mustard"></div>
-	</section>
-	<section class="intro">
-		<h1>Jodok Batlogg</h1>
-		<p>
-			Grieß eich die Madln,<br />
-			servas die Buam.
-		</p>
-	</section>
-	<section class="top">
-		<div class="section-head">
-			<h2>Top Articles</h2>
-			<span>1</span>
-		</div>
-		<ul class="featured-list">
-			{posts.slice(0, 2).map((post: any) => (
-				<li class="featured-card">
-					<article>
-						<a href={`/${post.id}/`}>
-							{post.data.heroImage && (
-								<Image width={520} height={520} src={post.data.heroImage} alt="" />
-							)}
-							<p class="date">
-								<FormattedDate date={post.data.pubDate} />
-							</p>
-							<h3 class="title">{post.data.title}</h3>
-							<p class="description">{post.data.description}</p>
-						</a>
-					</article>
-				</li>
-			))}
-		</ul>
-	</section>
-	<section class="all">
-		<h2>Blog</h2>
-		<ul class="blog-list">
-			{posts.slice(2).map((post: any) => (
-				<li>
-					<article>
-						<a href={`/${post.id}/`}>
-							<p class="date">
-								<FormattedDate date={post.data.pubDate} />
-							</p>
-							<h4 class="title">{post.data.title}</h4>
-							<p class="description">{post.data.description}</p>
-						</a>
-					</article>
-				</li>
-			))}
-		</ul>
-	</section>
+  <!-- Hero Shapes -->
+  <HeroShapes />
+
+  <!-- Short Intro -->
+  <section class="max-w-[750px] mx-auto px-6 pt-16 pb-12">
+    <h1 class="text-4xl md:text-4xl leading-tight mb-2">Jodok Batlogg</h1>
+    <p class="text-4xl md:text-4xl text-gray-400 leading-tight font-light mb-6">Grieß eich die Madln,<br />servas die Buam.</p>
+    <p class="text-lg text-gray-600 leading-relaxed max-w-xl font-normal">
+      CEO, serial entrepreneur, and software engineer by heart. Building companies and products at the intersection of technology and impact.
+    </p>
+  </section>
+
+  <!-- Featured Posts (2, with images) -->
+  <section class="max-w-[750px] mx-auto px-6 pb-16">
+    <div class="grid md:grid-cols-2 gap-6">
+      {featuredPosts.map((post) => (
+        <PostCard
+          url={`/${post.id}/`}
+          title={post.data.title}
+          description={post.data.description}
+          pubDate={post.data.pubDate}
+          categories={post.data.categories}
+          heroImage={post.data.heroImage}
+          featured={true}
+        />
+      ))}
+    </div>
+  </section>
+
+  <!-- Recent Posts (next 8) -->
+  {recentPosts.length > 0 && (
+    <section class="max-w-[750px] mx-auto px-6 pb-16">
+      <div class="border-t border-gray-100 pt-10">
+        <div class="space-y-2">
+          {recentPosts.map((post) => (
+            <PostCard
+              url={`/${post.id}/`}
+              title={post.data.title}
+              description={post.data.description}
+              pubDate={post.data.pubDate}
+              categories={post.data.categories}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- All Posts Link -->
+  <section class="max-w-[750px] mx-auto px-6 pb-20 text-center">
+    <a href="/posts" class="inline-flex items-center gap-2 text-sm font-medium text-gray-900 border border-gray-200 rounded-full px-6 py-3 hover:border-gray-400 transition">
+      All posts &rarr;
+    </a>
+  </section>
 </BaseLayout>
-<style>
-	.hero-strip {
-		display: grid;
-		grid-template-columns: 2.3fr 2.1fr 0.9fr;
-		gap: 1.2rem;
-		width: 100vw;
-		margin: -3rem 0 4.75rem;
-		margin-left: calc(50% - 50vw);
-		height: 16rem;
-	}
-	.shape {
-		width: 100%;
-		height: 100%;
-	}
-	.shape-violet {
-		background: #8e5fa4;
-		border-bottom-left-radius: 9rem;
-	}
-	.shape-coral {
-		background: #cb7859;
-		border-top-left-radius: 11rem;
-	}
-	.shape-mustard {
-		background: #d5b03f;
-	}
-	.intro {
-		max-width: 42rem;
-		margin-bottom: 4.5rem;
-	}
-	.intro h1 {
-		margin-bottom: 0.5rem;
-		font-size: clamp(2.8rem, 7vw, 4rem);
-		font-weight: 500;
-		letter-spacing: -0.03em;
-	}
-	.intro p {
-		margin: 0;
-		font-size: clamp(2.2rem, 6vw, 3.85rem);
-		line-height: 1.08;
-		color: #8c8f95;
-		letter-spacing: -0.03em;
-	}
-	.top,
-	.all {
-		max-width: 49rem;
-	}
-	.top {
-		margin-bottom: 3.5rem;
-	}
-	.section-head {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		margin-bottom: 1.2rem;
-	}
-	.section-head span {
-		font-size: 0.75rem;
-		color: #8c8f95;
-	}
-	h2 {
-		margin: 0;
-		font-size: 1.25rem;
-		font-weight: 700;
-		text-transform: uppercase;
-		letter-spacing: 0.02em;
-	}
-	.featured-list {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 2rem;
-		list-style: none;
-		margin: 0;
-		padding: 0;
-	}
-	.featured-card a {
-		color: inherit;
-		text-decoration: none;
-	}
-	.featured-card img {
-		display: block;
-		width: 100%;
-		border-radius: 0;
-		aspect-ratio: 1 / 1;
-		object-fit: cover;
-	}
-	.featured-card .date {
-		margin: 0.8rem 0 0.35rem;
-		font-size: 0.95rem;
-		color: #84878c;
-	}
-	.featured-card .title {
-		margin: 0;
-		font-size: 2rem;
-		line-height: 1.05;
-		font-weight: 500;
-		letter-spacing: -0.03em;
-	}
-	.blog-list {
-		display: grid;
-		gap: 1.55rem;
-		list-style: none;
-		margin: 1.4rem 0 0;
-		padding: 0;
-	}
-	.blog-list a {
-		display: block;
-		color: inherit;
-		text-decoration: none;
-	}
-	.blog-list .date {
-		margin: 0 0 0.2rem;
-		font-size: 0.95rem;
-		color: #84878c;
-	}
-	.blog-list .title {
-		margin: 0;
-		font-size: 1.65rem;
-		line-height: 1.15;
-		font-weight: 600;
-		letter-spacing: -0.02em;
-	}
-	.blog-list .description {
-		margin: 0.18rem 0 0;
-		color: #2d3035;
-		font-size: 1.05rem;
-		line-height: 1.35;
-	}
-	.featured-card a:hover .title,
-	.blog-list a:hover .title {
-		color: var(--accent);
-	}
-	@media (max-width: 1000px) {
-		.hero-strip {
-			grid-template-columns: 1.7fr 1.5fr 0.8fr;
-			height: 12rem;
-			margin-bottom: 3.6rem;
-		}
-	}
-	@media (max-width: 760px) {
-		.hero-strip {
-			grid-template-columns: 1fr;
-			height: auto;
-			gap: 0.8rem;
-			margin: -1rem 0 2rem;
-			margin-left: calc(50% - 50vw);
-		}
-		.shape {
-			height: 4rem;
-		}
-		.shape-violet,
-		.shape-coral {
-			border-radius: 2rem 0 0 2rem;
-		}
-		.intro {
-			margin-bottom: 2.2rem;
-		}
-		.featured-list {
-			grid-template-columns: 1fr;
-			gap: 1.5rem;
-		}
-		.featured-card .title {
-			font-size: 1.7rem;
-		}
-		.blog-list .title {
-			font-size: 1.35rem;
-		}
-	}
-</style>
