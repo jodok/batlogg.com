@@ -1,0 +1,51 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import FormattedDate from '../components/FormattedDate.astro';
+import { getCategoryColor } from '../utils/categoryColor';
+
+type Props = CollectionEntry<'posts'>['data'];
+
+const { title, subtitle, description, categories, pubDate, updatedDate, heroImage } = Astro.props;
+---
+
+<BaseLayout>
+  {heroImage && (
+    <div class="w-full h-[360px] md:h-[480px] overflow-hidden bg-gray-100">
+      <Image width={1400} height={600} src={heroImage} alt="" class="w-full h-full object-cover" />
+    </div>
+  )}
+
+  <article class="max-w-[680px] mx-auto px-6 pt-6 pb-20">
+    <div class="flex items-center gap-3 mb-4 flex-wrap">
+      {categories?.map((cat: string) => {
+        const catColor = getCategoryColor(cat);
+        return (
+          <a
+            href={`/category/${encodeURIComponent(cat)}`}
+            class="rounded-full px-2.5 py-0.5 text-xs font-medium transition-opacity hover:opacity-80"
+            style={`color: ${catColor}; background: ${catColor}1a;`}
+          >
+            {cat}
+          </a>
+        );
+      })}
+      <span class="text-xs text-gray-400">
+        <FormattedDate date={pubDate} />
+        {updatedDate && (
+            <span>, last updated on <FormattedDate date={updatedDate} /></span>
+        )}
+      </span>
+    </div>
+    <h1 class="text-4xl md:text-4xl leading-tight">{title}</h1>
+    {subtitle && <p class="text-4xl md:text-4xl text-gray-400 mb-6">{subtitle}</p>}
+
+    {description && <p>{description}</p>}
+
+    <div class="post-content">
+      <slot />
+    </div>
+
+  </article>
+</BaseLayout>
