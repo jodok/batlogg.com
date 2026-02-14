@@ -1,7 +1,7 @@
 ---
 import FormattedDate from './FormattedDate.astro';
 import { Image } from 'astro:assets';
-import { getCategoryIcon } from '../utils/categoryIcon';
+import CategoryIcon from './CategoryIcon.astro';
 
 interface Props {
   url: string;
@@ -16,7 +16,6 @@ interface Props {
 const { url, title, description, pubDate, categories, heroImage, featured } = Astro.props;
 
 const category = categories?.[0] || '';
-const icon = getCategoryIcon(category);
 ---
 
 <a
@@ -39,9 +38,7 @@ const icon = getCategoryIcon(category);
   <h3 class:list={["mt-1 flex items-center gap-2 font-semibold text-gray-900", featured ? "mb-1 text-xl" : ""]}>
     {!featured && ( 
       <span class="inline-flex h-[1em] w-[1em] shrink-0 text-gray-500" aria-hidden="true">
-        <svg viewBox={icon.viewBox} fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-          {icon.paths.map((path) => <path d={path}></path>)}
-        </svg>
+        <CategoryIcon category={category} variant="small" />
       </span>
     )}
     <span>{title}</span>

@@ -1,5 +1,6 @@
 ---
 title: '#recalibrate - a new work schedule'
+subtitle: 'Focussing on what is important'
 description: 'How I’m trying to recalibrate myself and my work schedule to focus more on important, longer-term items and less on urgent day-to-day stuff.'
 pubDate: 'Jul 08 2022'
 categories: ['entrepreneurship', 'principles', 'tree.ly']

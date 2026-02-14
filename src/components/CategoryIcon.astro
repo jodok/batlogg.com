@@ -1,0 +1,27 @@
+---
+import { getCategoryColor } from '../utils/categoryColor';
+import { getCategoryIcon } from '../utils/categoryIcon';
+
+interface Props {
+  category?: string;
+  variant?: 'small' | 'large';
+  class?: string;
+}
+
+const { category, variant = 'small', class: className } = Astro.props;
+const icon = getCategoryIcon(category);
+const contourColor = getCategoryColor(category ?? '');
+const isLarge = variant === 'large';
+---
+
+<svg
+  viewBox={icon.viewBox}
+  fill={isLarge ? 'white' : 'none'}
+  stroke={isLarge ? contourColor : 'currentColor'}
+  stroke-width={isLarge ? '1.4' : '1.6'}
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class:list={[isLarge ? 'h-[54px] w-[54px]' : 'h-[1em] w-[1em]', className]}
+>
+  {icon.paths.map((path) => <path d={path}></path>)}
+</svg>
