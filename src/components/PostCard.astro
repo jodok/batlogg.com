@@ -1,7 +1,7 @@
 ---
 import FormattedDate from './FormattedDate.astro';
 import { Image } from 'astro:assets';
-import { getCategoryColor } from '../utils/categoryColor';
+import { getCategoryIcon } from '../utils/categoryIcon';
 
 interface Props {
   url: string;
@@ -16,37 +16,35 @@ interface Props {
 const { url, title, description, pubDate, categories, heroImage, featured } = Astro.props;
 
 const category = categories?.[0] || '';
-const color = getCategoryColor(category);
+const icon = getCategoryIcon(category);
 ---
 
 <a
   href={url}
   class:list={[
-    "group block transition-transform duration-200 hover:-translate-y-0.5",
+    "group block",
     featured
-      ? "overflow-hidden border border-gray-100 bg-white"
+      ? "overflow-hidden hover:bg-gray-50"
       : "-mx-5 px-5 py-5 hover:bg-gray-50",
   ]}
 >
   {featured && heroImage && (
-    <div class="h-[200px] overflow-hidden bg-gray-100">
-      <Image src={heroImage} alt="" width={600} height={400} loading="lazy" class="h-full w-full object-cover" />
+    <div class="aspect-square overflow-hidden bg-gray-100">
+      <Image src={heroImage} alt="" width={600} height={600} loading="lazy" class="h-full w-full object-cover" />
     </div>
   )}
-  <div class:list={[featured && "p-5"]}>
-    <div class="mb-2 flex items-center gap-3">
-      {category && (
-        <span class="rounded-full px-2.5 py-0.5 text-xs font-medium" style={`color: ${color}; background: ${color}1a;`}>
-          {category}
-        </span>
-      )}
-      <span class="text-xs text-gray-400">
-        <FormattedDate date={pubDate} />
-      </span>
-    </div>
-    <h3 class:list={["mb-1 font-semibold text-gray-900 transition-colors group-hover:text-gray-700", featured ? "text-xl" : "text-lg"]}>
-      {title}
-    </h3>
-    {description && <p class="text-gray-500 text-sm leading-relaxed">{description}</p>}
+  <div class:list={["text-xs text-gray-500", featured && "mt-5"]}>
+    <FormattedDate date={pubDate} />
   </div>
+  <h3 class:list={["mt-1 flex items-center gap-2 font-semibold text-gray-900", featured ? "mb-1 text-xl" : ""]}>
+    {!featured && ( 
+      <span class="inline-flex h-[1em] w-[1em] shrink-0 text-gray-500" aria-hidden="true">
+        <svg viewBox={icon.viewBox} fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          {icon.paths.map((path) => <path d={path}></path>)}
+        </svg>
+      </span>
+    )}
+    <span>{title}</span>
+  </h3>
+  {!featured && description && <p class="text-gray-500 text-sm leading-relaxed">{description}</p>}
 </a>

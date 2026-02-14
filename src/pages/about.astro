@@ -1,7 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
 import Timeline from '../components/Timeline.astro';
 import SocialLinks from '../components/SocialLinks.astro';
+import jodokPortrait from '../assets/jodok-darko-todorovic.png';
 
 const timelineEntries = [
   {
@@ -22,33 +24,34 @@ const timelineEntries = [
   {
     period: '2006 - 2013',
     title: 'Co-Founder & CEO, Lovely Systems',
-    description: 'Active contributor to open-source projects including Plone, Zope, and Gentoo Linux. Consulting on distributed systems, search infrastructure, and data engineering.',
+    description: 'Consulting on distributed systems, search infrastructure, and data engineering. We were early adopters of cloud computing and pioneers building user-generated content for media companies.',
   },
   {
     period: 'Early 2000s',
-    title: 'Software Engineer',
-    description: 'Started my career writing code - Java, Python, and everything in between. Built my first production systems and fell in love with the craft.',
+    title: 'Open Source Developer, Board Member',
+    description: 'Active contributor to open-source projects including Plone, Zope, and Gentoo Linux. Served on the board of the Plone Foundation and Zope Foundation advocating for open-source software and community-driven development.',
   },
 ];
 ---
 
 <BaseLayout>
   <section class="max-w-[750px] mx-auto px-6 pt-16 pb-12">
-    <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-10">About</h1>
+    <h1 class="text-4xl md:text-4xl leading-tight mb-10">About</h1>
 
     <!-- Photo + Bio -->
     <div class="flex flex-col md:flex-row gap-10 mb-16">
       <div class="w-full md:w-48 flex-shrink-0">
-        <div class="w-48 h-56 rounded-2xl bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center overflow-hidden">
-          <img src="/assets/jodok-darko-todorovic.png" alt="Jodok Batlogg" class="w-full h-full object-cover" onerror="this.style.display='none';this.parentElement.innerHTML='<span class=&quot;text-gray-400 text-4xl font-bold&quot;>JB</span>'" />
+        <div class="w-48 h-48 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center overflow-hidden">
+          <Image src={jodokPortrait} alt="Jodok Batlogg" width={600} height={600} class="w-full h-full object-cover" />
         </div>
       </div>
       <div>
         <p class="text-lg text-gray-600 leading-relaxed mb-4">
-          I'm Jodok Batlogg - a software engineer by heart who somehow ended up as a CEO. I've spent the last two decades building products, companies, and teams at the intersection of deep technology and real-world impact.
+          Entrepreneur and engineer by heart. Building between Kaos and Kosmos.<br />
+          Leading companies where technology meets impact, with unruly optimism and both feet on the ground.
         </p>
         <p class="text-lg text-gray-600 leading-relaxed mb-4">
-          Today, I lead <strong class="text-gray-900">Pina Earth</strong>, a climate-tech company making high-quality carbon removal transparent and accessible. Before that, I co-founded <strong class="text-gray-900">Crate.io</strong>, where we built CrateDB - a distributed SQL database designed for machine data at scale.
+          Today, I lead <strong class="text-gray-900">Pina Earth</strong>, a climate-tech company making high-quality carbon removal transparent and accessible. 
         </p>
         <p class="text-lg text-gray-600 leading-relaxed">
           I'm based in the Alps, where the mountains remind me daily that the best things are built with patience, persistence, and a healthy respect for nature.
@@ -102,7 +105,7 @@ const timelineEntries = [
 
     <!-- Legal / Impressum -->
     <div class="border-t border-gray-100 pt-10 pb-10">
-      <p class="text-xs font-medium text-gray-400 uppercase tracking-widest mb-4">My Company</p>
+      <p class="text-xs font-medium text-gray-400 uppercase tracking-widest mb-4">My personal Company</p>
       <p class="text-sm text-gray-500 leading-relaxed">
         BTLG Holding GmbH<br />
         Sebastianstrasse 6b<br />
