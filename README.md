@@ -1,62 +1,78 @@
-# Astro Starter Kit: Blog
+# batlogg.com
 
-```sh
-pnpm create astro@latest -- --template blog
-```
+Personal site and blog built with Astro 5, MD/MDX content collections, and Tailwind CSS v4.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Stack
 
-Features:
+- Astro (`astro`)
+- MDX (`@astrojs/mdx`)
+- RSS + sitemap (`@astrojs/rss`, `@astrojs/sitemap`)
+- Astro image pipeline (`astro:assets`, `sharp`)
+- Playwright smoke tests (`@playwright/test`)
 
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and OpenGraph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
+## Project Structure
 
 ```text
-├── public/
-├── src/
-│   ├── components/
-│   ├── content/
-│   ├── layouts/
-│   └── pages/
-├── astro.config.mjs
-├── README.md
-├── package.json
-└── tsconfig.json
+src/
+  components/      Reusable UI
+  content/         Blog posts and media
+  layouts/         Shared page/post layouts
+  pages/           Route files
+  styles/          Global styles
+  utils/           Small utility modules
+public/            Static files
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Content Model
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+Posts are loaded from `src/content/**/*.{md,mdx}` via `src/content.config.ts`.
 
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
+Required frontmatter fields:
 
-Any static assets, like images, can be placed in the `public/` directory.
+- `title: string`
+- `description: string`
+- `pubDate: date`
 
-## 🧞 Commands
+Optional fields:
 
-All commands are run from the root of the project, from a terminal:
+- `subtitle: string`
+- `updatedDate: date`
+- `categories: string[]`
+- `heroImage: image`
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+## Commands
 
-## 👀 Want to learn more?
+- `pnpm install` Install dependencies
+- `pnpm run dev` Start local dev server
+- `pnpm run build` Build static site
+- `pnpm run preview` Serve built site
+- `pnpm run test` Run Playwright tests
 
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## Validation
 
-## Credit
+Minimum check before shipping:
 
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+1. `pnpm run build`
+2. `pnpm run test` (when environment allows binding a local test server)
+
+Note: in restricted sandboxes, Playwright may fail to start with `listen EPERM ...:4321`.
+
+## Cleanup and Refactor Backlog
+
+### High-priority
+
+- Replace the starter-style README/agent guidance with project-specific docs (done).
+- Fix `src/layouts/PostLayout.astro` default subtitle handling so posts without `subtitle` do not render the literal string `"subtitle"`.
+- Make Playwright selectors resilient (`tests/frontpage.spec.ts` uses selectors like `.card-image` and `.featured-card` that are not present in `src/components/PostCard.astro`).
+- Remove duplication in `src/pages/about.astro` by using `src/components/SocialLinks.astro` and `src/components/Timeline.astro` instead of inline repeated SVG/content blocks.
+
+### Medium-priority
+
+- Consolidate post query/sort logic into one helper (currently repeated in `src/pages/index.astro`, `src/pages/posts.astro`, and `src/pages/category/[category].astro`).
+- Improve metadata consistency in `src/layouts/BaseLayout.astro` (`meta description` uses `SITE_DESCRIPTION` while OG description uses page `description`).
+- Normalize category URLs to slug form to avoid raw spaces in routes (for example categories like `food for thought`).
+
+### Low-priority
+
+- Tighten typing and dead code cleanup (`Props` alias in `src/pages/[...slug].astro` is currently unused).
+- Consider a shared component for repeated section headings and spacing utility classes across pages.
