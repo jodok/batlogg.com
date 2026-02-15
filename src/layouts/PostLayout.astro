@@ -1,0 +1,59 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import CategoryIcon from '../components/CategoryIcon.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+
+type Props = CollectionEntry<'posts'>['data'];
+
+const { title, subtitle='subtitle', description, categories, pubDate, updatedDate, heroImage } = Astro.props;
+const primaryCategory = categories?.[0];
+---
+
+<BaseLayout
+  title={title}
+  description={description || subtitle || title}
+  image={heroImage}
+  >
+  {heroImage && (
+    <div class="w-full h-[270px] overflow-hidden">
+      <Image width={1400} height={600} src={heroImage} alt="" class="w-full h-full object-cover" />
+    </div>
+  )}
+
+  <article class="max-w-[680px] mx-auto px-6 pt-6 pb-20">
+    <div class:list={['mb-4', heroImage ? '-mt-12' : '']}>
+      {primaryCategory ? (
+        <a
+          href={`/category/${encodeURIComponent(primaryCategory)}`}
+          class="inline-flex h-12 w-12 items-center justify-center"
+          aria-label={`Category: ${primaryCategory}`}
+        >
+          <CategoryIcon category={primaryCategory} variant="large" />
+        </a>
+      ) : (
+        <span class="inline-flex h-12 w-12 items-center justify-center" aria-hidden="true">
+          <CategoryIcon variant="large" />
+        </span>
+      )}
+    </div>
+    <div>
+      <span class="text-s text-gray-500">
+        <FormattedDate date={pubDate} />
+        {updatedDate && (
+            <span>, last updated on <FormattedDate date={updatedDate} /></span>
+        )}
+      </span>
+    </div>
+    <h1 class="text-4xl md:text-4xl leading-tight">{title}</h1>
+    {subtitle && <p class="text-4xl md:text-4xl text-gray-300 mb-6">{subtitle}</p>}
+
+    {description && <p class="mb-2 font-bold">{description}</p>}
+
+    <div class="post-content">
+      <slot />
+    </div>
+
+  </article>
+</BaseLayout>

@@ -1,7 +1,7 @@
 ---
 import FormattedDate from './FormattedDate.astro';
 import { Image } from 'astro:assets';
-import { getCategoryColor } from '../utils/categoryColor';
+import CategoryIcon from './CategoryIcon.astro';
 
 interface Props {
   url: string;
@@ -16,47 +16,32 @@ interface Props {
 const { url, title, description, pubDate, categories, heroImage, featured } = Astro.props;
 
 const category = categories?.[0] || '';
-const color = getCategoryColor(category);
 ---
 
-<a href={url} class:list={["block card-hover", featured ? "featured-card" : "p-5 -mx-5"]}>
+<a
+  href={url}
+  class:list={[
+    "group block",
+    featured
+      ? "overflow-hidden hover:bg-gray-50"
+      : "-mx-5 px-5 py-5 hover:bg-gray-50",
+  ]}
+>
   {featured && heroImage && (
-    <div class="card-image">
-      <Image src={heroImage} alt="" width={600} height={400} loading="lazy" />
+    <div class="aspect-square overflow-hidden bg-gray-100">
+      <Image src={heroImage} alt="" width={600} height={600} loading="lazy" class="h-full w-full object-cover" />
     </div>
   )}
-  <div class:list={[featured && "p-5"]}>
-    <div class="flex items-center gap-3 mb-2">
-      {category && (
-        <span class="text-xs font-medium px-2.5 py-0.5 rounded-full" style={`color: ${color}; background: ${color}1a;`}>
-          {category}
-        </span>
-      )}
-      <span class="text-xs text-gray-400">
-        <FormattedDate date={pubDate} />
-      </span>
-    </div>
-    <h3 class:list={["font-semibold mb-1", featured ? "text-xl" : "text-lg"]}>{title}</h3>
-    {description && <p class="text-gray-500 text-sm leading-relaxed">{description}</p>}
+  <div class:list={["text-xs text-gray-500", featured && "mt-5"]}>
+    <FormattedDate date={pubDate} />
   </div>
+  <h3 class:list={["mt-1 flex items-center gap-2 font-semibold text-gray-900", featured ? "mb-1 text-xl" : ""]}>
+    {!featured && ( 
+      <span class="inline-flex h-[1em] w-[1em] shrink-0 text-gray-500" aria-hidden="true">
+        <CategoryIcon category={category} variant="small" />
+      </span>
+    )}
+    <span>{title}</span>
+  </h3>
+  {!featured && description && <p class="text-gray-500 text-sm leading-relaxed">{description}</p>}
 </a>
-
-<style>
-  .featured-card {
-    border: 1px solid #f3f4f6;
-    overflow: hidden;
-    border-radius: 0;
-  }
-
-  .card-image {
-    height: 200px;
-    overflow: hidden;
-    background: #f3f4f6;
-  }
-
-  .card-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-</style>

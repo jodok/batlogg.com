@@ -9,7 +9,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://jodok.github.io',
+  site: 'https://batlogg.com',
   integrations: [embeds(), mdx(), sitemap()],
 
   vite: {

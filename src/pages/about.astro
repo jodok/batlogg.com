@@ -1,118 +1,148 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Timeline from '../components/Timeline.astro';
+import { Image } from 'astro:assets';
 import SocialLinks from '../components/SocialLinks.astro';
-
-const timelineEntries = [
-  {
-    period: '2021 - Present',
-    title: 'Co-Founder & CEO, Pina Earth',
-    description: 'Building the infrastructure for trustworthy nature-based carbon credits. Leading a cross-functional team across forestry science, technology, and carbon markets. Started in 2021 with Tree.ly, working on data-driven forest climate projects.',
-  },
-  {
-    period: '2013 - 2021',
-    title: 'Co-Founder & CTO, Crate.io (CrateDB)',
-    description: 'Built a distributed SQL database from zero to millions of inserts per second. Scaled the company to 60+ employees, raised Series A+, flipped the company to US.',
-  },
-  {
-    period: '2009 - 2010',
-    title: 'CTO & Managing Director, VZ Netzwerke (StudiVZ)',
-    description: 'Led engineering and product for StudiVZ (the German Facebook). Architected and refactored platform, managed teams and scaled backend infrastructure.',
-  },
-  {
-    period: '2006 - 2013',
-    title: 'Co-Founder & CEO, Lovely Systems',
-    description: 'Active contributor to open-source projects including Plone, Zope, and Gentoo Linux. Consulting on distributed systems, search infrastructure, and data engineering.',
-  },
-  {
-    period: 'Early 2000s',
-    title: 'Software Engineer',
-    description: 'Started my career writing code - Java, Python, and everything in between. Built my first production systems and fell in love with the craft.',
-  },
-];
+import jodokPortrait from '../assets/jodok-darko-todorovic.png';
 ---
 
-<BaseLayout>
+<BaseLayout
+  title="About"
+  description="Learn about Jodok Batlogg, his background, values, and how to get in touch. Entrepreneur, engineer, and climate tech advocate based in the Alps."
+  >
   <section class="max-w-[750px] mx-auto px-6 pt-16 pb-12">
-    <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-10">About</h1>
+    <h1 class="text-4xl md:text-4xl leading-tight mb-10">About</h1>
 
     <!-- Photo + Bio -->
-    <div class="flex flex-col md:flex-row gap-10 mb-16">
-      <div class="w-full md:w-48 flex-shrink-0">
-        <div class="w-48 h-56 rounded-2xl bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center overflow-hidden">
-          <img src="/assets/jodok-darko-todorovic.png" alt="Jodok Batlogg" class="w-full h-full object-cover" onerror="this.style.display='none';this.parentElement.innerHTML='<span class=&quot;text-gray-400 text-4xl font-bold&quot;>JB</span>'" />
-        </div>
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="aspect-square overflow-hidden">
+        <Image src={jodokPortrait} alt="Jodok Batlogg" width={600} height={600} loading="lazy" class="h-full w-full object-cover" />
       </div>
-      <div>
-        <p class="text-lg text-gray-600 leading-relaxed mb-4">
-          I'm Jodok Batlogg - a software engineer by heart who somehow ended up as a CEO. I've spent the last two decades building products, companies, and teams at the intersection of deep technology and real-world impact.
+      <div class="aspect-square overflow-hidden">
+        <p class="leading-relaxed mb-4">
+          Entrepreneur and engineer by heart. Building between Kaos and Kosmos.<br />
+          Leading companies where technology meets impact, with unruly optimism and both feet on the ground.
         </p>
-        <p class="text-lg text-gray-600 leading-relaxed mb-4">
-          Today, I lead <strong class="text-gray-900">Pina Earth</strong>, a climate-tech company making high-quality carbon removal transparent and accessible. Before that, I co-founded <strong class="text-gray-900">Crate.io</strong>, where we built CrateDB - a distributed SQL database designed for machine data at scale.
+        <p class="leading-relaxed mb-4">
+          Today, I run <a href="https://pina.earth">Pina Earth</a>, a climate-tech company making high-quality carbon removal transparent and accessible. 
         </p>
-        <p class="text-lg text-gray-600 leading-relaxed">
+        <p class="leading-relaxed">
           I'm based in the Alps, where the mountains remind me daily that the best things are built with patience, persistence, and a healthy respect for nature.
         </p>
       </div>
     </div>
 
     <!-- Timeline -->
-    <Timeline entries={timelineEntries} />
+    <h2 class="mt-6 text-l font-semibold leading-[64px] text-gray-900 uppercase">Journey</h2>
+
+    <div class ="text-xs text-gray-500 mt-5">
+      2021 - present
+    </div>
+    <h3 class="mt-1 flex items-center gap-2 font-semibold text-gray-900">
+      Co-Founder & CEO, Pina Earth
+    </h3>
+    <p class="text-gray-500 text-sm leading-relaxed">
+      Building the infrastructure for trustworthy nature-based carbon credits. Leading a cross-functional team across forestry science, technology, and carbon markets. Started in 2021 with Tree.ly, working on data-driven forest climate projects.
+    </p>
+
+    <div class ="text-xs text-gray-500 mt-5">
+      2013 - 2021
+    </div>
+    <h3 class="mt-1 flex items-center gap-2 font-semibold text-gray-900">
+      Co-Founder & CTO, Crate.io (CrateDB)
+    </h3>
+    <p class="text-gray-500 text-sm leading-relaxed">
+      Built a distributed SQL database from zero to millions of inserts per second. Scaled the company to 60+ employees, raised Series A+, flipped the company to US.
+    </p>
+
+    <div class ="text-xs text-gray-500 mt-5">
+      2013 - 2021
+    </div>
+    <h3 class="mt-1 flex items-center gap-2 font-semibold text-gray-900">
+      CTO & Managing Director, VZ Netzwerke (StudiVZ)
+    </h3>
+    <p class="text-gray-500 text-sm leading-relaxed">
+      Led engineering and product for StudiVZ (the German Facebook). Architected and refactored platform, managed teams and scaled backend infrastructure.
+    </p>
+
+    <div class ="text-xs text-gray-500 mt-5">
+      2006 - 2013
+    </div>
+    <h3 class="mt-1 flex items-center gap-2 font-semibold text-gray-900">
+      Co-Founder & CEO, Lovely Systems
+    </h3>
+    <p class="text-gray-500 text-sm leading-relaxed">
+      Consulting on distributed systems, search infrastructure, and data engineering. We were early adopters of cloud computing and pioneers building user-generated content for media companies.
+    </p>
+
+    <div class ="text-xs text-gray-500 mt-5">
+      Early 2000s
+    </div>
+    <h3 class="mt-1 flex items-center gap-2 font-semibold text-gray-900">
+      Open Source Developer, Board Member
+    </h3>
+    <p class="text-gray-500 text-sm leading-relaxed">
+      Active contributor to open-source projects including Plone, Zope, and Gentoo Linux. Served on the board of the Plone Foundation and Zope Foundation advocating for open-source software and community-driven development.
+    </p>
+
 
     <!-- Values / What I Care About -->
-    <div class="border-t border-gray-100 pt-10 mb-16">
-      <p class="text-xs font-medium text-gray-400 uppercase tracking-widest mb-8">What I Care About</p>
-      <div class="grid md:grid-cols-3 gap-6">
-        <div>
-          <div class="w-8 h-8 rounded-lg bg-[#4E9A7A]/10 flex items-center justify-center mb-3">
-            <div class="w-3 h-3 rounded-full bg-[#4E9A7A]"></div>
-          </div>
-          <h3 class="font-semibold text-sm mb-2">Climate & Impact</h3>
-          <p class="text-gray-500 text-sm leading-relaxed">Technology should serve the planet, not just shareholders. I'm obsessed with building things that make a real difference.</p>
-        </div>
-        <div>
-          <div class="w-8 h-8 rounded-lg bg-[#587AE1]/10 flex items-center justify-center mb-3">
-            <div class="w-3 h-3 rounded-full bg-[#587AE1]"></div>
-          </div>
-          <h3 class="font-semibold text-sm mb-2">Engineering Excellence</h3>
-          <p class="text-gray-500 text-sm leading-relaxed">Great software is a craft. I believe in clean code, thoughtful architecture, and the beauty of elegant solutions.</p>
-        </div>
-        <div>
-          <div class="w-8 h-8 rounded-lg bg-[#E2BD38]/10 flex items-center justify-center mb-3">
-            <div class="w-3 h-3 rounded-full bg-[#E2BD38]"></div>
-          </div>
-          <h3 class="font-semibold text-sm mb-2">Leadership</h3>
-          <p class="text-gray-500 text-sm leading-relaxed">The best leaders build other leaders. I write and speak about the human side of building companies.</p>
-        </div>
+    <h2 class="mt-6 text-l font-semibold leading-[64px] text-gray-900 uppercase">What I care about</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div>
+        <h3 class="mt-1 flex items-center gap-2 font-semibold text-gray-900">
+          Climate & Impact
+        </h3>
+        <p class="text-gray-500 text-sm leading-relaxed">
+          Technology should serve the planet, not just shareholders. I'm obsessed with building things that make a real difference.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="mt-1 flex items-center gap-2 font-semibold text-gray-900">
+          Excellence & Quality
+        </h3>
+        <p class="text-gray-500 text-sm leading-relaxed">
+          Coming from Software Engineering i know, great software is a craft. I believe in clean code, thoughtful architecture, and the beauty of elegant solutions.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="mt-1 flex items-center gap-2 font-semibold text-gray-900">
+          Leadership & Self-organisation
+        </h3>
+        <p class="text-gray-500 text-sm leading-relaxed">
+          My job is making others great. I deeply care about the human side of things. I commit to the Agile Values: Courage, Commitment, Focus, Openness, and Respect
+        </p>
       </div>
     </div>
 
+    <!-- Legal / Impressum -->
+    <h2 class="mt-6 text-l font-semibold leading-[64px] text-gray-900 uppercase">My personal company</h2>
+    <p class="text-sm text-gray-500 leading-relaxed">
+      BTLG Holding GmbH<br />
+      Sebastianstrasse 6b<br />
+      A-6850 Dornbirn
+    </p>
+    <p class="text-sm text-gray-500 leading-relaxed mt-2">
+      VAT ID: ATU76595739, Company register: FN 551389 t
+    </p>
+
     <!-- Contact -->
-    <div class="border-t border-gray-100 pt-10 pb-10">
-      <p class="text-xs font-medium text-gray-400 uppercase tracking-widest mb-6">Get in Touch</p>
-      <p class="text-gray-600 leading-relaxed mb-6">
-        I'm always happy to chat about climate tech, distributed systems, or the challenges of building companies. Reach out - I read every email.
-      </p>
-      <a href="mailto:jodok@batlogg.com" class="inline-flex items-center gap-2 text-sm font-medium text-gray-900 border border-gray-200 rounded-full px-5 py-2.5 hover:border-gray-400 transition">
-        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        jodok@batlogg.com
+    <h2 class="mt-6 text-l font-semibold leading-[64px] text-gray-900 uppercase">Get in touch</h2>
+    <div class="flex gap-6">
+      <a href="mailto:jodok@batlogg.com" class="text-gray-400 hover:text-gray-900 transition" aria-label="LinkedIn">
+        <svg width=20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
       </a>
-      <SocialLinks class="mt-8" />
+      <a href="https://linkedin.com/in/jodok" target="_blank" rel="noreferrer" class="text-gray-400 hover:text-gray-900 transition" aria-label="LinkedIn">
+        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </a>
+      <a href="https://instagram.com/jodok" target="_blank" rel="noreferrer" class="text-gray-400 hover:text-gray-900 transition" aria-label="Instagram">
+        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M7.8 2C4.6 2 2 4.6 2 7.8V16.2C2 19.4 4.6 22 7.8 22H16.2C19.4 22 22 19.4 22 16.2V7.8C22 4.6 19.4 2 16.2 2H7.8M7.6 4H16.4C18.4 4 20 5.6 20 7.6V16.4C20 18.4 18.4 20 16.4 20H7.6C5.6 20 4 18.4 4 16.4V7.6C4 5.6 5.6 4 7.6 4M17.25 5.5A1.25 1.25 0 0 0 16 6.75A1.25 1.25 0 0 0 17.25 8A1.25 1.25 0 0 0 18.5 6.75A1.25 1.25 0 0 0 17.25 5.5M12 7A5 5 0 0 0 7 12A5 5 0 0 0 12 17A5 5 0 0 0 17 12A5 5 0 0 0 12 7M12 9A3 3 0 0 1 15 12A3 3 0 0 1 12 15A3 3 0 0 1 9 12A3 3 0 0 1 12 9Z"></path></svg>
+      </a>
+      <a href="https://github.com/jodok" target="_blank" rel="noreferrer" class="text-gray-400 hover:text-gray-900 transition" aria-label="GitHub">
+        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      </a>
     </div>
 
-    <!-- Legal / Impressum -->
-    <div class="border-t border-gray-100 pt-10 pb-10">
-      <p class="text-xs font-medium text-gray-400 uppercase tracking-widest mb-4">My Company</p>
-      <p class="text-sm text-gray-500 leading-relaxed">
-        BTLG Holding GmbH<br />
-        Sebastianstrasse 6b<br />
-        6850 Dornbirn<br />
-        Austria
-      </p>
-      <p class="text-sm text-gray-500 leading-relaxed mt-2">
-        VAT ID: ATU76595739<br />
-        Company register: FN 551389 t
-      </p>
-    </div>
   </section>
 </BaseLayout>
