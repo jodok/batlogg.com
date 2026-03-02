@@ -14,5 +14,11 @@ export default defineConfig({
 
   vite: {
     plugins: [tailwindcss()],
+    resolve: {
+      alias: {
+        '@astro-community/astro-embed-bluesky': '/src/compat/astro-embed-bluesky-stub.ts',
+        '@astro-community/astro-embed-bluesky/matcher': '/src/compat/astro-embed-bluesky-matcher-stub.ts',
+      },
+    },
   },
 });
