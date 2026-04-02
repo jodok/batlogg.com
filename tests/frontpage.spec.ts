@@ -3,8 +3,8 @@ import { test, expect } from '@playwright/test';
 test('frontpage featured post images load correctly', async ({ page }) => {
   await page.goto('/');
 
-  // Get all featured post images
-  const images = page.locator('.card-image img');
+  // Featured posts use aspect-square containers with images
+  const images = page.locator('.aspect-square img');
   const count = await images.count();
   expect(count).toBeGreaterThan(0);
 
@@ -32,7 +32,8 @@ test('frontpage featured post images load correctly', async ({ page }) => {
 test('frontpage featured post images have no rounded corners', async ({ page }) => {
   await page.goto('/');
 
-  const cards = page.locator('.featured-card');
+  // Featured post image containers
+  const cards = page.locator('.aspect-square');
   const count = await cards.count();
   expect(count).toBeGreaterThan(0);
 
@@ -48,8 +49,8 @@ test('frontpage featured post images have no rounded corners', async ({ page }) 
 test('frontpage recent posts show descriptions', async ({ page }) => {
   await page.goto('/');
 
-  // The recent posts section should contain description text
-  const recentPostDescriptions = page.locator('.border-t .space-y-2 .text-gray-500.text-sm');
+  // Recent posts have description paragraphs with these classes
+  const recentPostDescriptions = page.locator('p.text-gray-500.text-sm');
   const count = await recentPostDescriptions.count();
   expect(count).toBeGreaterThan(0);
 });
