@@ -14,11 +14,11 @@ test('frontpage featured post images load correctly', async ({ page }) => {
     await img.scrollIntoViewIfNeeded();
     // Wait for the image to load
     await expect(img).toBeVisible();
-    // Wait until the image has loaded and has real dimensions
-    await expect(img).toHaveJSProperty('complete', true);
-    await expect(
-      img.evaluate((el: HTMLImageElement) => el.naturalWidth > 0),
-    ).resolves.toBe(true);
+    // Poll until the image has decoded and has real dimensions
+    await expect.poll(
+      () => img.evaluate((el: HTMLImageElement) => el.complete && el.naturalWidth > 0),
+      { timeout: 10000 },
+    ).toBe(true);
   }
 });
 
