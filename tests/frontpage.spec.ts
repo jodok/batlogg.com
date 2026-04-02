@@ -14,18 +14,11 @@ test('frontpage featured post images load correctly', async ({ page }) => {
     await img.scrollIntoViewIfNeeded();
     // Wait for the image to load
     await expect(img).toBeVisible();
-    await img.evaluate((el: HTMLImageElement) => {
-      if (el.complete) return;
-      return new Promise<void>((resolve, reject) => {
-        el.addEventListener('load', () => resolve());
-        el.addEventListener('error', () => reject(new Error('Image failed to load')));
-      });
-    });
-
-    const naturalWidth = await img.evaluate(
-      (el: HTMLImageElement) => el.naturalWidth,
-    );
-    expect(naturalWidth).toBeGreaterThan(0);
+    // Wait until the image has loaded and has real dimensions
+    await expect(img).toHaveJSProperty('complete', true);
+    await expect(
+      img.evaluate((el: HTMLImageElement) => el.naturalWidth > 0),
+    ).resolves.toBe(true);
   }
 });
 
