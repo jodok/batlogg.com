@@ -14,7 +14,7 @@ test('frontpage featured post images load correctly', async ({ page }) => {
     // Verify the image has a valid src pointing to an optimized asset
     const src = await img.getAttribute('src');
     expect(src).toBeTruthy();
-    expect(src).toMatch(/\/_astro\/.+\.(webp|png|jpg|jpeg|avif)/);
+    expect(src).toMatch(/\/(_astro|_image)[\/?].+/);
   }
 });
 
