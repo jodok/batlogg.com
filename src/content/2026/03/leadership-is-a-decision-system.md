@@ -2,6 +2,7 @@
 title: 'Leadership is a Decision System, not a Personality'
 description: 'Most leadership problems are design problems. A practical framework for better decisions, clearer ownership, and faster execution.'
 pubDate: 'Mar 08 2026'
+heroImage: './leadership-is-a-decision-system-hero.jpeg'
 categories: ['leadership', 'entrepreneurship', 'principles']
 ---
 
