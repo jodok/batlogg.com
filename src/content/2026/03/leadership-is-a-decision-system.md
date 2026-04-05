@@ -1,119 +1,88 @@
 ---
-title: 'Leadership is a Decision System, not a Personality'
-description: 'Most leadership problems are design problems. A practical framework for better decisions, clearer ownership, and faster execution.'
+title: 'Leadership is a Decision System'
+subtitle: 'Not a Personality.'
+description: 'Most leadership problems are design problems. Here is how I think about decisions, ownership, and the contract between leaders and teams.'
 pubDate: 'Mar 08 2026'
-heroImage: './leadership-is-a-decision-system-hero.jpeg'
+heroImage: './IMG_1924.jpeg'
 categories: ['leadership', 'entrepreneurship', 'principles']
 ---
 
-Most leadership problems are not personality problems.
-They are design problems.
+Most leadership problems are not personality problems. They are design problems.
 
-When decisions are unclear, teams slow down.
-When responsibility is fuzzy, politics fills the gap.
-When information is hidden, people hedge instead of acting.
+When decisions are unclear, teams slow down. When responsibility is fuzzy, politics fills the gap. When information is hidden, people hedge instead of acting.
 
-Good leadership is less about charisma and more about building a decision system people can trust.
+I recently wrote down the principles I use to run my organization. Much of it we already lived, but some things had never been said out loud. This is the generalized version — a first braindump, not a letter from above.
 
-## 1. Put decisions where knowledge and responsibility meet
+## Seven principles
 
-The best decision is usually not made at the top.
-It is made where context is highest and consequences are closest.
+**1. Decisions belong where knowledge and responsibility meet.**
+Good decisions don't happen at the top of a hierarchy. They happen where competence and context come together. Everyone should decide as much as possible themselves — because it produces better results, makes us faster, and it's how people grow.
 
-If someone owns the work, they should be able to decide most of what shapes it.
+**2. If you lead, you decide. If you decide, you own it.**
+Leadership and decision responsibility are inseparable. I expect everyone to make decisions — including under uncertainty. Not deciding is not a neutral act. It's the most expensive decision of all, because it blocks everyone else.
 
-Decentralized decisions are not ideology. They are an efficiency tool.
+**3. Better to courageously exceed your authority than to comfortably stay below it.**
+I want people who take responsibility — even beyond their formal scope. There will always be undefined territory. Navigate it smartly and directly. When in doubt: act, move forward, own it. Not: wait and delegate upward.
 
-## 2. Decision rights and accountability are one package
+**4. Results count — and they count for the whole.**
+What matters is outcomes, not activity. Not hours, not meetings, not busywork. Every decision should be measured by what it does for the organization as a whole — not just for your own department.
 
-If you decide, you own the outcome.
-If you own the outcome, you need decision rights.
+**5. Leadership creates the frame.**
+The job of leadership is clarity and structure: about goals, boundaries, rules, and values. So that autonomous action becomes possible. A good frame allows leadership to be present at a distance — not because it's absent, but because the frame holds.
 
-Separating the two creates theater: people "own" targets without authority to move them, or they make calls without carrying consequences.
+**6. Transparency is non-negotiable.**
+If you want people to decide independently, they need access to information. We share what we know. We say what we're doing. We name what we don't know. And we expect the same from each other.
 
-Both are organizational debt.
+**7. Conflicts are resolved, not avoided.**
+Decentralized decisions create tension — that's normal and intentional. We address them openly and respectfully. If you're stuck, get support. That's how the system is built.
 
-## 3. In uncertainty, speed with clarity beats delay with comfort
+## Four altitudes
 
-Not deciding feels safe. It rarely is.
+Not every conversation is the same. I work on four levels — sometimes simultaneously. Knowing which one you're on makes the difference.
 
-In dynamic environments, delayed decisions compound: blocked teams, missed timing, and rising coordination costs.
-A reversible decision made now is often better than a perfect decision made too late.
+- **Lab** — We explore. No commitment, no expected outcome. Ideas can be spoken freely and discarded again. Failing here is explicitly allowed.
+- **Strategy** — Where we're going. Long-term direction, fundamental decisions.
+- **Structure** — How we're set up. Roles, responsibilities, resources. This is where the rules of execution are defined.
+- **Execution** — What gets done today. Your area, your decision.
 
-Bias to action. Correct in public. Learn fast.
+If you don't know which level a conversation is on: ask. That's not weakness, that's good craft.
 
-## 4. Measure outcomes, not motion
+## How decisions flow
 
-Hours worked, meetings attended, and Slack activity are weak signals.
-What matters is whether the system produced value.
+Decisions fall as close to the topic as possible.
 
-A useful question: did this move the whole forward, or only make one function feel busy?
+Your area? Your call. Cross-functional? Leadership team. Fundamental direction? Founders. Long-term? Board.
 
-Local optimization is easy. System outcomes are harder, and more important.
+The CEO doesn't need to be asked for every decision. But can be asked anytime. When necessary, I ask actively — not to control, but because I want to spar.
 
-## 5. Leadership's job is to create the frame
+## Where the boundary lies
 
-Autonomy without frame is chaos.
-Frame without autonomy is bureaucracy.
+There are areas that aren't defined yet — and that's fine. Navigate them smartly and directly: curious, unconventional when needed. Like a fox: resourceful and bold. Not cunning, not at others' expense.
 
-A strong operating frame defines direction, boundaries, non-negotiables, and conflict resolution.
-Inside that frame, people should move fast without asking for permission every 20 minutes.
+Exceeding your competence is courage. Falling below transparency is a breach of trust.
 
-## 6. Transparency is infrastructure
+Culture is what happens when nobody is watching. The decisions someone makes when the boss isn't in the room. The actions nobody sees — but that shape the result anyway.
 
-You cannot expect independent decisions if people do not have access to relevant facts.
+Act in a way you could openly state at any time.
 
-Good teams share what they know, what they are doing, and what they still do not know.
-This reduces duplicate work, improves judgment, and lowers politics.
+Every minute that flows into politics is missing from the result.
 
-Opacity is expensive.
+## My part of the contract
 
-## 7. Conflict is part of the design
+**I stand behind you.** If someone makes a decision I've supported, I also stand behind the consequences. No second-guessing, no "I would have done that differently." If I disagree, I say so beforehand.
 
-If decision-making is distributed, disagreements are guaranteed.
-That is not a bug.
+**I explain why.** If I decide differently than expected, you have the right to understand why. That's not distrust — it's my job. But I owe you the reasoning.
 
-Avoided conflict becomes passive resistance.
-Addressed conflict becomes progress.
+**I name the altitude.** If I'm exploring, I say so. If I have an opinion but no justification yet, I say so. If you should decide, I say it clearly.
 
-The standard should be direct, respectful, and timely.
+**I'm available for what's undecidable.** My job is not to make your decisions. My job is to decide the things nobody else can decide — and otherwise get out of the way.
 
-## 8. Name the altitude of the conversation
+**I use my veto rarely — but I use it.** It's the safety net of the system, not the first tool. When it comes, it comes with an explanation.
 
-A lot of confusion comes from mixing modes.
-I use four altitudes:
+## What this means for you
 
-- Lab: exploration, no commitment yet.
-- Strategy: long-term direction and tradeoffs.
-- Structure: roles, responsibilities, and interfaces.
-- Execution: concrete delivery decisions now.
+Take responsibility. Make decisions. Step into the undefined space when it serves the result.
 
-People get frustrated when they think a Lab discussion is a final decision, or treat an Execution issue as a Strategy debate.
-Name the altitude early. It saves hours.
+Act transparently. Address conflicts openly. And when you're stuck — get support. That's what the structures are for.
 
-## 9. Undefined space is where leadership shows up
-
-No org chart covers reality perfectly.
-There is always gray space.
-
-In those moments, I value people who step in with judgment: transparent, constructive, and accountable.
-Not reckless. Not passive. Not political.
-
-A simple test: act in a way you could explain openly afterward.
-
-## 10. The leadership contract goes both ways
-
-What teams owe leadership is clear: ownership, transparency, and honest escalation.
-
-What leadership owes teams is equally clear:
-
-- support when people make good-faith decisions,
-- clear reasoning when overruling,
-- intervention only where truly necessary.
-
-Veto power should be a safety net, not a management style.
-
-Leadership is not about controlling more decisions.
-It is about building a system where better decisions happen without you in every room.
-
-That is how organizations scale without becoming slow, political, or fragile.
+Structure is the frame. What emerges within it is up to all of us.
