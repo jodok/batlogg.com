@@ -47,9 +47,12 @@
     @apply rounded bg-gray-100 px-1.5 py-0.5 text-[0.9em] text-emerald-700;
   }
 
-  .post-content ul,
+  .post-content ul {
+    @apply my-4 ml-6 list-disc text-gray-700;
+  }
+
   .post-content ol {
-    @apply my-4 ml-6 text-gray-700;
+    @apply my-4 ml-6 list-decimal text-gray-700;
   }
 
   .post-content li {

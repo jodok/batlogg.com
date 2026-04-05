@@ -23,6 +23,15 @@ const isWriting = pathname.startsWith('/posts') || pathname.startsWith('/20');
         Home
       </a>
       <a
+        href="/posts"
+        class:list={[
+          "border-b border-transparent py-0.5 font-medium transition-colors",
+          isWriting ? "border-gray-900 text-gray-900" : "text-gray-600 hover:border-gray-300 hover:text-gray-900",
+        ]}
+      >
+        Writing
+      </a>
+      <a
         href="/about"
         class:list={[
           "border-b border-transparent py-0.5 font-medium transition-colors",
