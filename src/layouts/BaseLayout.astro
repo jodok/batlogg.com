@@ -2,17 +2,50 @@
 import '../styles/global.css';
 import type { ImageMetadata } from 'astro';
 import FallbackImage from '../assets/blog-placeholder-1.jpg';
+import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import { SITE_TITLE } from '../consts';
 
 interface Props {
-	title: string;
-	description: string;
+	title?: string;
+	description?: string;
 	image?: ImageMetadata;
+	imageAlt?: string;
+	ogType?: 'website' | 'article';
+	jsonLd?: unknown;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const { title, description, image = FallbackImage } = Astro.props;
+const {
+	title = SITE_TITLE,
+	description = SITE_TITLE,
+	image = FallbackImage,
+	imageAlt,
+	ogType = 'website',
+	jsonLd,
+} = Astro.props;
+const displayTitle = title === SITE_TITLE || title.includes(SITE_TITLE) ? title : `${title} | ${SITE_TITLE}`;
+const defaultJsonLd = {
+	'@context': 'https://schema.org',
+	'@graph': [
+		{
+			'@type': 'Organization',
+			name: SITE_TITLE,
+			url: Astro.site?.toString(),
+		},
+		{
+			'@type': 'WebSite',
+			name: SITE_TITLE,
+			url: Astro.site?.toString(),
+		},
+		{
+			'@type': 'WebPage',
+			name: displayTitle,
+			description,
+			url: canonicalURL.toString(),
+		},
+	],
+};
 ---
 
 <!doctype html>
@@ -37,16 +70,26 @@ const { title, description, image = FallbackImage } = Astro.props;
     <link rel="canonical" href={canonicalURL} />
 
     <!-- Primary Meta Tags -->
-    <title>{title}</title>
-    <meta name="title" content={title} />
-    <meta name="description" content={SITE_DESCRIPTION} />
+    <title>{displayTitle}</title>
+    <meta name="title" content={displayTitle} />
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
 
     <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:url" content={Astro.url} />
-    <meta property="og:title" content={title} />
+    <meta property="og:title" content={displayTitle} />
+    <meta property="og:site_name" content={SITE_TITLE} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={new URL(image.src, Astro.url)} />
+    {imageAlt && <meta property="og:image:alt" content={imageAlt} />}
+
+    <meta name="twitter:card" content={image ? 'summary_large_image' : 'summary'} />
+    <meta name="twitter:title" content={displayTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL(image.src, Astro.url)} />
+
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd || defaultJsonLd)} />
 
     <!-- Analytics -->
     <script defer src="https://cloud.umami.is/script.js" data-website-id="218d5a73-5359-41dd-aa5b-575de2ae33f5"></script>
@@ -56,5 +99,6 @@ const { title, description, image = FallbackImage } = Astro.props;
     <main class="pt-14">
       <slot />
     </main>
+    <Footer />
   </body>
 </html>
