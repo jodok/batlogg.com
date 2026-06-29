@@ -15,6 +15,7 @@ const posts = defineCollection({
 			pubDate: z.coerce.date(),
 			updatedDate: z.coerce.date().optional(),
 			heroImage: image().optional(),
+			heroImagePosition: z.string().optional(),
 		}),
 });
 

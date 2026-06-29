@@ -7,7 +7,7 @@ import FormattedDate from '../components/FormattedDate.astro';
 
 type Props = CollectionEntry<'posts'>['data'];
 
-const { title, subtitle, description, categories, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, subtitle, description, categories, pubDate, updatedDate, heroImage, heroImagePosition } = Astro.props;
 const primaryCategory = categories?.[0];
 ---
 
@@ -18,7 +18,14 @@ const primaryCategory = categories?.[0];
   >
   {heroImage && (
     <div class="w-full h-[270px] overflow-hidden">
-      <Image width={1400} height={600} src={heroImage} alt="" class="w-full h-full object-cover" />
+      <Image
+        width={1400}
+        height={600}
+        src={heroImage}
+        alt=""
+        class="w-full h-full object-cover"
+        style={heroImagePosition ? { objectPosition: heroImagePosition } : undefined}
+      />
     </div>
   )}
 
