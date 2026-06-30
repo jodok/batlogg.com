@@ -31,6 +31,10 @@
     @apply mb-5 leading-7 text-gray-700;
   }
 
+  .post-content-article > p:first-child {
+    @apply mb-7 text-xl font-medium leading-8 text-gray-800;
+  }
+
   .post-content blockquote {
     @apply my-6 border-l-[3px] border-l-[#7CC745] bg-lime-50 px-5 py-3 italic text-gray-700;
   }
