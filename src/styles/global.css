@@ -35,6 +35,17 @@
     @apply mb-8 text-lg font-medium leading-8 text-gray-800 md:text-xl;
   }
 
+  .post-content lite-youtube,
+  .post-content lite-vimeo {
+    @apply my-10 w-full overflow-hidden rounded-lg;
+    max-width: 100%;
+  }
+
+  .post-content lite-youtube + .video-caption,
+  .post-content lite-vimeo + .video-caption {
+    @apply -mt-7 mb-8 text-sm leading-6 text-gray-500;
+  }
+
   .post-content blockquote {
     @apply my-6 border-l-[3px] border-l-[#7CC745] bg-lime-50 px-5 py-3 italic text-gray-700;
   }
