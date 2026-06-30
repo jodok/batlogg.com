@@ -1,18 +1,22 @@
 ---
-import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PostCard from '../components/PostCard.astro';
+import { getPublishedPosts } from '../utils/posts';
 
-const posts = (await getCollection('posts')).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-);
+const posts = await getPublishedPosts();
 const featuredPosts = posts.slice(0, 2);
-const recentPosts = posts.slice(2);
+const recentPosts = posts.slice(2, 8);
+const previousCompanies = [
+  { name: 'Tree.ly (now Pina Earth)', color: '#8e5fa4' },
+  { name: 'CrateDB', color: '#cb7859' },
+  { name: 'VZ Netzwerke (StudiVZ)', color: '#d5b03f' },
+  { name: 'Lovely Systems', color: '#6b7280' },
+];
 ---
 
 <BaseLayout
   title="Home"
-  description="Jodok Batlogg's personal website and blog. Thoughts on technology, climate, and entrepreneurship."
+  description="Jodok Batlogg — serial entrepreneur and engineer based in Dornbirn, Austria. Thoughts on technology, climate, and entrepreneurship."
   >
   <!-- Hero Shapes -->
   <div
@@ -27,12 +31,31 @@ const recentPosts = posts.slice(2);
   <!-- Short Intro -->
   <section class="max-w-[750px] mx-auto px-6 pt-16 pb-12">
     <h1 class="text-4xl md:text-4xl leading-tight">Jodok Batlogg</h1>
-    <p class="text-4xl md:text-4xl text-gray-400 mb-6">Griaß eich die Madln,<br />servas die Buam.</p>
+    <p class="mt-4 max-w-[34rem] text-xl leading-snug tracking-tight text-gray-600 md:text-2xl">
+      Entrepreneur and engineer, building where technology meets impact.
+    </p>
+    <p class="mt-5 text-lg leading-snug text-gray-400">Griaß eich die Madln, Servas die Buam.</p>
+    <div class="mt-8 flex flex-wrap items-center gap-3">
+      <a href="/about" class="inline-flex items-center bg-[#8e5fa4] px-5 py-2.5 text-sm font-medium text-white transition-opacity hover:opacity-90">
+        Read my story
+      </a>
+      <a href="/about#get-in-touch" class="inline-flex items-center border border-gray-200 px-5 py-2.5 text-sm font-medium text-gray-900 transition-colors hover:bg-gray-50">
+        Get in touch
+      </a>
+    </div>
+    <div class="mt-10 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-gray-600">
+      <span class="text-xs font-semibold uppercase tracking-tight">Previously</span>
+        {previousCompanies.map((company) => (
+          <span class="inline-flex items-center gap-1.5">
+            <span class="h-1.5 w-1.5 shrink-0" style={`background-color: ${company.color}`}></span>
+            {company.name}
+          </span>
+        ))}
+    </div>
   </section>
 
   <!-- Featured Posts (2, with images) -->
-  <section class="max-w-[750px] mx-auto px-6 pb-6">
-    <h2 class="mb-6 text-l font-semibold leading-[64px] text-gray-900 uppercase">Top posts</h2>
+  <section class="max-w-[750px] mx-auto px-6 pb-10">
     <div class="grid md:grid-cols-2 gap-6">
       {featuredPosts.map((post) => (
         <PostCard
@@ -48,10 +71,9 @@ const recentPosts = posts.slice(2);
     </div>
   </section>
 
-  <!-- Recent Posts (next 8) -->
+  <!-- Recent Posts -->
   {recentPosts.length > 0 && (
-    <section class="max-w-[750px] mx-auto px-6">
-      <h2 class="mb-2 text-l font-semibold leading-[64px] text-gray-900 uppercase">Blog</h2>
+    <section class="max-w-[750px] mx-auto px-6 pt-2 pb-20">
       {recentPosts.map((post) => (
         <PostCard
           url={`/${post.id}/`}
@@ -61,6 +83,11 @@ const recentPosts = posts.slice(2);
           categories={post.data.categories}
         />
       ))}
+      <div class="mt-8 border-t border-gray-100 pt-6">
+        <a href="/posts" class="inline-flex items-center border border-gray-200 px-5 py-2.5 text-sm font-medium text-gray-900 transition-colors hover:bg-gray-50">
+          Browse all writing
+        </a>
+      </div>
     </section>
   )}
 </BaseLayout>

@@ -1,0 +1,79 @@
+---
+interface Category {
+  name: string;
+  count: number;
+}
+
+interface Props {
+  categories: Category[];
+  totalCount: number;
+  activeCategory?: string;
+}
+
+const { categories, totalCount, activeCategory } = Astro.props;
+const visibleLimit = 16;
+const topCategories = categories.slice(0, visibleLimit);
+const activeCategoryItem = activeCategory
+  ? categories.find((category) => category.name === activeCategory)
+  : undefined;
+const visibleCategories =
+  activeCategoryItem && !topCategories.some((category) => category.name === activeCategory)
+    ? [...topCategories.slice(0, visibleLimit - 1), activeCategoryItem]
+    : topCategories;
+const visibleCategoryNames = new Set(visibleCategories.map((category) => category.name));
+const additionalCategories = categories.filter((category) => !visibleCategoryNames.has(category.name));
+---
+
+<nav class="mt-8 border-y border-gray-100 py-5" aria-label="Filter posts by category">
+  <div class="mb-3 text-xs font-semibold uppercase tracking-tight text-gray-500">Categories</div>
+  <div class="flex flex-wrap gap-2">
+    <a
+      href="/posts"
+      class:list={[
+        "inline-flex items-center gap-1 border px-3 py-1.5 text-sm font-medium transition-colors",
+        activeCategory
+          ? "border-gray-200 text-gray-600 hover:bg-gray-50 hover:text-gray-900"
+          : "border-gray-900 bg-gray-900 text-white",
+      ]}
+    >
+      All
+      <span class:list={[activeCategory ? "text-gray-400" : "text-white/60"]}>
+        {totalCount}
+      </span>
+    </a>
+    {visibleCategories.map((category) => (
+      <a
+        href={`/category/${encodeURIComponent(category.name)}`}
+        class:list={[
+          "inline-flex items-center gap-1 border px-3 py-1.5 text-sm font-medium transition-colors",
+          activeCategory === category.name
+            ? "border-[#8e5fa4] bg-[#8e5fa4] text-white"
+            : "border-gray-200 text-gray-600 hover:bg-gray-50 hover:text-gray-900",
+        ]}
+      >
+        {category.name}
+        <span class:list={[activeCategory === category.name ? "text-white/60" : "text-gray-400"]}>
+          {category.count}
+        </span>
+      </a>
+    ))}
+  </div>
+  {additionalCategories.length > 0 && (
+    <details class="mt-3">
+      <summary class="cursor-pointer text-sm font-medium text-gray-500 transition-colors hover:text-gray-900">
+        More categories
+      </summary>
+      <div class="mt-3 flex flex-wrap gap-2">
+        {additionalCategories.map((category) => (
+          <a
+            href={`/category/${encodeURIComponent(category.name)}`}
+            class="inline-flex items-center gap-1 border border-gray-200 px-3 py-1.5 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-50 hover:text-gray-900"
+          >
+            {category.name}
+            <span class="text-gray-400">{category.count}</span>
+          </a>
+        ))}
+      </div>
+    </details>
+  )}
+</nav>

@@ -1,20 +1,29 @@
 ---
-import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import CategoryFilters from '../components/CategoryFilters.astro';
 import PostCard from '../components/PostCard.astro';
+import { getPostCategories, getPublishedPosts } from '../utils/posts';
 
-const posts = (await getCollection('posts')).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-);
+const posts = await getPublishedPosts();
+const categories = getPostCategories(posts);
 ---
 
 <BaseLayout
-  title="Posts - My Personal Blog"
-  description="Read my latest blog posts on web development, programming, and technology."
+  title="Writing"
+  description="Essays and notes by Jodok Batlogg on technology, climate, leadership, and building companies."
   >
-  <section class="max-w-[750px] mx-auto px-6 pt-16 pb-20">
-    <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-10">Writing</h1>
-    <div class="space-y-6">
+  <section class="mx-auto max-w-[750px] px-6 pt-28 pb-20">
+    <p class="text-xs font-semibold uppercase tracking-tight text-[#8e5fa4]">Writing</p>
+    <h1 class="mt-3 max-w-[38rem] text-4xl leading-tight md:text-5xl">
+      Notes from the field.
+    </h1>
+    <p class="mt-6 max-w-[36rem] text-lg leading-relaxed text-gray-600">
+      Essays and field notes on technology, climate, leadership, company building, and the occasional detour.
+    </p>
+
+    <CategoryFilters categories={categories} totalCount={posts.length} />
+
+    <div class="mt-8 space-y-2">
       {posts.map((post) => (
         <PostCard
           url={`/${post.id}/`}

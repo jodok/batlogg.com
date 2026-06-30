@@ -2,23 +2,69 @@
 import BaseLayout from "./BaseLayout.astro";
 import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
+import Categories from '../components/Categories.astro';
 import CategoryIcon from '../components/CategoryIcon.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 
 type Props = CollectionEntry<'posts'>['data'];
 
-const { title, subtitle, description, categories, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, subtitle, description, categories, pubDate, updatedDate, heroImage, heroImagePosition } = Astro.props;
 const primaryCategory = categories?.[0];
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const imageURL = heroImage ? new URL(heroImage.src, Astro.url).toString() : undefined;
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      name: 'Jodok Batlogg',
+      url: Astro.site?.toString(),
+    },
+    {
+      '@type': 'WebSite',
+      name: 'Jodok Batlogg',
+      url: Astro.site?.toString(),
+    },
+    {
+      '@type': 'Article',
+      headline: title,
+      name: title,
+      description: description || subtitle || title,
+      datePublished: pubDate.toISOString(),
+      dateModified: (updatedDate || pubDate).toISOString(),
+      author: {
+        '@type': 'Person',
+        name: 'Jodok Batlogg',
+      },
+      publisher: {
+        '@type': 'Person',
+        name: 'Jodok Batlogg',
+      },
+      ...(imageURL ? { image: imageURL } : {}),
+      url: canonicalURL.toString(),
+      mainEntityOfPage: canonicalURL.toString(),
+    },
+  ],
+};
 ---
 
 <BaseLayout
   title={title}
   description={description || subtitle || title}
   image={heroImage}
+  ogType="article"
+  jsonLd={jsonLd}
   >
   {heroImage && (
     <div class="w-full h-[270px] overflow-hidden">
-      <Image width={1400} height={600} src={heroImage} alt="" class="w-full h-full object-cover" />
+      <Image
+        width={1400}
+        height={600}
+        src={heroImage}
+        alt=""
+        class="w-full h-full object-cover"
+        style={heroImagePosition ? { objectPosition: heroImagePosition } : undefined}
+      />
     </div>
   )}
 
@@ -38,20 +84,23 @@ const primaryCategory = categories?.[0];
         </span>
       )}
     </div>
-    <div>
-      <span class="text-s text-gray-500">
-        <FormattedDate date={pubDate} />
-        {updatedDate && (
-            <span>, last updated on <FormattedDate date={updatedDate} /></span>
-        )}
-      </span>
-    </div>
-    <h1 class="text-4xl md:text-4xl leading-tight">{title}</h1>
-    {subtitle && <p class="text-4xl md:text-4xl text-gray-300 mb-6">{subtitle}</p>}
+    <header class="mb-8">
+      <div class="mb-2">
+        <span class="text-sm text-gray-500">
+          <FormattedDate date={pubDate} />
+          {updatedDate && (
+              <span>, last updated on <FormattedDate date={updatedDate} /></span>
+          )}
+        </span>
+      </div>
+      <h1 class="text-4xl leading-tight md:text-4xl">{title}</h1>
+      {subtitle && <p class="mt-2 text-3xl leading-tight text-gray-300 md:text-4xl">{subtitle}</p>}
+      <div class="mt-5">
+        <Categories categories={categories} />
+      </div>
+    </header>
 
-    {description && <p class="mb-2 font-bold">{description}</p>}
-
-    <div class="post-content">
+    <div class="post-content post-content-article">
       <slot />
     </div>
 
