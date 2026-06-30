@@ -43,16 +43,14 @@ const previousCompanies = [
         Get in touch
       </a>
     </div>
-    <div class="mt-10">
-      <div class="mb-2 text-xs font-semibold uppercase tracking-tight text-gray-600">Previously</div>
-      <div class="flex flex-wrap gap-2 text-sm text-gray-600">
+    <div class="mt-10 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-gray-600">
+      <span class="text-xs font-semibold uppercase tracking-tight">Previously</span>
         {previousCompanies.map((company) => (
-          <span class="inline-flex items-center gap-2 border border-gray-200 px-3 py-1.5">
-            <span class="h-2 w-2 shrink-0" style={`background-color: ${company.color}`}></span>
+          <span class="inline-flex items-center gap-1.5">
+            <span class="h-1.5 w-1.5 shrink-0" style={`background-color: ${company.color}`}></span>
             {company.name}
           </span>
         ))}
-      </div>
     </div>
   </section>
 
