@@ -83,16 +83,18 @@ const jsonLd = {
         </span>
       )}
     </div>
-    <div>
-      <span class="text-s text-gray-500">
-        <FormattedDate date={pubDate} />
-        {updatedDate && (
-            <span>, last updated on <FormattedDate date={updatedDate} /></span>
-        )}
-      </span>
-    </div>
-    <h1 class="text-4xl md:text-4xl leading-tight">{title}</h1>
-    {subtitle && <p class="text-4xl md:text-4xl text-gray-300 mb-6">{subtitle}</p>}
+    <header class="mb-8">
+      <div class="mb-2">
+        <span class="text-sm text-gray-500">
+          <FormattedDate date={pubDate} />
+          {updatedDate && (
+              <span>, last updated on <FormattedDate date={updatedDate} /></span>
+          )}
+        </span>
+      </div>
+      <h1 class="text-4xl leading-tight md:text-4xl">{title}</h1>
+      {subtitle && <p class="mt-2 text-3xl leading-tight text-gray-300 md:text-4xl">{subtitle}</p>}
+    </header>
 
     <div class="post-content post-content-article">
       <slot />

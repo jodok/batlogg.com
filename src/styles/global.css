@@ -32,7 +32,7 @@
   }
 
   .post-content-article > p:first-child {
-    @apply mb-7 text-xl font-medium leading-8 text-gray-800;
+    @apply mb-8 text-lg font-medium leading-8 text-gray-800 md:text-xl;
   }
 
   .post-content blockquote {
