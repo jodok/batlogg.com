@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SocialLinks from '../components/SocialLinks.astro';
+
+const description = 'Contact Jodok Batlogg by email, social channels, or through his personal assistant.';
+---
+
+<BaseLayout title="Contact" description={description}>
+  <section class="mx-auto max-w-[750px] px-6 pt-28 pb-20">
+    <p class="text-xs font-semibold uppercase tracking-tight text-[#8e5fa4]">Contact</p>
+    <h1 class="mt-3 max-w-[38rem] text-4xl leading-tight md:text-5xl">
+      Reach me directly, or route it through my agent.
+    </h1>
+    <p class="mt-6 max-w-[36rem] text-lg leading-relaxed text-gray-600">
+      Best for thoughtful notes, collaboration ideas, speaking requests, climate-tech conversations, or anything that should not disappear in a feed.
+    </p>
+
+    <div class="mt-12 grid gap-4 md:grid-cols-2">
+      <a href="mailto:jodok@batlogg.com" class="block border border-gray-200 p-5 transition-colors hover:bg-gray-50">
+        <span class="text-xs font-semibold uppercase tracking-tight text-gray-500">Email</span>
+        <h2 class="mt-3 text-xl font-semibold text-gray-900">jodok@batlogg.com</h2>
+        <p class="mt-2 text-sm leading-relaxed text-gray-500">The most reliable way to reach me directly.</p>
+      </a>
+
+      <a href="mailto:jodok@batlogg.com?subject=Call%20my%20agent" class="block border border-[#8e5fa4] bg-[#8e5fa4] p-5 text-white transition-opacity hover:opacity-90">
+        <span class="text-xs font-semibold uppercase tracking-tight text-white/70">Assistant</span>
+        <h2 class="mt-3 text-xl font-semibold">Call my agent</h2>
+        <p class="mt-2 text-sm leading-relaxed text-white/80">For scheduling, routing, and the things my personal assistant should help triage.</p>
+      </a>
+    </div>
+
+    <div class="mt-12 border-t border-gray-100 pt-8">
+      <h2 class="text-sm font-semibold uppercase tracking-tight text-gray-900">Elsewhere</h2>
+      <SocialLinks class="mt-5" />
+      <p class="mt-5 max-w-[34rem] text-sm leading-relaxed text-gray-500">
+        I am on X, LinkedIn, Instagram, and GitHub. For anything time-sensitive or private, email is still better than social DMs.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

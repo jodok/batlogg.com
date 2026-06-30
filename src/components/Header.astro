@@ -2,6 +2,7 @@
 const pathname = Astro.url.pathname;
 const isHome = pathname === '/' || pathname === '';
 const isAbout = pathname.startsWith('/about');
+const isContact = pathname.startsWith('/contact');
 const isWriting = pathname.startsWith('/posts') || pathname.startsWith('/20');
 ---
 
@@ -40,6 +41,15 @@ const isWriting = pathname.startsWith('/posts') || pathname.startsWith('/20');
       >
         About
       </a>
+      <a
+        href="/contact"
+        class:list={[
+          "border-b border-transparent py-0.5 font-medium transition-colors",
+          isContact ? "border-gray-900 text-gray-900" : "text-gray-600 hover:border-gray-300 hover:text-gray-900",
+        ]}
+      >
+        Contact
+      </a>
     </div>
     <button class="inline-flex items-center justify-center p-1 md:hidden" id="hamburger-btn" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu">
       <span class="sr-only">Toggle navigation</span>
@@ -52,6 +62,7 @@ const isWriting = pathname.startsWith('/posts') || pathname.startsWith('/20');
     <a href="/" class:list={["block py-2 text-sm font-medium", isHome ? "text-gray-900" : "text-gray-600"]}>Home</a>
     <a href="/posts" class:list={["block py-2 text-sm font-medium", isWriting ? "text-gray-900" : "text-gray-600"]}>Writing</a>
     <a href="/about" class:list={["block py-2 text-sm font-medium", isAbout ? "text-gray-900" : "text-gray-600"]}>About</a>
+    <a href="/contact" class:list={["block py-2 text-sm font-medium", isContact ? "text-gray-900" : "text-gray-600"]}>Contact</a>
   </div>
 </nav>
 
