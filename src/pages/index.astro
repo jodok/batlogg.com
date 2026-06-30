@@ -6,6 +6,12 @@ import { getPublishedPosts } from '../utils/posts';
 const posts = await getPublishedPosts();
 const featuredPosts = posts.slice(0, 2);
 const recentPosts = posts.slice(2, 8);
+const previousCompanies = [
+  { name: 'Tree.ly (now Pina Earth)', color: '#8e5fa4' },
+  { name: 'CrateDB', color: '#cb7859' },
+  { name: 'VZ Netzwerke (StudiVZ)', color: '#d5b03f' },
+  { name: 'Lovely Systems', color: '#6b7280' },
+];
 ---
 
 <BaseLayout
@@ -37,15 +43,16 @@ const recentPosts = posts.slice(2, 8);
         Get in touch
       </a>
     </div>
-    <div class="mt-10 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-gray-600">
-      <span class="text-xs font-semibold uppercase tracking-tight">Previously</span>
-      <span>Tree.ly (now Pina Earth)</span>
-      <span aria-hidden="true" class="text-gray-400">·</span>
-      <span>CrateDB</span>
-      <span aria-hidden="true" class="text-gray-400">·</span>
-      <span>VZ Netzwerke (StudiVZ)</span>
-      <span aria-hidden="true" class="text-gray-400">·</span>
-      <span>Lovely Systems</span>
+    <div class="mt-10">
+      <div class="mb-2 text-xs font-semibold uppercase tracking-tight text-gray-600">Previously</div>
+      <div class="flex flex-wrap gap-2 text-sm text-gray-600">
+        {previousCompanies.map((company) => (
+          <span class="inline-flex items-center gap-2 border border-gray-200 px-3 py-1.5">
+            <span class="h-2 w-2 shrink-0" style={`background-color: ${company.color}`}></span>
+            {company.name}
+          </span>
+        ))}
+      </div>
     </div>
   </section>
 
