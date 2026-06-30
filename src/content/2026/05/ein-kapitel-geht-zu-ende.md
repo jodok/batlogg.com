@@ -3,6 +3,7 @@ title: 'Ein Kapitel geht zu Ende'
 subtitle: 'Tree.ly, Pina Earth und was als Nächstes kommt.'
 description: 'Nach fünf Jahren Wald, Klimaschutz, Impact Investing, Carbon Standards und Unternehmertum endet für mich ein wichtiges Kapitel.'
 pubDate: 'May 31 2026'
+draft: true
 categories: ['entrepreneurship', 'sustainability', 'climate change', 'tree.ly']
 ---
 

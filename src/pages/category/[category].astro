@@ -1,10 +1,10 @@
 ---
-import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PostCard from '../../components/PostCard.astro';
+import { getPublishedPosts } from '../../utils/posts';
 
 export async function getStaticPaths() {
-  const allPosts = await getCollection('posts');
+  const allPosts = await getPublishedPosts();
   const categories = [...new Set(allPosts.flatMap((post) => post.data.categories ?? []))];
 
   return categories.map((category) => ({
@@ -13,15 +13,9 @@ export async function getStaticPaths() {
 }
 
 const { category } = Astro.params;
-const filteredPosts = (await getCollection(
-  'posts',
-  ({ data }) => !!category && data.categories?.includes(category),
-))
-  .sort(
-    (a, b) =>
-      b.data.pubDate.valueOf() -
-      a.data.pubDate.valueOf(),
-  );
+const filteredPosts = (await getPublishedPosts()).filter((post) =>
+  !!category && post.data.categories?.includes(category)
+);
 
 ---
 
