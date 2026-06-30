@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SocialLinks from '../components/SocialLinks.astro';
+import { Image } from 'astro:assets';
+import kitesurfingPhoto from '../assets/jodok-kitesurfing.jpg';
 
 const description = 'Jodok Batlogg — entrepreneur and engineer building where technology meets impact. Founder of Tree.ly (now Pina Earth) and co-founder of Crate.io (CrateDB), former StudiVZ engineering lead, based in Dornbirn, Austria.';
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -81,10 +83,24 @@ const jsonLd = {
       </p>
     </div>
 
+    <figure class="mt-10">
+      <Image
+        src={kitesurfingPhoto}
+        alt="Jodok Batlogg at the beach after kitesurfing"
+        width={1000}
+        height={620}
+        class="h-auto w-full object-cover"
+        style={{ aspectRatio: '1000 / 620', objectPosition: '34% 38%' }}
+      />
+      <figcaption class="mt-3 text-sm leading-relaxed text-gray-500">
+        Outside, preferably near, mountains, wind and water - most often with a smile.
+      </figcaption>
+    </figure>
+
     <div class="mt-8 border-l-2 border-[#8e5fa4] pl-5">
       <span class="mb-1 block text-xs font-semibold uppercase tracking-tight text-gray-600">Now</span>
       <p class="text-lg leading-relaxed text-gray-900">
-        I'm building something new at the intersection of technology, climate, and trust, connected to <a href="https://here-be-dragons.ai/" target="_blank" rel="noreferrer" class="text-[#8e5fa4] hover:text-gray-900">Here Be Dragons</a>. Before that, I founded Tree.ly (now Pina Earth), making high-quality, nature-based carbon removal transparent and accessible.
+        I'm building something new at the intersection of technology, AI, and trust, right now exploring in an experimental setup with <a href="https://here-be-dragons.ai/" target="_blank" rel="noreferrer" class="text-[#8e5fa4] hover:text-gray-900">Here Be Dragons</a>. Before that, I founded Tree.ly (now Pina Earth), making high-quality, nature-based carbon removal transparent and accessible, and a few more projects.
       </p>
     </div>
 
@@ -105,7 +121,7 @@ const jsonLd = {
       2013 - 2020
     </div>
     <h3 class="mt-1 flex items-center gap-2 font-semibold text-gray-900">
-      Founder, CEO, CTO, Crate.io (CrateDB)
+      Founder & CEO, later CTO, Crate.io (CrateDB)
     </h3>
     <p class="text-gray-500 text-sm leading-relaxed">
       Built a distributed SQL database from zero to millions of inserts per second. Grew the company past 60 people, raised a Series A and beyond, and flipped it to the US — obsessing over distributed systems and a strong engineering culture built on trust.
