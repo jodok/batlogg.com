@@ -28,15 +28,15 @@ const jsonLd = {
       name: 'Jodok Batlogg',
       url: new URL('/about/', Astro.site).toString(),
       jobTitle: 'Entrepreneur & Engineer',
-      description: 'Jodok Batlogg is a serial entrepreneur and engineer based in Dornbirn, Austria, building where technology meets impact. He founded the climate-tech company Tree.ly (now Pina Earth) and co-founded the distributed SQL database Crate.io (CrateDB), and previously led engineering at StudiVZ and founded Lovely Systems.',
+      description: 'Jodok Batlogg is a serial entrepreneur and engineer based in Dornbirn, Austria, building where technology meets impact. He is building something new connected to Here Be Dragons, founded the climate-tech company Tree.ly (now Pina Earth), founded Crate.io (CrateDB), and previously led engineering at StudiVZ and founded Lovely Systems.',
       homeLocation: {
         '@type': 'Place',
         name: 'Dornbirn, Austria',
       },
       worksFor: {
         '@type': 'Organization',
-        name: 'Pina Earth',
-        description: 'Climate-tech company for high-quality, nature-based carbon removal.',
+        name: 'Here Be Dragons',
+        url: 'https://here-be-dragons.ai/',
       },
       alumniOf: [
         { '@type': 'Organization', name: 'Crate.io (CrateDB)' },
@@ -53,6 +53,7 @@ const jsonLd = {
       ],
       sameAs: [
         'https://batlogg.com/',
+        'https://here-be-dragons.ai/',
         'https://www.ted.com/talks/jodok_batlogg_saving_the_climate_with_entrepreneurship',
       ],
     },
@@ -83,7 +84,7 @@ const jsonLd = {
     <div class="mt-8 border-l-2 border-[#8e5fa4] pl-5">
       <span class="mb-1 block text-xs font-semibold uppercase tracking-tight text-gray-600">Now</span>
       <p class="text-lg leading-relaxed text-gray-900">
-        After founding Tree.ly (now Pina Earth) — making high-quality, nature-based carbon removal transparent and accessible — I'm now building something new at the intersection of technology, climate, and trust. I also serve on the board of Alphacruncher, the team behind nuvolos.cloud.
+        I'm building something new at the intersection of technology, climate, and trust, connected to <a href="https://here-be-dragons.ai/" target="_blank" rel="noreferrer" class="text-[#8e5fa4] hover:text-gray-900">Here Be Dragons</a>. Before that, I founded Tree.ly (now Pina Earth), making high-quality, nature-based carbon removal transparent and accessible.
       </p>
     </div>
 
@@ -91,7 +92,7 @@ const jsonLd = {
     <h2 class="mt-6 text-l font-semibold leading-[64px] text-gray-900 uppercase">Journey</h2>
 
     <div class ="text-xs text-gray-500 mt-5">
-      2021 - present
+      2021 - 2026
     </div>
     <h3 class="mt-1 flex items-center gap-2 font-semibold text-gray-900">
       Founder & CEO, Tree.ly (now Pina Earth)
@@ -104,7 +105,7 @@ const jsonLd = {
       2013 - 2020
     </div>
     <h3 class="mt-1 flex items-center gap-2 font-semibold text-gray-900">
-      Co-Founder, CEO then CTO, Crate.io (CrateDB)
+      Founder, CEO, CTO, Crate.io (CrateDB)
     </h3>
     <p class="text-gray-500 text-sm leading-relaxed">
       Built a distributed SQL database from zero to millions of inserts per second. Grew the company past 60 people, raised a Series A and beyond, and flipped it to the US — obsessing over distributed systems and a strong engineering culture built on trust.
@@ -124,7 +125,7 @@ const jsonLd = {
       2005 - 2008
     </div>
     <h3 class="mt-1 flex items-center gap-2 font-semibold text-gray-900">
-      Co-Founder & CEO, Lovely Systems
+      Founder, Lovely Systems
     </h3>
     <p class="text-gray-500 text-sm leading-relaxed">
       Early adopters of cloud computing, building distributed systems, search infrastructure, and user-generated-content platforms for media companies.
