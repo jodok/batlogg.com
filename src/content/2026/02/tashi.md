@@ -7,6 +7,7 @@ categories: ['technology', 'ai', 'entrepreneurship', 'principles']
 heroImage: tashi-yak.jpg
 heroImageAlt: 'A yak carrying supplies on a trail in the Khumbu region of Nepal'
 heroImagePosition: 'center 42%'
+socialImagePosition: attention
 coAuthors:
   - name: '🏔️ Tashi'
     url: 'https://tashi.namche.ai'
