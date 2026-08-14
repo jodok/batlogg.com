@@ -16,7 +16,19 @@ const posts = defineCollection({
 			updatedDate: z.coerce.date().optional(),
 			draft: z.boolean().default(false),
 			heroImage: image().optional(),
+			heroImageAlt: z.string().optional(),
+			socialImagePosition: z
+				.enum(['attention', 'entropy', 'centre', 'north', 'northeast', 'east', 'southeast', 'south', 'southwest', 'west', 'northwest'])
+				.optional(),
 			heroImagePosition: z.string().optional(),
+			coAuthors: z
+				.array(
+					z.object({
+						name: z.string(),
+						url: z.string().url(),
+					}),
+				)
+				.optional(),
 		}),
 });
 
