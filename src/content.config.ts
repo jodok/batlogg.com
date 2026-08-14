@@ -16,7 +16,25 @@ const posts = defineCollection({
 			updatedDate: z.coerce.date().optional(),
 			draft: z.boolean().default(false),
 			heroImage: image().optional(),
+			heroImageAlt: z.string().optional(),
+			socialImage: image().optional(),
 			heroImagePosition: z.string().optional(),
+			coAuthors: z
+				.array(
+					z.object({
+						name: z.string(),
+						url: z.string().url(),
+					}),
+				)
+				.optional(),
+			heroImageCredit: z
+				.object({
+					author: z.string(),
+					source: z.string().url(),
+					license: z.string(),
+					licenseUrl: z.string().url(),
+				})
+				.optional(),
 		}),
 });
 
