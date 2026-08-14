@@ -5,13 +5,14 @@ import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import { SITE_TITLE } from '../consts';
 import { getSocialImage, getSocialImageSource } from '../utils/social-image';
+import type { SocialImagePosition } from '../utils/social-image-position';
 
 interface Props {
 	title?: string;
 	description?: string;
 	image?: ImageMetadata;
 	imageAlt?: string;
-	imagePosition?: string;
+	imagePosition?: SocialImagePosition;
 	ogType?: 'website' | 'article';
 	jsonLd?: unknown;
 }
@@ -30,7 +31,7 @@ const displayTitle = title === SITE_TITLE || title.includes(SITE_TITLE) ? title 
 const socialImageSource = getSocialImageSource(image);
 const optimizedSocialImage = await getSocialImage(image, imagePosition);
 const socialImageURL = new URL(optimizedSocialImage.src, Astro.url).toString();
-const socialImageAlt = imageAlt ?? (socialImageSource === image ? undefined : SITE_TITLE);
+const socialImageAlt = socialImageSource === image ? imageAlt : undefined;
 const defaultJsonLd = {
 	'@context': 'https://schema.org',
 	'@graph': [

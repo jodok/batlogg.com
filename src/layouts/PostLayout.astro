@@ -5,7 +5,7 @@ import type { CollectionEntry } from 'astro:content';
 import Categories from '../components/Categories.astro';
 import CategoryIcon from '../components/CategoryIcon.astro';
 import FormattedDate from '../components/FormattedDate.astro';
-import { getSocialImage, getSocialImageSource } from '../utils/social-image';
+import { getSocialImage } from '../utils/social-image';
 
 type Props = CollectionEntry<'posts'>['data'];
 
@@ -13,10 +13,8 @@ const { title, subtitle, description, categories, pubDate, updatedDate, heroImag
 const primaryCategory = categories?.[0];
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const shareImage = heroImage;
-const shareImageSource = getSocialImageSource(shareImage);
 const optimizedShareImage = await getSocialImage(shareImage, socialImagePosition);
 const imageURL = new URL(optimizedShareImage.src, Astro.url).toString();
-const shareImageAlt = shareImageSource === shareImage ? heroImageAlt : 'Jodok Batlogg';
 const jsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -45,7 +43,7 @@ const jsonLd = {
         '@type': 'Person',
         name: 'Jodok Batlogg',
       },
-      ...(imageURL ? { image: imageURL } : {}),
+      image: imageURL,
       url: canonicalURL.toString(),
       mainEntityOfPage: canonicalURL.toString(),
     },
@@ -57,24 +55,22 @@ const jsonLd = {
   title={title}
   description={description || subtitle || title}
   image={shareImage}
-  imageAlt={shareImageAlt}
+  imageAlt={heroImageAlt}
   imagePosition={socialImagePosition}
   ogType="article"
   jsonLd={jsonLd}
   >
   {heroImage && (
-    <>
-      <div class="w-full h-[270px] overflow-hidden">
-        <Image
-          width={1400}
-          height={600}
-          src={heroImage}
-          alt={heroImageAlt || ''}
-          class="w-full h-full object-cover"
-          style={heroImagePosition ? { objectPosition: heroImagePosition } : undefined}
-        />
-      </div>
-    </>
+    <div class="w-full h-[270px] overflow-hidden">
+      <Image
+        width={1400}
+        height={600}
+        src={heroImage}
+        alt={heroImageAlt || ''}
+        class="w-full h-full object-cover"
+        style={heroImagePosition ? { objectPosition: heroImagePosition } : undefined}
+      />
+    </div>
   )}
 
   <article class="max-w-[680px] mx-auto px-6 pt-6 pb-20">

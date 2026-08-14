@@ -1,5 +1,6 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
+import { SOCIAL_IMAGE_POSITIONS } from './utils/social-image-position';
 
 const posts = defineCollection({
 	// Load Markdown and MDX files anywhere in `src/content/`.
@@ -17,9 +18,7 @@ const posts = defineCollection({
 			draft: z.boolean().default(false),
 			heroImage: image().optional(),
 			heroImageAlt: z.string().optional(),
-			socialImagePosition: z
-				.enum(['attention', 'entropy', 'centre', 'north', 'northeast', 'east', 'southeast', 'south', 'southwest', 'west', 'northwest'])
-				.optional(),
+			socialImagePosition: z.enum(SOCIAL_IMAGE_POSITIONS).optional(),
 			heroImagePosition: z.string().optional(),
 			coAuthors: z
 				.array(
