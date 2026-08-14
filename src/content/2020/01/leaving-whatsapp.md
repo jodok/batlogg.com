@@ -5,6 +5,7 @@ pubDate: 'Jan 25 2020'
 updatedDate: 'Feb 08 2026'
 categories: ['privacy', 'facebook', 'signal', 'whatsapp']
 heroImage: 'image-6.png'
+heroImageAlt: 'An iPhone screen showing the Delete My Account confirmation page'
 ---
 
 > TL;DR: I’m deleting my Whatsapp account.  

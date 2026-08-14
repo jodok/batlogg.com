@@ -4,6 +4,7 @@ description: '(especially after being a long time outside in the cold) What is l
 pubDate: 'Jan 16 2020'
 categories: ['entrepreneurship', 'motivation', 'leadership', 'love']
 heroImage: 'IMG_0770.jpeg'
+heroImageAlt: 'An illustration of two people reading in a heart-shaped frame'
 ---
 
 ## What is love?

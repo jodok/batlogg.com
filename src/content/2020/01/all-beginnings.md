@@ -4,6 +4,7 @@ description: '…are hard. But if you don’t begin, you’ll never end up somew
 pubDate: 'Jan 13 2020'
 categories: ['privacy', 'weblog', 'apple', 'duckduckgo', 'facebook', 'firefox', 'first', 'google', 'studivz', 'twitter']
 heroImage: 'IMG_0802.jpeg'
+heroImageAlt: 'A handwritten mind map with colorful notes, sketches, and a central question mark'
 ---
 
 …are hard.  

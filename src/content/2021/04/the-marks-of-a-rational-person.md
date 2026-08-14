@@ -4,6 +4,7 @@ description: 'Over the past 6 months I’ve been in the luxury position to take 
 pubDate: 'Apr 26 2021'
 categories: ['books', 'culture', 'principles', 'basecamp', 'decisions', 'stoic']
 heroImage: 'wheel-of-life-cut.jpg'
+heroImageAlt: 'A multicolored radar chart divided into labeled segments'
 ---
 
 Over the past 6 months I’ve been in the luxury position to take time to further center myself and better live my equilibrium.

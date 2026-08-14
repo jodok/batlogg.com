@@ -4,6 +4,7 @@ description: 'Please take a couple of minutes and read the fabulous essay Sabrin
 pubDate: 'May 13 2021'
 categories: ['culture', 'learning', 'motivation', 'principles', 'conventions', 'fairytale']
 heroImage: 'hansel_und_gretel.jpg'
+heroImageAlt: 'An illustration of a small figure walking between moss-covered trees in a forest'
 ---
 
 Please take a couple of minutes and read the fabulous essay Sabrina Orah Mark wrote in her [Happily Column](https://www.theparisreview.org/blog/2020/05/07/fuck-the-bread-the-bread-is-over/). Her Blog focuses on fairy tales and motherhood. Within the many things that resonate in her post, one thing struck me most:

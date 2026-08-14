@@ -4,6 +4,7 @@ subtitle: 'Not a Personality.'
 description: 'Most leadership problems are design problems. Here is how I think about decisions, ownership, and the contract between leaders and teams.'
 pubDate: 'Mar 08 2026'
 heroImage: './IMG_1924.jpeg'
+heroImageAlt: 'Three people skiing uphill on a snowy mountain trail beneath a blue sky'
 categories: ['leadership', 'entrepreneurship', 'principles']
 ---
 

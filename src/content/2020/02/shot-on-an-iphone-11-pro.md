@@ -4,6 +4,7 @@ description: 'The iPhone 11 Pro camera is just amazing. I’m no longer on Insta
 pubDate: 'Feb 23 2020'
 categories: ['photography', 'dark', 'iphone', 'night', 'photo', 'ski', 'winter']
 heroImage: 'IMG_2262.jpeg'
+heroImageAlt: 'A snow-covered mountain ridge above a cloud layer'
 ---
 
 The above picture was taken ~18:30 in February (it was almost dark). Schafberg/Mehlsack in Zug look very different when lighted that way. Beautiful.

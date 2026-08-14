@@ -4,6 +4,7 @@ description: 'TLDR;: I’m member of the board of directors of Alphacruncher, th
 pubDate: 'Mar 17 2022'
 categories: ['entrepreneurship', 'technology', 'vc', 'advising', 'edtech', 'funding', 'startup']
 heroImage: 'Screenshot-2022-03-16-at-10.27.31.png'
+heroImageAlt: 'A presentation slide titled Measure the forest with satellite images and a green tree illustration'
 ---
 
 *TLDR;:* I’m member of the board of directors of [Alphacruncher](https://alphacruncher.com), the EdTech startup building [nuvolos.cloud](https://nuvolos.cloud). We’ve [just raised CHF 1.5M](https://nuvolos.prowly.com/181398-alphacruncher-a-swiss-edtech-start-up-wins-15-million-in-seed-funding-to-roll-out-its-product-globally) to rock the EdTech space.
