@@ -26,6 +26,7 @@ const posts = defineCollection({
 						url: z.string().url(),
 					}),
 				)
+				.min(1)
 				.optional(),
 			heroImageCredit: z
 				.object({

@@ -10,6 +10,7 @@ interface Props {
 	title?: string;
 	description?: string;
 	image?: ImageMetadata;
+	imageSrc?: string;
 	imageAlt?: string;
 	ogType?: 'website' | 'article';
 	jsonLd?: unknown;
@@ -20,11 +21,13 @@ const {
 	title = SITE_TITLE,
 	description = SITE_TITLE,
 	image = FallbackImage,
+	imageSrc,
 	imageAlt,
 	ogType = 'website',
 	jsonLd,
 } = Astro.props;
 const displayTitle = title === SITE_TITLE || title.includes(SITE_TITLE) ? title : `${title} | ${SITE_TITLE}`;
+const socialImageURL = imageSrc ? new URL(imageSrc, Astro.url).toString() : new URL(image.src, Astro.url).toString();
 const defaultJsonLd = {
 	'@context': 'https://schema.org',
 	'@graph': [
@@ -81,13 +84,14 @@ const defaultJsonLd = {
     <meta property="og:title" content={displayTitle} />
     <meta property="og:site_name" content={SITE_TITLE} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={new URL(image.src, Astro.url)} />
+    <meta property="og:image" content={socialImageURL} />
     {imageAlt && <meta property="og:image:alt" content={imageAlt} />}
 
     <meta name="twitter:card" content={image ? 'summary_large_image' : 'summary'} />
     <meta name="twitter:title" content={displayTitle} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={new URL(image.src, Astro.url)} />
+    <meta name="twitter:image" content={socialImageURL} />
+    {imageAlt && <meta name="twitter:image:alt" content={imageAlt} />}
 
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd || defaultJsonLd)} />
 

@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
-import { Image } from 'astro:assets';
+import { getImage, Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 import Categories from '../components/Categories.astro';
 import CategoryIcon from '../components/CategoryIcon.astro';
@@ -11,7 +11,12 @@ type Props = CollectionEntry<'posts'>['data'];
 const { title, subtitle, description, categories, pubDate, updatedDate, heroImage, heroImageAlt, socialImage, heroImagePosition, heroImageCredit, coAuthors } = Astro.props;
 const primaryCategory = categories?.[0];
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const imageURL = (socialImage || heroImage) ? new URL((socialImage || heroImage).src, Astro.url).toString() : undefined;
+const shareImage = socialImage ?? heroImage;
+const optimizedShareImage = shareImage
+  ? await getImage({ src: shareImage, width: 1200, height: 630, format: 'jpg', fit: 'cover' })
+  : undefined;
+const imageURL = optimizedShareImage ? new URL(optimizedShareImage.src, Astro.url).toString() : undefined;
+const shareImageAlt = socialImage ? undefined : heroImageAlt;
 const jsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -51,12 +56,14 @@ const jsonLd = {
 <BaseLayout
   title={title}
   description={description || subtitle || title}
-  image={socialImage || heroImage}
+  image={shareImage}
+  imageSrc={optimizedShareImage?.src}
+  imageAlt={shareImageAlt}
   ogType="article"
   jsonLd={jsonLd}
   >
   {heroImage && (
-    <>
+    <figure>
       <div class="w-full h-[270px] overflow-hidden">
         <Image
           width={1400}
@@ -68,15 +75,15 @@ const jsonLd = {
         />
       </div>
       {heroImageCredit && (
-        <p class="mx-auto max-w-[1400px] px-6 pt-2 text-right text-xs text-gray-500">
-          Foto: <a class="underline" href={heroImageCredit.source}>{heroImageCredit.author}</a> · <a class="underline" href={heroImageCredit.licenseUrl}>{heroImageCredit.license}</a>
-        </p>
+        <figcaption class="px-6 pt-2 text-right text-xs text-gray-500">
+          Photo: <a class="underline" href={heroImageCredit.source}>{heroImageCredit.author}</a> · <a class="underline" href={heroImageCredit.licenseUrl}>{heroImageCredit.license}</a>
+        </figcaption>
       )}
-    </>
+    </figure>
   )}
 
   <article class="max-w-[680px] mx-auto px-6 pt-6 pb-20">
-    <div class:list={['mb-4', heroImage ? '-mt-12' : '']}>
+    <div class:list={['mb-4', heroImage && !heroImageCredit ? '-mt-12' : '']}>
       {primaryCategory ? (
         <a
           href={`/category/${encodeURIComponent(primaryCategory)}`}
@@ -105,7 +112,7 @@ const jsonLd = {
       <div class="mt-5">
         <Categories categories={categories} />
       </div>
-      {coAuthors?.length && (
+      {coAuthors && coAuthors.length > 0 && (
         <p class="mt-5 text-sm text-gray-500">
           Co-authored with{' '}
           {coAuthors.map((author, index) => (
