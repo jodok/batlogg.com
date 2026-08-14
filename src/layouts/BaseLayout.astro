@@ -13,6 +13,7 @@ interface Props {
 	image?: ImageMetadata;
 	imageAlt?: string;
 	imagePosition?: SocialImagePosition;
+	lang?: 'en' | 'de';
 	ogType?: 'website' | 'article';
 	jsonLd?: unknown;
 }
@@ -24,6 +25,7 @@ const {
 	image,
 	imageAlt,
 	imagePosition,
+	lang = 'en',
 	ogType = 'website',
 	jsonLd,
 } = Astro.props;
@@ -32,6 +34,7 @@ const socialImageSource = getSocialImageSource(image);
 const optimizedSocialImage = await getSocialImage(image, imagePosition);
 const socialImageURL = new URL(optimizedSocialImage.src, Astro.url).toString();
 const socialImageAlt = socialImageSource === image ? imageAlt : undefined;
+const ogLocale = lang === 'de' ? 'de_DE' : 'en_US';
 const defaultJsonLd = {
 	'@context': 'https://schema.org',
 	'@graph': [
@@ -56,7 +59,7 @@ const defaultJsonLd = {
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <!-- Global Metadata -->
     <meta charset="utf-8" />
@@ -87,6 +90,7 @@ const defaultJsonLd = {
     <meta property="og:url" content={Astro.url} />
     <meta property="og:title" content={displayTitle} />
     <meta property="og:site_name" content={SITE_TITLE} />
+    <meta property="og:locale" content={ogLocale} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={socialImageURL} />
     {socialImageAlt && <meta property="og:image:alt" content={socialImageAlt} />}

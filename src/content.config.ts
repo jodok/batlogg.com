@@ -16,6 +16,7 @@ const posts = defineCollection({
 			pubDate: z.coerce.date(),
 			updatedDate: z.coerce.date().optional(),
 			draft: z.boolean().default(false),
+			lang: z.enum(['en', 'de']).default('en'),
 			heroImage: image().optional(),
 			heroImageAlt: z.string().optional(),
 			socialImage: image().optional(),

@@ -2,6 +2,7 @@
 title: 'Clanker, Klarheit und eine Welt, die für alle funktioniert'
 subtitle: 'Ein Gespräch über KI, Souveränität, Klarheit und eine Frage, die mich seit Jahren begleitet.'
 description: 'Im little talks Podcast mit Robert Pacher spreche ich über künstliche Intelligenz als Werkzeug, über digitale Abhängigkeit, bewusste Langeweile und die Frage: Wie schaut eine Welt aus, die für alle funktioniert?'
+lang: de
 pubDate: 'Aug 14 2026'
 categories: ['technology', 'ai', 'principles']
 heroImage: clanker-header.png

@@ -9,7 +9,7 @@ import { getSocialImage } from '../utils/social-image';
 
 type Props = CollectionEntry<'posts'>['data'];
 
-const { title, subtitle, description, categories, pubDate, updatedDate, heroImage, heroImageAlt, socialImage, socialImageAlt, socialImagePosition, heroImagePosition, heroImageCredit, coAuthors } = Astro.props;
+const { title, subtitle, description, categories, pubDate, updatedDate, lang, heroImage, heroImageAlt, socialImage, socialImageAlt, socialImagePosition, heroImagePosition, heroImageCredit, coAuthors } = Astro.props;
 const primaryCategory = categories?.[0];
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const shareImage = socialImage ?? heroImage;
@@ -36,6 +36,7 @@ const jsonLd = {
       description: description || subtitle || title,
       datePublished: pubDate.toISOString(),
       dateModified: (updatedDate || pubDate).toISOString(),
+      inLanguage: lang,
       author: {
         '@type': 'Person',
         name: 'Jodok Batlogg',
@@ -58,6 +59,7 @@ const jsonLd = {
   image={shareImage}
   imageAlt={shareImageAlt}
   imagePosition={socialImagePosition}
+  lang={lang}
   ogType="article"
   jsonLd={jsonLd}
   >
