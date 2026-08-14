@@ -4,6 +4,7 @@ description: 'I like a lot of the principles that are built into the programming
 pubDate: 'Jan 18 2020'
 categories: ['coding', 'principles', 'python', 'zen']
 heroImage: 'zen_python_e7f61a4ab9.jpg'
+heroImageAlt: 'An abstract graphic of overlapping geometric shapes in black, yellow, blue, and white'
 ---
 
 I like a lot of the principles that are built into the programming language Python. Some of the principles are also applicable to “real” life.

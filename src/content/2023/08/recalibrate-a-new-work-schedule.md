@@ -5,6 +5,7 @@ description: 'How I’m trying to recalibrate myself and my work schedule to foc
 pubDate: 'Jul 08 2022'
 categories: ['entrepreneurship', 'principles', 'tree.ly']
 heroImage: 'schedule.png'
+heroImageAlt: 'A screenshot of a weekly August 2023 calendar schedule'
 ---
 
 Luckily [Tree.ly](https://tree.ly/) is humming, buzzing, taking off. That feels really good. The entire team and me are putting in a lot of love, passion and effort. After two years we closed the first loop of projects certified, sold first credits, but also brought new investors on board and also just moved to a **new office**.

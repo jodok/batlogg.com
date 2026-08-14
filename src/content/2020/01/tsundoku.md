@@ -4,6 +4,7 @@ description: 'Each language has some special words that can’t be translated to
 pubDate: 'Jan 15 2020'
 categories: ['books', 'japanese', 'reading', 'words']
 heroImage: 'tsundoku.jpg'
+heroImageAlt: 'An illustrated definition of tsundoku with stacks of books and a robot'
 ---
 
 Each language has some special words that can’t be translated to other languages. I think this expresses a lot the culture of these countries and people.

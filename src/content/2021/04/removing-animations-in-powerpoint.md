@@ -4,6 +4,7 @@ description: 'Something totally different, but hopefully this will save another 
 pubDate: 'Apr 29 2021'
 categories: ['coding', 'powerpoint', 'visual basic']
 heroImage: 'image.png'
+heroImageAlt: 'A screenshot of a desktop email application with an open message and folder list'
 ---
 
 Something totally different, but hopefully this will save another Entrepreneur using some PowerPoint Templates (I’m using the [Voodoo Presentation from TemplateZuu](https://creativemarket.com/TemplateZuu/2690981-SALE-20-Voodoo-Presentation-3.7) right now) some precious hours.
