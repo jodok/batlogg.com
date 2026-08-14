@@ -18,8 +18,18 @@ const posts = defineCollection({
 			draft: z.boolean().default(false),
 			heroImage: image().optional(),
 			heroImageAlt: z.string().optional(),
+			socialImage: image().optional(),
+			socialImageAlt: z.string().optional(),
 			socialImagePosition: z.enum(SOCIAL_IMAGE_POSITIONS).optional(),
 			heroImagePosition: z.string().optional(),
+			heroImageCredit: z
+				.object({
+					author: z.string(),
+					source: z.string().url(),
+					license: z.string(),
+					licenseUrl: z.string().url(),
+				})
+				.optional(),
 			coAuthors: z
 				.array(
 					z.object({
