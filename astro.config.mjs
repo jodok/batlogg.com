@@ -20,5 +20,8 @@ export default defineConfig({
         '@astro-community/astro-embed-bluesky/matcher': '/src/compat/astro-embed-bluesky-matcher-stub.ts',
       },
     },
+    server: {
+      allowedHosts: ['tashi.silverside-mermaid.ts.net'],
+    },
   },
 });
