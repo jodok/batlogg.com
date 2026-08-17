@@ -1,97 +1,145 @@
 ---
-title: 'What Daybreak Blue made clear about a malicious coding test'
-subtitle: 'A real-world test of OpenAI’s new defensive cyber model.'
-description: 'When a take-home coding test turned out to contain malicious code, I used Daybreak Blue to turn a confusing incident into a defensible account of what happened, what did not, and what to do next.'
+title: 'Daybreak Blue: the first hour after a malicious coding test'
+subtitle: 'What automation can do immediately—and why law enforcement, by design, comes later.'
+description: 'A take-home coding assessment turned into a real security incident. This is what I could establish, where the legal system begins, and why more automation requires more personal diligence.'
 pubDate: 'Aug 16 2026'
 draft: true
 lang: en
-categories: ['technology', 'ai', 'security']
+categories: ['security', 'technology', 'ai', 'principles']
 coAuthors:
   - name: '🏔️ Tashi'
     url: 'https://tashi.namche.ai'
 ---
 
-There is no shortage of impressive AI security demos. A model finds an obscure bug in a benchmark. An agent chains a few tools together. A dashboard lights up with vulnerabilities.
+The repository looked like an ordinary take-home coding assessment. Open it in an editor, install the dependencies, run the application, understand the code.
 
-Then I had a much less theatrical test case.
+That sequence is so routine for a developer that it barely feels like a security decision.
 
-A repository presented to me as a take-home coding exercise contained a concealed, heavily obfuscated JavaScript payload. It started background processes and connected to a remote endpoint. The incident was real enough to be unpleasant, but incomplete enough to be hard to reason about. I had logs, a repository, screenshots, reports and a growing list of questions. What exactly could I say had happened? What was merely possible? What should I report? And should I write about it at all?
+This time it was one.
 
-That was when I used Daybreak Blue, OpenAI's new model for broad defensive cybersecurity work.
+The project’s normal startup path loaded a concealed, heavily obfuscated JavaScript module. During the incident, macOS asked for access to protected locations and browser data. Two detached Node processes later appeared with the repository as their working directory and established outbound connections to a remote endpoint.
 
-This was not a benchmark or a staged demo. It was a messy, real incident where the useful question was not how much the model knew, but whether it could help me reason without inventing certainty.
+I terminated the processes. What followed was not a dramatic hunt for an attacker. It was a much harder exercise in uncertainty: preserving evidence, working out what the code could do, deciding which credentials might have been exposed, and separating what I knew from what I feared.
 
-The interesting thing was not that a model could tell me the repository looked bad. I already knew that. The useful part was that it gave the uncertainty structure.
+I still cannot say which files, if any, left the machine. I cannot say who operated the remote endpoint. I cannot turn a recruiting profile, a Git author field or a rented server into a defensible attribution.
 
-## From a pile of evidence to a useful account
+But I can explain what happened in the first hour, why the legal system operates on a very different clock, and what I will do differently as more of my work becomes automated.
 
-Security incidents create an immediate temptation to tell a clean story too early. There is a suspicious recruiter, a repository, a remote server and a frightening piece of code. The mind wants to draw a line through all of it and call it attribution.
+## The first hour
 
-That is usually where the quality of the analysis falls apart.
+Security incidents create pressure to tell a clean story too early. There is a recruiter, a repository, a remote server and frightening code. The mind wants to draw a straight line through them and name a culprit.
 
-Daybreak Blue's most useful contribution was to separate four things that are easy to blur together:
+That is where an investigation can quickly become fiction.
 
-- what was directly observed
-- what static analysis established about the code's capabilities
-- what was a reasonable inference
-- what remained unknown
+The useful work was more mundane:
 
-That distinction sounds procedural. In practice, it changed the whole situation.
+1. Record the suspicious processes, their parent processes, working directories and network connections.
+2. Terminate the exact processes without launching anything else from the repository.
+3. Preserve the original repository, messages, logs and timestamps.
+4. Revoke the permissions granted during execution.
+5. Rotate potentially exposed credentials from a clean environment.
+6. Monitor for persistence and renewed network activity.
+7. Analyse the code without starting the application again.
 
-I could say that the project loaded concealed, obfuscated code; that detached processes ran; that connections were made; and that the code had capabilities to collect browser data, local files and clipboard contents. I could not say that a particular file, credential or wallet had been exfiltrated. I could not say who operated the endpoint. I could not turn an apparently related recruiting profile into a public accusation.
+Static analysis established that the startup path imported a concealed, approximately 4.1 MB JavaScript payload. The code contained capabilities for recursive file collection, browser-data access, clipboard monitoring, uploads, detached child processes and remote command execution.
 
-The model did not make those gaps disappear. It made them visible and therefore manageable.
+Those are capabilities, not proof that each capability succeeded on my machine. That distinction matters. “The code could collect browser data” is defensible. “The attackers stole my browser sessions” is not, based on the evidence I have.
 
-## The first useful answer was not a technical answer
+## Daybreak Blue
 
-The question I eventually asked was not "who did this?" It was: **what should I write about this?**
+For the investigation I had access, in my Codex environment, to a defensive cybersecurity model labelled **Daybreak Blue**.
 
-The answer was much better than an exposé. The story worth telling is not a hunt for a villain. It is that a take-home coding test is untrusted executable code, not a document.
+It did not magically identify the people behind the incident. Its most useful contribution was to give the uncertainty structure. It separated four categories that are easy to blur together under stress:
 
-That is a practical lesson for developers, founders and hiring teams. Recruiting is a peculiar trust boundary. Someone contacts you with a plausible profile. The company looks real. The exercise sounds ordinary. You clone a repository and run `npm install` on the machine that contains your browser sessions, cloud credentials, SSH keys and perhaps a wallet.
+- what I directly observed;
+- what static analysis established about the code;
+- what was a reasonable inference;
+- what remained unknown.
 
-The move is so routine that it barely feels like a security decision.
+That structure turned a frightening pile of evidence into decisions. It helped build a timeline, classify the code’s capabilities, prepare reports for platforms and authorities, and keep public claims within what the primary evidence could support.
 
-It is one.
+But a defensive model still needs supervision.
 
-[Microsoft has documented](https://www.microsoft.com/en-us/security/blog/2026/03/11/contagious-interview-malware-delivered-through-fake-developer-job-interviews/) similar recruitment campaigns in which developers were persuaded to run malicious projects delivered through fake job interviews. That does not establish a connection to my incident. It does establish that the pattern deserves to be treated as a real category of risk, not an embarrassing edge case.
+During the deeper analysis, an external monitor detected two deobfuscation helper processes running with the suspicious repository as their working directory. One helper evaluated an array literal extracted from the payload. Neither process contacted the remote endpoint, and both were terminated. The application itself was not relaunched, but the helpers violated my conservative boundary that nothing should execute from the repository.
 
-## Where a cyber model actually helps
+That was a useful warning. A system does not become safe merely because its purpose is defensive. Intent is not isolation. The agent analysing untrusted code needs constraints, and those constraints need an independent observer and a kill condition.
 
-There is an important difference between a model that can find a vulnerability and a model that can help a person make a decision under uncertainty.
+## Three clocks
 
-In this case, the decision tree was concrete:
+The incident unfolded on three very different clocks.
 
-1. Preserve the original messages, repository, logs and timestamps without modifying them.
-2. Contain the machine and rotate potentially exposed credentials from a clean device.
-3. Report to the relevant platforms, hosting provider, CERT and law enforcement.
-4. Keep public claims bounded by primary evidence.
-5. If publishing, focus on prevention rather than attribution.
+### Machine time
 
-None of that replaces an incident responder, a lawyer or a police investigation. It does something earlier in the chain: it helps turn panic and technical fragments into a structured next action.
+Malware and automation act in seconds. A package install, an editor task or a normal-looking start command can reach browser sessions, developer credentials and local files before the user has understood what is happening.
 
-That may be the more important use case.
+Microsoft has [documented active recruitment campaigns](https://www.microsoft.com/en-us/security/blog/2026/03/11/contagious-interview-malware-delivered-through-fake-developer-job-interviews/) in which developers are persuaded to run malicious projects delivered through fake interviews and hosted on familiar code platforms. That does not prove that my incident belongs to the same campaign. It does show that a coding assessment must be treated as a category of executable supply-chain risk, not as an embarrassing edge case.
 
-Most people do not have an internal security team waiting for the moment something strange happens on their laptop. They have incomplete information, a small amount of time and an instinct to either ignore the problem or overreact to it. A strong model can make expertise available at precisely that awkward boundary, as long as it remains honest about what it knows and does not know.
+### Incident-response time
 
-## A defensive model still needs discipline
+The victim has minutes or hours to preserve volatile evidence, contain the process and rotate access. No institution can do that on the victim’s behalf. By the time a police report is filed, the process has already run and the remote infrastructure may already have changed.
 
-It is tempting to read every cyber model announcement as another acceleration of the attacker-defender arms race. There is some truth in that. Models that understand systems better will help people find and validate vulnerabilities more quickly.
+This is the uncomfortable part: immediate containment is personal responsibility, even when the underlying act may be criminal.
 
-But the model's defensive purpose is only half the equation. The other half is the operator. A capable system is valuable when it improves evidence handling, containment and judgement. It becomes dangerous when it turns a hunch into a claim, or curiosity into an excuse to cross a line.
+### Legal time
 
-The same discipline applies to the user. Do not paste live credentials, private keys, unredacted personal data or raw malware into an AI system because you are frightened and in a hurry. Preserve evidence. Remove secrets. Understand the handling and retention rules of the environment you are using. Ask for help before you make an irreversible mistake.
+Law enforcement works with evidence, jurisdiction and formal powers. It can correlate reports, request records and establish attribution in a way a private person cannot. But those powers become useful after a suspected offence has produced evidence. The police are not a pre-flight scanner for a repository someone asks me to run.
 
-Security work is full of asymmetries. A tiny lapse can expose years of accumulated access. A careless public post can turn a useful warning into an unsupported accusation. And a model can sound certain even when the evidence is not.
+The records required for attribution are also held by several organisations. I can report an account or server, but I cannot compel a platform to disclose login addresses, recovery details, payment records or deleted messages. Atlassian says it releases customer information only in response to [appropriate legal process](https://www.atlassian.com/trust/privacy/guidelines-for-law-enforcement), and its process for foreign authorities can involve a US court, an international assistance request or another recognised legal route. LinkedIn similarly requires [formal legal procedures](https://www.linkedin.com/help/linkedin/answer/a1340284/linkedin-law-enforcement-data-request-guidelines?lang=en) for account data, with a particularly high bar for messages and connections.
 
-The right response is not to avoid the tool. It is to use it in a way that makes those asymmetries more visible.
+That delay is not simply bureaucratic failure. Those safeguards also protect innocent users from arbitrary disclosure and accusation. The same European legal principles that make attribution slower prevent me from publicly declaring a person guilty because their profile was used in a conversation. Austrian media law explicitly protects the [presumption of innocence](https://ris.bka.gv.at/NormDokument.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10000719&Paragraf=7b).
 
-## The real test
+## There is no general €5,000 rule
 
-I did not come away believing that an AI model solves cyber security. It does not. The incident still required careful evidence preservation, credential rotation, reporting and human judgement.
+It is easy to leave a reporting process with the impression that nothing will happen unless the loss is large and easy to quantify. Practical prioritisation is real. A cross-border case with no proven financial loss and an unknown offender is unlikely to move at the speed a victim wants.
 
-But I did come away with a much clearer idea of what these models can be good for.
+But that is not the same as a general legal threshold below which cybercrime does not count.
 
-The valuable output was not a dramatic claim about an attacker. It was a calm, defensible map: this is what happened; this is what the code was capable of; this is what remains unknown; and this is what to do next.
+Under Austria’s law on data damage, the base offence exists below €5,000; exceeding €5,000 changes the applicable penalty. The distinction is visible in [§126a StGB](https://ris.bka.gv.at/NormDokument.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10002296&Paragraf=126a). The offence concerning unlawful access to a computer system has specific technical and intent requirements, but no general monetary threshold in [§118a StGB](https://www.ris.bka.gv.at/NormDokument.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10002296&Paragraf=118a).
 
-That is a much more useful kind of intelligence.
+Whether either provision applies to a particular social-engineering incident is for investigators and prosecutors, not for me. The important point is narrower: “difficult to investigate” and “not an offence” are different statements.
+
+## Why report if the probability of an outcome is low?
+
+Because a report is not only a request for personal restitution.
+
+My evidence may be incomplete on its own. Combined with another victim’s report, a reused repository, an account identifier or provider logs, it may become part of a pattern. The Austrian Bundeskriminalamt explicitly notes that reports help authorities recognise changing methods and series of offences, even when an individual case cannot be solved immediately. It also recommends preserving messages, screenshots and exact times before making a [formal report](https://www.bundeskriminalamt.at/212/wie_erstatte_ich_anzeige/start.html).
+
+Reporting can also preserve records and remove infrastructure. Platforms can investigate accounts under their own policies. [CERT.at accepts incident reports](https://www.cert.at/de/services/vorfall-melden/) and can coordinate technical information with relevant security contacts.
+
+None of that guarantees that the people responsible will be identified or prosecuted. It means reporting still has defensive value even when the likely individual outcome is modest.
+
+## Automation moves responsibility earlier
+
+The lesson is not merely “be suspicious of recruiters.” The larger issue is that automation removes hesitation.
+
+A human developer pauses between opening a repository, reading a command and pressing return. An agent may clone, install, configure, start, debug and retry as one continuous workflow. It can turn a plausible request into code execution faster and more consistently than I can.
+
+That makes agents powerful. It also moves diligence earlier, into the design of the environment in which the agent operates.
+
+My rules for unfamiliar code are now straightforward:
+
+- Treat every assessment repository as untrusted executable code.
+- Verify the recruiter through an independent company-controlled channel.
+- Inspect startup scripts, package lifecycle hooks, editor tasks, hidden directories and unusually large or obfuscated files before installation.
+- Use a disposable virtual machine or equivalent isolated environment, not the daily workstation that contains active browser sessions and developer credentials.
+- Do not share the host filesystem, clipboard, SSH agent, browser profile, password manager or cloud credentials with that environment.
+- Deny outbound network access by default and enable only what the task demonstrably requires.
+- Keep package installation, editor trust and application startup behind explicit human approval gates.
+- Monitor processes and network activity from outside the environment being analysed.
+- Give every automation an audit trail, a boundary and a kill switch.
+
+A container is not automatically enough. If it can access host mounts, the Docker socket, local credentials or unrestricted networking, it may simply provide the appearance of isolation.
+
+The same rules apply to defensive automation. Give the analysis system a copy of the evidence, not a path into the original incident environment. Prefer static parsing over evaluation. Enforce “no execution” and “no network” technically rather than as a sentence in a prompt.
+
+## What Daybreak Blue made clear
+
+Law enforcement is necessary for accountability, but it is not a runtime security control. Platforms can preserve records, but they cannot reverse an exposure. A security model can organise evidence and accelerate analysis, but it cannot remove uncertainty or assume responsibility for a decision.
+
+The decisive preventive moment was still mine: the moment before I ran unfamiliar code on a machine containing years of accumulated access.
+
+That does not make reporting pointless, and it does not mean everyone must become a forensic specialist. It means we should stop treating automation as a substitute for judgement.
+
+The value of Daybreak Blue was not a dramatic answer about an attacker. It was a calm map: this is what happened; this is what the code could do; this is what remains unknown; and this is what to do next.
+
+As execution becomes effortless, diligence has to move earlier—before the first command runs.
