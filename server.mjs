@@ -7,6 +7,7 @@ import { fileURLToPath } from 'node:url';
 import { preferredType } from './lib/agent-content.mjs';
 
 const DEFAULT_ROOT = fileURLToPath(new URL('./dist/', import.meta.url));
+const NEGOTIATED_VARY = 'Accept, Accept-Encoding';
 const TEXT_TYPES = new Map([
   ['.css', 'text/css; charset=utf-8'],
   ['.html', 'text/html; charset=utf-8'],
@@ -133,27 +134,27 @@ async function handleRequest(request, response, root, logger) {
   const directPath = pathname.replace(/^\/+/, '');
   if (path.extname(directPath)) {
     if (await sendFile(request, response, root, directPath)) return;
-    await sendFile(request, response, root, '404.html', 404, { Vary: 'Accept' }) ||
-      sendText(request, response, 404, 'Not Found\n', { Vary: 'Accept' });
+    await sendFile(request, response, root, '404.html', 404, { Vary: NEGOTIATED_VARY }) ||
+      sendText(request, response, 404, 'Not Found\n', { Vary: NEGOTIATED_VARY });
     return;
   }
 
   const accept = request.headers.accept;
   const representation = preferredType(accept);
   if (representation === null && accept) {
-    sendText(request, response, 406, 'Not Acceptable\n\nAvailable: text/html, text/markdown\n', { Vary: 'Accept' });
+    sendText(request, response, 406, 'Not Acceptable\n\nAvailable: text/html, text/markdown\n', { Vary: NEGOTIATED_VARY });
     return;
   }
 
   const isExplicit404 = pathname.replace(/^\/+|\/+$/g, '') === '404';
   const relativePath = pageVariant(pathname, representation);
-  if (await sendFile(request, response, root, relativePath, isExplicit404 ? 404 : 200, { Vary: 'Accept' })) return;
+  if (await sendFile(request, response, root, relativePath, isExplicit404 ? 404 : 200, { Vary: NEGOTIATED_VARY })) return;
 
   const notFoundPath = representation === 'text/markdown' ? '404.md' : '404.html';
-  if (await sendFile(request, response, root, notFoundPath, 404, { Vary: 'Accept' })) return;
+  if (await sendFile(request, response, root, notFoundPath, 404, { Vary: NEGOTIATED_VARY })) return;
 
   logger.error(`Missing 404 representation: ${notFoundPath}`);
-  sendText(request, response, 404, 'Not Found\n', { Vary: 'Accept' });
+  sendText(request, response, 404, 'Not Found\n', { Vary: NEGOTIATED_VARY });
 }
 
 export function createAppServer({ root = DEFAULT_ROOT, logger = console } = {}) {

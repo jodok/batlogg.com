@@ -38,7 +38,7 @@ test('serves HTML by default and declares Accept variance', async () => {
   const response = await fetch(`${baseUrl}/`);
   assert.equal(response.status, 200);
   assert.equal(response.headers.get('content-type'), 'text/html; charset=utf-8');
-  assert.equal(response.headers.get('vary'), 'Accept');
+  assert.equal(response.headers.get('vary'), 'Accept, Accept-Encoding');
   assert.equal(await response.text(), '<h1>HTML home</h1>');
 });
 
@@ -48,7 +48,7 @@ test('serves generated Markdown from the canonical URL', async () => {
   });
   assert.equal(response.status, 200);
   assert.equal(response.headers.get('content-type'), 'text/markdown; charset=utf-8');
-  assert.equal(response.headers.get('vary'), 'Accept');
+  assert.equal(response.headers.get('vary'), 'Accept, Accept-Encoding');
   assert.equal(await response.text(), '# Markdown about\n');
 });
 
@@ -65,14 +65,14 @@ test('returns a negotiated recovery body with a real 404 status', async () => {
   const response = await fetch(`${baseUrl}/missing`, { headers: { Accept: 'text/markdown' } });
   assert.equal(response.status, 404);
   assert.equal(response.headers.get('content-type'), 'text/markdown; charset=utf-8');
-  assert.equal(response.headers.get('vary'), 'Accept');
+  assert.equal(response.headers.get('vary'), 'Accept, Accept-Encoding');
   assert.equal(await response.text(), '# Markdown not found\n');
 });
 
 test('returns 406 when no available representation is acceptable', async () => {
   const response = await fetch(`${baseUrl}/`, { headers: { Accept: 'application/pdf' } });
   assert.equal(response.status, 406);
-  assert.equal(response.headers.get('vary'), 'Accept');
+  assert.equal(response.headers.get('vary'), 'Accept, Accept-Encoding');
 });
 
 test('serves static assets directly with immutable caching', async () => {
