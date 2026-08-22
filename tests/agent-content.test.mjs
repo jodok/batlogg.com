@@ -32,3 +32,11 @@ test('htmlToMarkdown keeps main content and removes browser chrome', () => {
   assert.doesNotMatch(markdown, /Browser navigation/);
   assert.doesNotMatch(markdown, /notForAgents/);
 });
+
+test('htmlToMarkdown preserves escaped HTML inside fenced code', () => {
+  const markdown = htmlToMarkdown(`
+    <main><pre><code>&lt;section&gt;hello&lt;/section&gt; &amp;&amp; true</code></pre></main>
+  `);
+
+  assert.equal(markdown, '```\n<section>hello</section> && true\n```\n');
+});
