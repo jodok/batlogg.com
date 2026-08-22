@@ -70,9 +70,19 @@ jobs:
       IMAGE: ghcr.io/jodok/batlogg.com
       DIGEST: ${{ needs.image.outputs.digest }}
     steps:
+      - name: Mint batlogg-only central deploy token
+        id: deploy-token
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
+        with:
+          client-id: ${{ vars.NAMCHE_DEPLOY_APP_CLIENT_ID }}
+          private-key: ${{ secrets.NAMCHE_DEPLOY_APP_PRIVATE_KEY }}
+          owner: NamcheAI
+          repositories: infra
+          permission-actions: write
+
       - name: Dispatch immutable image to Namche infra
         env:
-          GH_TOKEN: ${{ secrets.INFRA_DISPATCH_TOKEN }}
+          GH_TOKEN: ${{ steps.deploy-token.outputs.token }}
         run: |
           set -euo pipefail
           if [[ ! "$DIGEST" =~ ^sha256:[0-9a-f]{64}$ ]]; then
@@ -80,7 +90,7 @@ jobs:
             exit 1
           fi
           if [ -z "${GH_TOKEN:-}" ]; then
-            echo "::error::INFRA_DISPATCH_TOKEN is empty; refusing to report an undeployed release"
+            echo "::error::batlogg-only GitHub App token is empty; refusing to report an undeployed release"
             exit 1
           fi
 
