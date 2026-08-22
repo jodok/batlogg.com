@@ -26,15 +26,16 @@ test('main image builds dispatch an immutable production release through Namche 
   )
   assert.match(workflow, /owner: NamcheAI/)
   assert.match(workflow, /repositories: infra/)
-  assert.match(workflow, /permission-actions: write/)
+  assert.match(workflow, /permission-deployments: write/)
+  assert.doesNotMatch(workflow, /permission-actions: write/)
   assert.match(workflow, /GH_TOKEN: \$\{\{ steps\.deploy-token\.outputs\.token \}\}/)
   assert.doesNotMatch(workflow, /INFRA_DISPATCH_TOKEN/)
   assert.match(workflow, /\^sha256:\[0-9a-f\]\{64\}\$/)
   assert.match(
     workflow,
-    /gh workflow run deploy-app\.yml -R NamcheAI\/infra --ref main/,
+    /gh api --method POST repos\/NamcheAI\/infra\/deployments --input -/,
   )
-  assert.match(workflow, /-f app=batlogg-site/)
-  assert.match(workflow, /-f environment=production/)
-  assert.match(workflow, /-f image="\$IMAGE@\$DIGEST"/)
+  assert.match(workflow, /task: "deploy-batlogg-site"/)
+  assert.match(workflow, /environment: "batlogg-production"/)
+  assert.match(workflow, /payload: \{image: \$image\}/)
 })

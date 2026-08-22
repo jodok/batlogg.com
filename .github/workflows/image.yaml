@@ -78,7 +78,7 @@ jobs:
           private-key: ${{ secrets.NAMCHE_DEPLOY_APP_PRIVATE_KEY }}
           owner: NamcheAI
           repositories: infra
-          permission-actions: write
+          permission-deployments: write
 
       - name: Dispatch immutable image to Namche infra
         env:
@@ -94,8 +94,12 @@ jobs:
             exit 1
           fi
 
-          gh workflow run deploy-app.yml -R NamcheAI/infra --ref main \
-            -f app=batlogg-site \
-            -f environment=production \
-            -f image="$IMAGE@$DIGEST"
-          echo "::notice::Dispatched $IMAGE@$DIGEST to NamcheAI/infra"
+          jq -n --arg image "$IMAGE@$DIGEST" '{
+            ref: "main",
+            task: "deploy-batlogg-site",
+            environment: "batlogg-production",
+            auto_merge: false,
+            required_contexts: [],
+            payload: {image: $image}
+          }' | gh api --method POST repos/NamcheAI/infra/deployments --input - >/dev/null
+          echo "::notice::Created central deployment for $IMAGE@$DIGEST"
