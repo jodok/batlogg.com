@@ -20,6 +20,8 @@ concurrency:
 jobs:
   image:
     runs-on: ubuntu-latest
+    outputs:
+      digest: ${{ steps.build.outputs.digest }}
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -46,6 +48,7 @@ jobs:
             type=semver,pattern={{version}}
 
       - name: Build and push
+        id: build
         uses: docker/build-push-action@v6
         with:
           context: .
@@ -55,3 +58,48 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+
+  deploy:
+    name: Deploy production through Namche infra
+    needs: image
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment: production
+    permissions: {}
+    env:
+      IMAGE: ghcr.io/jodok/batlogg.com
+      DIGEST: ${{ needs.image.outputs.digest }}
+    steps:
+      - name: Mint batlogg-only central deploy token
+        id: deploy-token
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
+        with:
+          client-id: ${{ vars.NAMCHE_DEPLOY_APP_CLIENT_ID }}
+          private-key: ${{ secrets.NAMCHE_DEPLOY_APP_PRIVATE_KEY }}
+          owner: NamcheAI
+          repositories: infra
+          permission-deployments: write
+
+      - name: Dispatch immutable image to Namche infra
+        env:
+          GH_TOKEN: ${{ steps.deploy-token.outputs.token }}
+        run: |
+          set -euo pipefail
+          if [[ ! "$DIGEST" =~ ^sha256:[0-9a-f]{64}$ ]]; then
+            echo "::error::Buildx returned a malformed image digest: $DIGEST"
+            exit 1
+          fi
+          if [ -z "${GH_TOKEN:-}" ]; then
+            echo "::error::batlogg-only GitHub App token is empty; refusing to report an undeployed release"
+            exit 1
+          fi
+
+          jq -n --arg image "$IMAGE@$DIGEST" '{
+            ref: "main",
+            task: "deploy-batlogg-site",
+            environment: "batlogg-production",
+            auto_merge: false,
+            required_contexts: [],
+            payload: {image: $image}
+          }' | gh api --method POST repos/NamcheAI/infra/deployments --input - >/dev/null
+          echo "::notice::Created central deployment for $IMAGE@$DIGEST"
