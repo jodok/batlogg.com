@@ -2,6 +2,7 @@ import { createReadStream } from 'node:fs';
 import { stat } from 'node:fs/promises';
 import { createServer } from 'node:http';
 import path from 'node:path';
+import { pipeline } from 'node:stream/promises';
 import { fileURLToPath } from 'node:url';
 import { preferredType } from './lib/agent-content.mjs';
 
@@ -97,7 +98,7 @@ async function sendFile(request, response, root, relativePath, status = 200, ext
   if (request.method === 'HEAD') {
     response.end();
   } else {
-    createReadStream(result.file).pipe(response);
+    await pipeline(createReadStream(result.file), response);
   }
   return true;
 }

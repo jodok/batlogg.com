@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import { mkdtemp, mkdir, rm, writeFile } from 'node:fs/promises';
+import { request as httpRequest } from 'node:http';
 import os from 'node:os';
 import path from 'node:path';
 import { after, before, test } from 'node:test';
@@ -99,4 +100,28 @@ test('HEAD responses include negotiated metadata without a body', async () => {
   assert.equal(response.status, 200);
   assert.equal(response.headers.get('content-type'), 'text/markdown; charset=utf-8');
   assert.equal(await response.text(), '');
+});
+
+test('aborted downloads release their stream and leave the server responsive', async () => {
+  await writeFile(path.join(root, 'large.bin'), Buffer.alloc(4 * 1024 * 1024, 1));
+
+  await new Promise((resolve, reject) => {
+    const request = httpRequest(`${baseUrl}/large.bin`, (response) => {
+      response.once('data', () => response.destroy());
+      response.once('close', resolve);
+      response.once('error', (error) => {
+        if (error.code === 'ECONNRESET') resolve();
+        else reject(error);
+      });
+    });
+    request.once('error', (error) => {
+      if (error.code === 'ECONNRESET') resolve();
+      else reject(error);
+    });
+    request.end();
+  });
+
+  const health = await fetch(`${baseUrl}/healthz`);
+  assert.equal(health.status, 200);
+  assert.equal(await health.text(), 'ok\n');
 });
