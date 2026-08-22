@@ -13,11 +13,14 @@ let baseUrl;
 before(async () => {
   root = await mkdtemp(path.join(os.tmpdir(), 'batlogg-server-'));
   await mkdir(path.join(root, 'about'), { recursive: true });
+  await mkdir(path.join(root, 'category', 'crate.io'), { recursive: true });
   await mkdir(path.join(root, '_astro'), { recursive: true });
   await writeFile(path.join(root, 'index.html'), '<h1>HTML home</h1>');
   await writeFile(path.join(root, 'index.md'), '# Markdown home\n');
   await writeFile(path.join(root, 'about', 'index.html'), '<h1>HTML about</h1>');
   await writeFile(path.join(root, 'about', 'index.md'), '# Markdown about\n');
+  await writeFile(path.join(root, 'category', 'crate.io', 'index.html'), '<h1>HTML dotted category</h1>');
+  await writeFile(path.join(root, 'category', 'crate.io', 'index.md'), '# Markdown dotted category\n');
   await writeFile(path.join(root, '404.html'), '<h1>HTML not found</h1>');
   await writeFile(path.join(root, '404.md'), '# Markdown not found\n');
   await writeFile(path.join(root, 'llms.txt'), '# Agent guide\n');
@@ -59,6 +62,20 @@ test('serves direct Markdown siblings without negotiation', async () => {
   assert.equal(response.status, 200);
   assert.equal(response.headers.get('content-type'), 'text/markdown; charset=utf-8');
   assert.equal(await response.text(), '# Markdown about\n');
+});
+
+test('negotiates page routes whose path segments contain dots', async () => {
+  const html = await fetch(`${baseUrl}/category/crate.io/`);
+  assert.equal(html.status, 200);
+  assert.equal(html.headers.get('content-type'), 'text/html; charset=utf-8');
+  assert.equal(await html.text(), '<h1>HTML dotted category</h1>');
+
+  const markdown = await fetch(`${baseUrl}/category/crate.io/`, {
+    headers: { Accept: 'text/markdown' },
+  });
+  assert.equal(markdown.status, 200);
+  assert.equal(markdown.headers.get('content-type'), 'text/markdown; charset=utf-8');
+  assert.equal(await markdown.text(), '# Markdown dotted category\n');
 });
 
 test('returns a negotiated recovery body with a real 404 status', async () => {

@@ -134,9 +134,14 @@ async function handleRequest(request, response, root, logger) {
   const directPath = pathname.replace(/^\/+/, '');
   if (path.extname(directPath)) {
     if (await sendFile(request, response, root, directPath)) return;
-    await sendFile(request, response, root, '404.html', 404, { Vary: NEGOTIATED_VARY }) ||
-      sendText(request, response, 404, 'Not Found\n', { Vary: NEGOTIATED_VARY });
-    return;
+
+    const hasPageVariant = await existingFile(root, pageVariant(pathname, 'text/html')) ||
+      await existingFile(root, pageVariant(pathname, 'text/markdown'));
+    if (!hasPageVariant) {
+      await sendFile(request, response, root, '404.html', 404, { Vary: NEGOTIATED_VARY }) ||
+        sendText(request, response, 404, 'Not Found\n', { Vary: NEGOTIATED_VARY });
+      return;
+    }
   }
 
   const accept = request.headers.accept;
