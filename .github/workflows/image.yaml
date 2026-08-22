@@ -20,6 +20,8 @@ concurrency:
 jobs:
   image:
     runs-on: ubuntu-latest
+    outputs:
+      digest: ${{ steps.build.outputs.digest }}
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -46,6 +48,7 @@ jobs:
             type=semver,pattern={{version}}
 
       - name: Build and push
+        id: build
         uses: docker/build-push-action@v6
         with:
           context: .
@@ -55,3 +58,34 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+
+  deploy:
+    name: Deploy production through Namche infra
+    needs: image
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment: production
+    permissions: {}
+    env:
+      IMAGE: ghcr.io/jodok/batlogg.com
+      DIGEST: ${{ needs.image.outputs.digest }}
+    steps:
+      - name: Dispatch immutable image to Namche infra
+        env:
+          GH_TOKEN: ${{ secrets.INFRA_DISPATCH_TOKEN }}
+        run: |
+          set -euo pipefail
+          if [[ ! "$DIGEST" =~ ^sha256:[0-9a-f]{64}$ ]]; then
+            echo "::error::Buildx returned a malformed image digest: $DIGEST"
+            exit 1
+          fi
+          if [ -z "${GH_TOKEN:-}" ]; then
+            echo "::error::INFRA_DISPATCH_TOKEN is empty; refusing to report an undeployed release"
+            exit 1
+          fi
+
+          gh workflow run deploy-app.yml -R NamcheAI/infra --ref main \
+            -f app=batlogg-site \
+            -f environment=production \
+            -f image="$IMAGE@$DIGEST"
+          echo "::notice::Dispatched $IMAGE@$DIGEST to NamcheAI/infra"
