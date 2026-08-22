@@ -10,6 +10,14 @@ Personal site and blog built with Astro 5, MD/MDX content collections, and Tailw
 - Astro image pipeline (`astro:assets`, `sharp`)
 - Playwright smoke tests (`@playwright/test`)
 
+## Agent-ready delivery
+
+- `/llms.txt` provides protocol-structured discovery and specific contact-routing guidance.
+- The homepage and custom 404 are fully rendered as static HTML; they do not depend on JavaScript for content.
+- The `batlogg-markdown-variants` Astro integration generates a Markdown sibling for every HTML page during the static build.
+- `server.mjs` serves the static build with RFC 9110 `Accept` negotiation, including q-values, `406` responses, real Markdown 404s, and `Vary: Accept`.
+- The production Docker image contains only the generated static files, the negotiation server, and Node.js. It does not run Astro SSR or require application state.
+
 ## Project Structure
 
 ```text
@@ -46,7 +54,20 @@ Optional fields:
 - `pnpm run dev` Start local dev server
 - `pnpm run build` Build static site
 - `pnpm run preview` Serve built site
+- `pnpm start` Serve the built site with production content negotiation
 - `pnpm run test` Run Playwright tests
+- `pnpm run test:unit` Run content-generation and production-server tests
+
+## Container deployment
+
+Build and run the production image locally:
+
+```sh
+docker build -t batlogg-com .
+docker run --rm -p 3000:3000 batlogg-com
+```
+
+The container exposes HTTP on port `3000` and a health check at `/healthz`. A reverse proxy should forward the original `Accept` header unchanged and preserve the response's `Vary` header.
 
 ## Validation
 

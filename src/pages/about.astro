@@ -3,17 +3,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import SocialLinks from '../components/SocialLinks.astro';
 import { Image } from 'astro:assets';
 import kitesurfingPhoto from '../assets/jodok-kitesurfing.jpg';
+import { ORGANIZATION_SCHEMA } from '../consts';
 
 const description = 'Jodok Batlogg — entrepreneur and engineer building where technology meets impact. Founder of Tree.ly (now Pina Earth) and co-founder of Crate.io (CrateDB), former StudiVZ engineering lead, based in Dornbirn, Austria.';
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const jsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
-    {
-      '@type': 'Organization',
-      name: 'Jodok Batlogg',
-      url: Astro.site?.toString(),
-    },
+    ORGANIZATION_SCHEMA,
     {
       '@type': 'WebSite',
       name: 'Jodok Batlogg',

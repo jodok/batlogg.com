@@ -6,6 +6,7 @@ import Categories from '../components/Categories.astro';
 import CategoryIcon from '../components/CategoryIcon.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import { getSocialImage } from '../utils/social-image';
+import { ORGANIZATION_SCHEMA } from '../consts';
 
 type Props = CollectionEntry<'posts'>['data'];
 
@@ -19,11 +20,7 @@ const imageURL = new URL(optimizedShareImage.src, Astro.url).toString();
 const jsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
-    {
-      '@type': 'Organization',
-      name: 'Jodok Batlogg',
-      url: Astro.site?.toString(),
-    },
+    ORGANIZATION_SCHEMA,
     {
       '@type': 'WebSite',
       name: 'Jodok Batlogg',

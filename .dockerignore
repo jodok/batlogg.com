@@ -1,0 +1,14 @@
+.astro
+.claude
+.codex
+.DS_Store
+.git
+.github
+.vscode
+.wrangler
+dist
+docs
+node_modules
+test-results
+tests
+*.log
