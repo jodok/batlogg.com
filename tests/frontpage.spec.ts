@@ -3,8 +3,7 @@ import { test, expect } from '@playwright/test';
 test('frontpage featured post images load correctly', async ({ page }) => {
   await page.goto('/', { waitUntil: 'networkidle' });
 
-  // Featured posts use aspect-square containers with images
-  const images = page.locator('.aspect-square img');
+  const images = page.locator('section[aria-labelledby="featured-writing-heading"] img');
   const count = await images.count();
   expect(count).toBeGreaterThan(0);
 
@@ -21,8 +20,7 @@ test('frontpage featured post images load correctly', async ({ page }) => {
 test('frontpage featured post images have no rounded corners', async ({ page }) => {
   await page.goto('/');
 
-  // Featured post image containers
-  const cards = page.locator('.aspect-square');
+  const cards = page.locator('section[aria-labelledby="featured-writing-heading"] img').locator('..');
   const count = await cards.count();
   expect(count).toBeGreaterThan(0);
 

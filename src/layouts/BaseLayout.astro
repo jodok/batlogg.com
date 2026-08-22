@@ -3,7 +3,7 @@ import '../styles/global.css';
 import type { ImageMetadata } from 'astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
-import { SITE_TITLE } from '../consts';
+import { ORGANIZATION_SCHEMA, SITE_TITLE } from '../consts';
 import { getSocialImage, getSocialImageSource } from '../utils/social-image';
 import type { SocialImagePosition } from '../utils/social-image-position';
 
@@ -38,11 +38,7 @@ const ogLocale = lang === 'de' ? 'de_DE' : 'en_US';
 const defaultJsonLd = {
 	'@context': 'https://schema.org',
 	'@graph': [
-		{
-			'@type': 'Organization',
-			name: SITE_TITLE,
-			url: Astro.site?.toString(),
-		},
+		ORGANIZATION_SCHEMA,
 		{
 			'@type': 'WebSite',
 			name: SITE_TITLE,
