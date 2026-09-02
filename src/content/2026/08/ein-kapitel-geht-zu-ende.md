@@ -10,15 +10,15 @@ heroImageAlt: 'Jodok Batlogg in einem Wald, fotografiert von Sophie Renner'
 socialImagePosition: attention
 ---
 
-Ende August 2026 wurde mein Ausscheiden als Geschäftsführer von Pina Earth im Firmenbuch eingetragen. Damit ist nun auch formal abgeschlossen, was für mich Ende Mai schneller und abrupter als erwartet zu Ende gegangen war.
+Letzte Woche (Ende August 2026) wurde mein Ausscheiden als Geschäftsführer von Pina Earth im Firmenbuch eingetragen. Damit ist nun auch formal abgeschlossen, was im Juni schneller und abrupter als erwartet zu Ende gegangen ist.
 
-Ein Firmenbucheintrag ist eine ziemlich nüchterne Sache. Für mich stehen dahinter fünf Jahre Arbeit an Tree.ly und später Pina Earth: Wald, Klimaschutz, Software, Standards, Investorengespräche, Förderanträge und viele Gespräche mit Menschen, für die der Klimawandel keine abstrakte Debatte ist. Ich möchte das nicht einfach abhaken, sondern aufschreiben, was wir aufgebaut haben, was ich daraus mitnehme und womit ich mich heute beschäftige.
+So ein Firmenbucheintrag liest sich ziemlich leicht, aber für mich stehen dahinter fünf Jahre Arbeit an Tree.ly und später Pina Earth: Wald, Klimaschutz, Software, Standards, Investorengespräche, Förderanträge und viele Gespräche mit Menschen, für die der Klimawandel keine abstrakte Debatte ist. Ich möchte das nicht einfach abhaken, sondern nochmal aufschreiben, dokumentieren, was wir aufgebaut haben, was ich daraus mitnehme und womit ich mich heute beschäftige.
 
-Mit meinem Ausscheiden endet für mich dieses konkrete Kapitel, einschließlich weiterer Kooperationen, die bereits aufgegleist waren. Mein Wunsch, mit Unternehmertum einen positiven Beitrag zu leisten, ist dagegen unverändert.
+Mit meinem Ausscheiden endet für mich dieses Kapitel, einschließlich weiterer Kooperationen, die bereits aufgegleist waren. Mein Wunsch, mit Unternehmertum einen positiven Beitrag zu leisten, ist dagegen unverändert. Auch wenn in der heutigen Zeit manche andere Dinge im Vordergrund stehen
 
-## Nach Crate.io
+## Nach CrateDB.com
 
-Vor Tree.ly hatte ich viele Jahre sehr intensiv am Deep-Tech-Unternehmen Crate.io und an CrateDB gearbeitet. Datenbanken, verteilte Systeme, Skalierung, Enterprise Sales, Venture Capital, Organisation und Führung interessieren mich bis heute. Nach meinem Ausstieg stellte sich aber die Frage: Wenn ich noch einmal so viel Energie in etwas stecke, wofür soll das sein?
+Vor Tree.ly hatte ich viele Jahre sehr intensiv am Deep-Tech-Unternehmen CrateDB.com gearbeitet. Datenbanken, verteilte Systeme, Skalierung, Enterprise Sales, Venture Capital, Organisation und Führung interessieren mich bis heute. Nach meinem Ausstieg stellte sich aber die Frage: Wenn ich noch einmal so viel Energie in etwas stecke, wofür soll das sein?
 
 Dem Anspruch, unsere Welt besser und nachhaltiger zu machen, bin ich treu geblieben. Ein prägender Moment war damals ein Vortrag von Marc Buckley. Er arbeitet eng mit den Sustainable Development Goals der Vereinten Nationen und hat für mich einen Raum geöffnet, in dem Technologie, Unternehmertum und systemische Veränderung zusammengehören.
 
@@ -28,15 +28,15 @@ Ich begann zu lesen und zu lernen: Klimawandel, Biodiversität, Kreislaufwirtsch
 2. Können wir uns ändern?
 3. Werden wir uns ändern?
 
-Die ersten beiden Fragen waren für mich schnell beantwortet: Ja, wir müssen, und ja, wir können. Die dritte ist bis heute die schwierigste.
+Die ersten beiden Fragen waren für mich schnell beantwortet: Ja, wir müssen, und ja, wir können. Die dritte ist die schwierigste. Nach wie vor.
 
-Meine Antwort darauf war Unternehmertum. Sicher nicht als einzige Antwort, aber als ein Hebel, den ich kenne und mit dem sich Technologie, Kapital, Menschen und Märkte verbinden lassen. So entstand Tree.ly.
+Meine Antwort darauf war und ist Unternehmertum. Sicher nicht als einzige Antwort, aber als ein Hebel, den ich kenne und beherrsche. So kann ich Technologie, Kapital, Menschen und Märkte verbinden. So entstand damals Tree.ly.
 
 ## Tree.ly
 
 Am Anfang war vieles unfertig. Wir hatten viel Überzeugung und wenig Sicherheit, haben gebootstrapped, Förderungen gesucht, mit dem Land Vorarlberg gesprochen und versucht, aus einem sehr großen Thema ein konkretes Produkt zu machen.
 
-Mit einem frühen Team rund um Lukas Bals, Tobias Sutterlütti, Luis Schneider, Eva King, Elmar Hartmann, Alexander Vilsmeier und vielen weiteren Unterstützer:innen entstand der erste Prototyp. Eine Förderung im Rahmen von aws Green Preseed ermöglichte uns dann, gemeinsam mit acht Waldbesitzern einen funktionierenden Prototyp umzusetzen.
+Mit einem frühen Team rund um Lukas Bals, Tobias Sutterlüty, damals noch Luis Schneider, Eva King, Elmar Hartmann, Alexander Vilsmeier, Stephanie Dünser und vielen weiteren Unterstützer:innen entstand der erste Prototyp. Eine Förderung im Rahmen von aws Green Preseed ermöglichte uns dann, gemeinsam mit acht Waldbesitzern einen funktionierenden Prototyp umzusetzen.
 
 Ich denke gerne an diese Phase zurück, nicht weil sie einfach war, sondern weil wir sehr schnell sehr viel lernen mussten: Wie funktioniert Waldwirtschaft tatsächlich? Wie misst man Kohlenstoff im Wald glaubwürdig? Was bedeutet Zusätzlichkeit? Wie verhindert man Greenwashing? Was macht ein CO₂-Zertifikat integer, welche Rolle kann Software dabei spielen und wie baut man daraus ein Unternehmen?
 
@@ -52,19 +52,19 @@ Deshalb haben wir ein eigenes Ethik-Board etabliert, und zwar nicht als Feigenbl
 
 ## Kapital und Verantwortung
 
-Mit der ersten Finanzierungsrunde begann eine neue Phase. Wir konnten Business Angels und Partner gewinnen, unter anderem aus dem Umfeld von Johannes Moser, außerdem Dr. Georg Erlacher, Hubert Hasenauer, Dr. Hubertus Schmidke, Portfolion mit Aurél Pásztor sowie das Austria Wirtschaftsservice (aws).
+Mit der ersten Finanzierungsrunde begann eine neue Phase. Wir konnten Business Angels und Partner gewinnen, unter anderem aus dem Umfeld von Johannes Moser, zahlreichen namhaften (Vorarberger) Unternehmer, außerdem Dr. Georg Erlacher, Hubert Hasenauer, Dr. Hubertus Schmidke, Portfolion mit Aurél Pásztor sowie das Risikokapital Team des Austria Wirtschaftsservice (aws).
 
 Kapital ermöglichte uns mehr Geschwindigkeit, brachte aber auch mehr Verantwortung und Druck. Aus einer Idee musste eine Organisation werden. Für Tree.ly bedeutete das mehr Methodik, Software, Projektentwicklung, Vertrieb und Governance.
 
 Ein Schwerpunkt war die Entwicklung hochwertiger Wald-Klimaschutzmethodiken. Inspiration kam unter anderem aus der Schweiz und aus der Zusammenarbeit mit Dr. Hubertus Schmidke, dem Autor des Silvaconsult Forest Carbon Standards. Gemeinsam haben wir Standards weiterentwickelt und an neue Anforderungen angepasst.
 
-Wichtig waren auch die Gespräche und die Zusammenarbeit mit Georg Erlacher, Hubert Hasenauer, dem International Carbon Registry in Island, Ólafur Þórðarson und Guðmundur Sigurðsson. Das war fachlich anspruchsvoll und gerade deshalb spannend.
+Wichtig waren auch die Gespräche und die Zusammenarbeit mit Georg Erlacher, Hubert Hasenauer, der International Carbon Registry in Island, Ólafur Torfason und Guðmundur Sigurðsson. Das war fachlich anspruchsvoll und gerade deshalb spannend.
 
 Unser Ziel war nicht, eine schöne Website für Klimazertifikate zu bauen. Das System musste im Wald, in der Wissenschaft, bei Waldbesitzer:innen und Käufer:innen sowie in der Verifizierung Bestand haben.
 
 ## Wald und Markt
 
-Parallel zur Methodik und Software mussten wir die Käuferseite aufbauen. Frühe Partner wie Illwerke VKW, Turn to Zero und myclimate waren wichtig, weil sie verstanden haben, dass regionale und glaubwürdige Klimaschutzprojekte nicht trivial sind.
+Parallel zur Methodik und Software mussten wir die Käuferseite aufbauen. Frühe Partner wie Turn to Zero und myclimate waren wichtig, weil sie verstanden haben, dass regionale und glaubwürdige Klimaschutzprojekte nicht trivial sind.
 
 Wir konnten zahlreiche Waldbesitzer:innen in Österreich gewinnen und stellten unsere Software auch dem Verein Wald-Klimaschutz Schweiz zur Verfügung, um Projekte in der Schweiz zu unterstützen. Bis Mitte 2025 funktionierte das Zusammenspiel aus Methodik, Technologie, Waldbesitzer:innen, Käufer:innen, Standards, Verifizierung und Wirkungsmessung. Es war nicht perfekt, aber es war real.
 
