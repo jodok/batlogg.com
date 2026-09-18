@@ -112,6 +112,49 @@ function pageVariant(pathname, representation) {
   return `${clean}/index.${extension}`;
 }
 
+// WordPress taxonomy names now share the category archive. Only redirect
+// taxonomy URLs when their replacement exists in this build.
+const LEGACY_CATEGORIES = new Map([
+  ['tree-ly', 'tree.ly'],
+  ['food-for-thought', 'food for thought'],
+  ['climate-change', 'climate change'],
+]);
+const LEGACY_PATHS = new Map([
+  ['/page/2/', '/posts/'],
+  ['/page/3/', '/posts/'],
+  ['/author/jodok/', '/posts/'],
+  ['/feed/', '/rss.xml'],
+  ['/author/jodok/feed/', '/rss.xml'],
+  ['/2020/01/how-to-crate/import-this/', '/2020/01/import-this/'],
+  ['/wp-content/uploads/2020/01/200119-Appraisal-Interviews.pdf', '/assets/200119-Appraisal-Interviews.pdf'],
+  ['/wp-content/uploads/2020/01/200119-System-of-Values.pdf', '/assets/200119-System-of-Values.pdf'],
+]);
+
+async function redirectTarget(root, pathname) {
+  const normalized = pathname.endsWith('/') || path.extname(pathname) ? pathname : `${pathname}/`;
+  const legacy = LEGACY_PATHS.get(normalized);
+  if (legacy && await existingFile(root, path.extname(legacy) ? legacy.slice(1) : pageVariant(legacy, 'text/html'))) {
+    return legacy;
+  }
+
+  const taxonomy = pathname.match(/^\/(tag|category)\/([^/]+)(\/feed)?\/?$/);
+  if (taxonomy) {
+    const category = LEGACY_CATEGORIES.get(taxonomy[2]) ?? taxonomy[2];
+    const target = `/category/${encodeURIComponent(category)}/`;
+    if (await existingFile(root, pageVariant(`/category/${category}/`, 'text/html'))) {
+      if (taxonomy[3] && await existingFile(root, 'rss.xml')) return '/rss.xml';
+      if (taxonomy[1] === 'tag' || category !== taxonomy[2]) return target;
+    }
+  }
+
+  const page = pathname.replace(/\/index\.html$/, '/');
+  if (page !== '/404' && page !== '/404/' && await existingFile(root, pageVariant(page, 'text/html'))) {
+    const canonical = `/${page.split('/').filter(Boolean).map(encodeURIComponent).join('/')}${page === '/' ? '' : '/'}`;
+    if (pathname !== decodeURIComponent(canonical)) return canonical;
+  }
+  return null;
+}
+
 async function handleRequest(request, response, root, logger) {
   if (!['GET', 'HEAD'].includes(request.method)) {
     sendText(request, response, 405, 'Method Not Allowed\n', { Allow: 'GET, HEAD' });
@@ -131,9 +174,16 @@ async function handleRequest(request, response, root, logger) {
     return;
   }
 
+  const target = await redirectTarget(root, pathname);
+  if (target) {
+    const search = new URL(request.url, 'http://localhost').search;
+    sendText(request, response, 301, 'Moved Permanently\n', { Location: target + search });
+    return;
+  }
+
   const directPath = pathname.replace(/^\/+/, '');
   if (path.extname(directPath)) {
-    if (await sendFile(request, response, root, directPath)) return;
+    if (await sendFile(request, response, root, directPath, /^404\.(html|md)$/.test(directPath) ? 404 : 200)) return;
 
     const hasPageVariant = await existingFile(root, pageVariant(pathname, 'text/html')) ||
       await existingFile(root, pageVariant(pathname, 'text/markdown'));

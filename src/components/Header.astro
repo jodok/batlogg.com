@@ -23,7 +23,7 @@ const isWriting = pathname.startsWith('/posts') || pathname.startsWith('/20');
         Home
       </a>
       <a
-        href="/posts"
+        href="/posts/"
         class:list={[
           "border-b border-transparent py-0.5 font-medium transition-colors",
           isWriting ? "border-gray-900 text-gray-900" : "text-gray-600 hover:border-gray-300 hover:text-gray-900",
@@ -32,7 +32,7 @@ const isWriting = pathname.startsWith('/posts') || pathname.startsWith('/20');
         Writing
       </a>
       <a
-        href="/about"
+        href="/about/"
         class:list={[
           "border-b border-transparent py-0.5 font-medium transition-colors",
           isAbout ? "border-gray-900 text-gray-900" : "text-gray-600 hover:border-gray-300 hover:text-gray-900",
@@ -50,8 +50,8 @@ const isWriting = pathname.startsWith('/posts') || pathname.startsWith('/20');
   </div>
   <div id="mobile-menu" class="hidden border-t border-gray-100 bg-white px-6 py-4 md:hidden">
     <a href="/" class:list={["block py-2 text-sm font-medium", isHome ? "text-gray-900" : "text-gray-600"]}>Home</a>
-    <a href="/posts" class:list={["block py-2 text-sm font-medium", isWriting ? "text-gray-900" : "text-gray-600"]}>Writing</a>
-    <a href="/about" class:list={["block py-2 text-sm font-medium", isAbout ? "text-gray-900" : "text-gray-600"]}>About</a>
+    <a href="/posts/" class:list={["block py-2 text-sm font-medium", isWriting ? "text-gray-900" : "text-gray-600"]}>Writing</a>
+    <a href="/about/" class:list={["block py-2 text-sm font-medium", isAbout ? "text-gray-900" : "text-gray-600"]}>About</a>
   </div>
 </nav>
 

@@ -6,7 +6,7 @@ const { categories } = Astro.props;
   <nav class="flex flex-wrap gap-2" aria-label="Post categories">
     {categories.map((category: string) => (
       <a
-        href={`/category/${encodeURIComponent(category)}`}
+        href={`/category/${encodeURIComponent(category)}/`}
         class="inline-flex items-center border border-gray-200 px-2.5 py-1 text-sm font-medium text-gray-500 transition-colors hover:bg-gray-50 hover:text-gray-900"
       >
         #{category}

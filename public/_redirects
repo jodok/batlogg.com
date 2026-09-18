@@ -1,4 +1,2 @@
-/posts / 308
-/posts/ / 308
-/category/* / 308
-/tag/* / 308
+# Production redirects are implemented in server.mjs. Do not redirect the
+# live writing and category archives to the homepage.
