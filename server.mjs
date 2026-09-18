@@ -123,6 +123,7 @@ const LEGACY_PATHS = new Map([
   ['/page/2/', '/posts/'],
   ['/page/3/', '/posts/'],
   ['/author/jodok/', '/posts/'],
+  ['/author/jodok/page/2/', '/posts/'],
   ['/feed/', '/rss.xml'],
   ['/author/jodok/feed/', '/rss.xml'],
   ['/2020/01/how-to-crate/import-this/', '/2020/01/import-this/'],

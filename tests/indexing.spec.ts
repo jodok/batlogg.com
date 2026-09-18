@@ -15,6 +15,7 @@ const legacyRedirects = [
   ['/page/2/', '/posts/'],
   ['/page/2/?ref=https://devpick.io', '/posts/?ref=https://devpick.io'],
   ['/page/3/', '/posts/'],
+  ['/author/jodok/page/2/', '/posts/'],
   ['/category/tree-ly/', '/category/tree.ly/'],
   ['/category/food-for-thought/', '/category/food%20for%20thought/'],
   ['/category/climate-change/', '/category/climate%20change/'],
