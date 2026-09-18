@@ -33,8 +33,8 @@ test('unknown paths return 404 with recovery links for agents', async ({ page })
   await expect(page.getByRole('heading', { level: 2, name: 'Where to look next' })).toBeVisible();
   await expect(page.getByRole('link', { name: 'Agent guide (llms.txt)' })).toHaveAttribute('href', '/llms.txt');
   await expect(page.getByRole('link', { name: 'XML sitemap' })).toHaveAttribute('href', '/sitemap-index.xml');
-  await expect(page.getByRole('link', { name: 'Writing archive' })).toHaveAttribute('href', '/posts');
-  await expect(page.getByRole('link', { name: 'About and contact' })).toHaveAttribute('href', '/about');
+  await expect(page.getByRole('link', { name: 'Writing archive' })).toHaveAttribute('href', '/posts/');
+  await expect(page.getByRole('link', { name: 'About and contact' })).toHaveAttribute('href', '/about/');
 });
 
 test('llms.txt follows the published format and includes when-to-use guidance', async ({ request }) => {

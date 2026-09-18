@@ -25,6 +25,13 @@ before(async () => {
   await writeFile(path.join(root, '404.md'), '# Markdown not found\n');
   await writeFile(path.join(root, 'llms.txt'), '# Agent guide\n');
   await writeFile(path.join(root, '_astro', 'app.js'), 'export {};\n');
+  for (const route of ['posts', 'category/stoic', 'category/tree.ly', 'category/food for thought', 'category/climate change', '2020/01/import-this']) {
+    await mkdir(path.join(root, route), { recursive: true });
+    await writeFile(path.join(root, route, 'index.html'), `<h1>${route}</h1>`);
+  }
+  await mkdir(path.join(root, 'assets'));
+  await writeFile(path.join(root, 'assets/200119-Appraisal-Interviews.pdf'), 'PDF');
+  await writeFile(path.join(root, 'rss.xml'), '<rss/>');
 
   server = createAppServer({ root, logger: { error() {} } });
   await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));
@@ -43,6 +50,58 @@ test('serves HTML by default and declares Accept variance', async () => {
   assert.equal(response.headers.get('content-type'), 'text/html; charset=utf-8');
   assert.equal(response.headers.get('vary'), 'Accept, Accept-Encoding');
   assert.equal(await response.text(), '<h1>HTML home</h1>');
+});
+
+test('permanently redirects migrated WordPress URLs to existing replacements', async () => {
+  const redirects = [
+    ['/tag/stoic/', '/category/stoic/'],
+    ['/tag/stoic', '/category/stoic/'],
+    ['/category/tree-ly/', '/category/tree.ly/'],
+    ['/category/food-for-thought/', '/category/food%20for%20thought/'],
+    ['/category/climate-change/', '/category/climate%20change/'],
+    ['/tag/stoic/feed/', '/rss.xml'],
+    ['/category/stoic/feed/', '/rss.xml'],
+    ['/author/jodok/feed/', '/rss.xml'],
+    ['/feed/', '/rss.xml'],
+    ['/page/2/?ref=https://devpick.io', '/posts/?ref=https://devpick.io'],
+    ['/page/3/', '/posts/'],
+    ['/2020/01/how-to-crate/import-this', '/2020/01/import-this/'],
+    ['/wp-content/uploads/2020/01/200119-Appraisal-Interviews.pdf', '/assets/200119-Appraisal-Interviews.pdf'],
+  ];
+  for (const [source, target] of redirects) {
+    const response = await fetch(baseUrl + source, { redirect: 'manual' });
+    assert.equal(response.status, 301, source);
+    assert.equal(response.headers.get('location'), target, source);
+    assert.equal((await fetch(baseUrl + target, { redirect: 'manual' })).status, 200, target);
+  }
+});
+
+test('canonical page redirects preserve queries and work for HEAD and Markdown', async () => {
+  for (const [source, target] of [
+    ['/about?ref=test', '/about/?ref=test'],
+    ['/about/index.html', '/about/'],
+    ['/index.html', '/'],
+    ['/category/crate.io', '/category/crate.io/'],
+    ['/category/food%20for%20thought', '/category/food%20for%20thought/'],
+  ]) {
+    const response = await fetch(baseUrl + source, {
+      method: 'HEAD', headers: { Accept: 'text/markdown' }, redirect: 'manual',
+    });
+    assert.equal(response.status, 301, source);
+    assert.equal(response.headers.get('location'), target, source);
+    assert.equal(await response.text(), '');
+  }
+});
+
+test('unknown legacy URLs remain 404 and live archives never redirect home', async () => {
+  for (const route of ['/tag/unknown/', '/category/unknown/feed/', '/page/999/', '/404/', '/404.html']) {
+    const response = await fetch(baseUrl + route, { redirect: 'manual' });
+    assert.equal(response.status, 404, route);
+    assert.equal(response.headers.get('location'), null, route);
+  }
+  for (const route of ['/posts/', '/category/stoic/', '/category/tree.ly/']) {
+    assert.equal((await fetch(baseUrl + route, { redirect: 'manual' })).status, 200, route);
+  }
 });
 
 test('serves generated Markdown from the canonical URL', async () => {

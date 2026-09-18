@@ -11,6 +11,7 @@ import tailwindcss from '@tailwindcss/vite';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://batlogg.com',
+  trailingSlash: 'always',
   integrations: [embeds(), mdx(), sitemap(), markdownVariants()],
 
   vite: {
