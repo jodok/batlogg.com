@@ -108,3 +108,10 @@ not a deployment acknowledgement; inspect the site or the VM's update journal
 to confirm rollout. Application CI needs no SSH, Tailscale, 1Password or infra
 deployment credentials. Infrastructure configuration and recovery instructions
 live in [NamcheAI/infra](https://github.com/NamcheAI/infra/blob/main/docs/batlogg-deployment.md).
+
+Publishing the package's `latest` tag grants production deployment authority.
+Repository writers and package publishers are trusted site operators, including
+when editing same-repository PR workflows. Workflow conditions and healthchecks
+do not provide a separate approval or image-authenticity boundary. Keep write
+access limited accordingly; less-trusted internal contributors would require
+a separate protected publisher or independently verified signatures.
