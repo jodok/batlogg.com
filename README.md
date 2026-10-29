@@ -97,3 +97,14 @@ Note: in restricted sandboxes, Playwright may fail to start with `listen EPERM .
 
 - Tighten typing and dead code cleanup (`Props` alias in `src/pages/[...slug].astro` is currently unused).
 - Consider a shared component for repeated section headings and spacing utility classes across pages.
+
+## Deployment
+
+Merges to `main` publish the public `ghcr.io/jodok/batlogg.com:latest` image.
+The production VM checks for updates every minute with Podman auto-update
+and runs the image as a rootless Quadlet behind the existing reverse proxy.
+A failed startup healthcheck rolls back to the previous image. Publishing is
+not a deployment acknowledgement; inspect the site or the VM's update journal
+to confirm rollout. Application CI needs no SSH, Tailscale, 1Password or infra
+deployment credentials. Infrastructure configuration and recovery instructions
+live in [NamcheAI/infra](https://github.com/NamcheAI/infra/blob/main/docs/batlogg-deployment.md).
