@@ -4,38 +4,16 @@ import test from 'node:test'
 
 const workflowUrl = new URL('../.github/workflows/image.yaml', import.meta.url)
 
-test('main image builds dispatch an immutable production release through Namche infra', async () => {
+test('publish the public main image without host deployment authority', async () => {
   const workflow = await readFile(workflowUrl, 'utf8')
 
-  assert.match(workflow, /id: build/)
-  assert.match(workflow, /digest: \$\{\{ steps\.build\.outputs\.digest \}\}/)
-  assert.match(workflow, /needs: image/)
-  assert.match(
-    workflow,
-    /if: github\.event_name == 'push' && github\.ref == 'refs\/heads\/main'/,
-  )
-  assert.match(workflow, /environment: production/)
-  assert.match(workflow, /actions\/create-github-app-token@[0-9a-f]{40}/)
-  assert.match(
-    workflow,
-    /client-id: \$\{\{ vars\.NAMCHE_DEPLOY_APP_CLIENT_ID \}\}/,
-  )
-  assert.match(
-    workflow,
-    /private-key: \$\{\{ secrets\.NAMCHE_DEPLOY_APP_PRIVATE_KEY \}\}/,
-  )
-  assert.match(workflow, /owner: NamcheAI/)
-  assert.match(workflow, /repositories: infra/)
-  assert.match(workflow, /permission-deployments: write/)
-  assert.doesNotMatch(workflow, /permission-actions: write/)
-  assert.match(workflow, /GH_TOKEN: \$\{\{ steps\.deploy-token\.outputs\.token \}\}/)
-  assert.doesNotMatch(workflow, /INFRA_DISPATCH_TOKEN/)
-  assert.match(workflow, /\^sha256:\[0-9a-f\]\{64\}\$/)
-  assert.match(
-    workflow,
-    /gh api --method POST repos\/NamcheAI\/infra\/deployments --input -/,
-  )
-  assert.match(workflow, /task: "deploy-batlogg-site"/)
-  assert.match(workflow, /environment: "batlogg-production"/)
-  assert.match(workflow, /payload: \{image: \$image\}/)
+  assert.match(workflow, /images: ghcr\.io\/jodok\/batlogg\.com/)
+  assert.match(workflow, /type=raw,value=latest,enable=\{\{is_default_branch\}\}/)
+  assert.match(workflow, /type=sha/)
+  assert.match(workflow, /type=semver,pattern=\{\{version\}\}/)
+  assert.match(workflow, /push: \$\{\{ github\.event_name != 'pull_request' \}\}/)
+  assert.match(workflow, /password: \$\{\{ secrets\.GITHUB_TOKEN \}\}/)
+  assert.doesNotMatch(workflow, /NAMCHE_DEPLOY|INFRA_DISPATCH|create-github-app-token/)
+  assert.doesNotMatch(workflow, /tailscale|1password|\bssh\b|gh api|deployments: write/i)
+  assert.doesNotMatch(workflow, /^  deploy:/m)
 })
